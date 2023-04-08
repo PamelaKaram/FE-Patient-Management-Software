@@ -18,6 +18,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/pages/index.js", "src/pages/doctor.js", "src/pages/_app.js", "src/pages/_document.js", "src/Components/Sidenav1.js"],
   "exclude": ["node_modules"]
 }
