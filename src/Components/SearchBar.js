@@ -1,5 +1,5 @@
 import { useState } from "react";
-import searchBarIcon from "../icons/searchBarIcon.svg";
+import searchBarIcon from "../icons/coloredSearchIcon.svg";
 import SideStyles from "../styles/SearchBar.module.css";
 import Image from 'next/image';
 
@@ -38,19 +38,19 @@ const SearchBar = ({ setResults }) => {
 
   return (
     <div className={SideStyles.inputWrapper}>
-      <Image 
-         src={searchBarIcon.src} 
-         alt="Search"  
-          width={30}
-          height={30}
-         className={SideStyles.myImageClass} />
       <input
         className={SideStyles.searchBarInput}
-        placeholder="Type to search..."
+        placeholder="Search for patient..."
         value={input}
         onChange={handleChange}
         /* onChange={(e) => handleChange(e.target.value)} */
       />
+      <Image 
+         src={searchBarIcon.src} 
+         alt="Search"  
+          width={33}
+          height={33}
+         className={SideStyles.myImageClass} />
     </div>
   );
 };
