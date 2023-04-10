@@ -3,9 +3,9 @@
     background-color: white;
     display: flex;
     flex-direction: column;
-    box-shadow: 0px 0px 8px #ddd;
-    border-radius: 10px;
+    box-shadow: 0px 0px 0.5rem #ddd;
+    border-radius: 0.625rem;
     margin-top: 1rem;
-    max-height: 300px;
+    max-height: 18.75rem;
     overflow-y: auto;
   }
