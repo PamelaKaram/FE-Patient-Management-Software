@@ -39,3 +39,36 @@ export default function Contact() {
                     <p className={SideStyles.textClass}> Arz Hospital, Zalka, Lebanon </p>
                 </li>
             </ul>
+            <ul className={SideStyles.sets}>
+                <li className={SideStyles.item}>
+                    <Image 
+                    src={locationIcon.src} 
+                    alt="Location"  
+                    width={33}
+                    height={33}
+                    className={SideStyles.imageClass} />
+                    <p className={SideStyles.textClass}> Clinic, Jal El Dib, Lebanon </p>
+                </li>
+                <li className={SideStyles.item}>
+                    <Image 
+                    src={timeIcon.src} 
+                    alt="Time"  
+                    width={33}
+                    height={33}
+                    className={SideStyles.imageClass} />
+                    <p className={SideStyles.textClass}> Monday - Friday: 8:00am - 5:00pm </p>
+                </li>
+                <li className={SideStyles.item}>
+                    <Image 
+                    src={exclamationIcon.src} 
+                    alt="Emergency"  
+                    width={33}
+                    height={33}
+                    className={SideStyles.imageClass} />
+                    <p className={SideStyles.textClass}> Call the Ambulance on 140 </p>
+                </li>
+            </ul>
+
+        </div>
+    );
+}
