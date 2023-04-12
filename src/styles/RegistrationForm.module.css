@@ -20,7 +20,7 @@
     color: rgb(255, 255, 255);
     margin: 0;
   }
-
+  
 .attribute {
     display: flex;
     flex-direction: column;
