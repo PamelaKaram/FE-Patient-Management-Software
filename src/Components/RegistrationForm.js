@@ -59,3 +59,5 @@ const RegisterPatient = () => {
     </form>
   );
 };
+
+export default RegisterPatient;
