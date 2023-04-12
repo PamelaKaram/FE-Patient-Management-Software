@@ -35,3 +35,24 @@ const SearchBar = ({ setResults }) => {
     setInput(value);
     fetchData(value);
   };
+
+  return (
+    <div className={SideStyles.inputWrapper}>
+      <input
+        className={SideStyles.searchBarInput}
+        placeholder="Search for patient..."
+        value={input}
+        onChange={handleChange}
+        /* onChange={(e) => handleChange(e.target.value)} */
+      />
+      <Image 
+         src={searchBarIcon.src} 
+         alt="Search"  
+          width={33}
+          height={33}
+         className={SideStyles.myImageClass} />
+    </div>
+  );
+};
+
+export default SearchBar;
