@@ -18,3 +18,20 @@
 .imageClass {
     margin-right: 10px;
   }
+  
+  /* Define styles for the columns */
+.sets {
+    display: flex;
+    flex-direction: column;
+    margin-right: 20px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .sets:first-child {
+    margin-right: 120px;
+  }
+  
+  .sets:last-child {
+    margin-left: 120px;
+  }
