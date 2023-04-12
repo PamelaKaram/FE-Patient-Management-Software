@@ -1,0 +1,20 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    left: 50%;
+    right: 50%;
+    background-color: #eee;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    line-height: 45px;
+  }
+  
+.imageClass {
+    margin-right: 10px;
+  }
