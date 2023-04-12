@@ -27,3 +27,14 @@ const Sidebar = () => {
          />
         </li>
       </ul>
+
+      <div className={SideStyles.logout}>
+        <Image src={logoutIcon.src} alt="Logout" 
+          width={50}
+          height={50}/>
+      </div>
+    </div>
+  );
+};
+
+export default Sidebar;
