@@ -1,0 +1,34 @@
+.imageContainer {
+    background-image: url('../icons/pharmacyBackgroundIcon.svg');
+    background-size: cover;
+    width: 100%;
+    height: 50vh;
+    position: relative;
+  }
+
+.bottomCenter {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 500px;
+    bottom: -20px;
+    z-index: 1;
+  }
+
+.body {
+    background-color: #eee;
+    display: grid;
+}
+
+@media (max-width: 768px) {
+    .buttonContainer {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
+    }
+}
