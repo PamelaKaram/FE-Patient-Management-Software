@@ -10,8 +10,12 @@ export default function Doctor() {
       <div className={SideStyles.body}>
         <Sidebar/>
         <div>
-          <Searchbar />
+          <div className={SideStyles.imageContainer}>
+            <div className={SideStyles.bottomCenter}>
+              <SearchBar />
+            </div>
           </div>
+        </div>
         {/*<Link to="/patient_registration">
           <ActivityButton name="Register Patient" path="/patient_registration" />
         </Link> */}
