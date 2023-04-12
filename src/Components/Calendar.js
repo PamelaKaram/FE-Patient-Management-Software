@@ -47,3 +47,34 @@ const AppointmentsCalendar = () => {
     : appointments.filter((appointment) =>
         moment(appointment.start).isBefore(moment())
       );
+
+  return (
+    <div className="calendar-container">
+      <h1>Appointments Calendar</h1>
+      <div className="calendar-view-select">
+        <button onClick={() => handleViewChange('month')}>
+          Month
+        </button>
+        <button onClick={() => handleViewChange('week')}>
+          Week
+        </button>
+        <button onClick={() => handleViewChange('day')}>
+          Day
+        </button>
+      </div>
+      <div className="calendar-future-toggle">
+        <button onClick={handleFutureButton}>Future</button>
+        <button onClick={handlePastButton}>Past</button>
+      </div>
+      <Calendar
+        localizer={localizer}
+        events={filteredAppointments}
+        view={view}
+        startAccessor="start"
+        endAccessor="end"
+      />
+    </div>
+  );
+};
+
+export default AppointmentsCalendar;
