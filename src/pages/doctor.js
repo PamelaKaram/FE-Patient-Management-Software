@@ -1,4 +1,4 @@
-import Searchbar from '../Components/FinalSearchBar';
+import Searchbar from '../Components/finalSearchBar';
 import React from 'react';
 import ActivityButton from '../Components/ActivityButton';
 import { BrowserRouter, Link } from 'react-router-dom';
@@ -12,7 +12,7 @@ export default function Doctor() {
         <div>
           <div className={SideStyles.imageContainer}>
             <div className={SideStyles.bottomCenter}>
-              <SearchBar />
+              <Searchbar />
             </div>
           </div>
         </div>
