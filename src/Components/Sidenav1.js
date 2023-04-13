@@ -4,7 +4,7 @@ import calendarIcon from "../icons/calendarIcon.svg";
 import chatIcon from "../icons/chatIcon.svg";
 import logoutIcon from "../icons/logoutIcon.svg";
 import Image from "next/image";
-
+import settingsIcon from "../icons/settingsIcon.svg";
 
 const Sidebar = () => {
   return (
@@ -26,6 +26,11 @@ const Sidebar = () => {
         </li>
         <li>
           <Image src={chatIcon.src} alt="chat"
+          width={50}
+          height={50}/>
+        </li>
+         <li>
+          <Image src={settingsIcon.src} alt="Calendar" 
           width={50}
           height={50}/>
         </li>
