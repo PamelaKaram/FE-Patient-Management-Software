@@ -1,5 +1,8 @@
 import appL from '../styles/AppointmentList.module.css';
 import React from "react";
+import doneIcon from "../icons/doneIcon.svg";
+import cancelIcon from "../icons/cancelIcon.svg";
+import Image from "next/image";
 
 const appointmentsData = [
   { id: 1, title: "Appointment 1", startTime: "10:00 AM", endTime: "11:00 AM" },
@@ -17,17 +20,34 @@ const AppointmentsList = () => {
           {appointment.startTime} - {appointment.endTime}
         </div>
         <div className={appL.buttons}>
-          test
+          <ul>
+            <li>
+              <Image
+                src={doneIcon.src}
+                alt="done"
+                width={35}
+                height={35}
+              />
+            </li>
+            <li>
+              <Image
+                src={cancelIcon.src}
+                alt="done"
+                width={35}
+                height={35}
+              />
+            </li>
+          </ul>
         </div>
       </div>
-      
+
     </div>
   ))
   return (
-      <div className={appL.appointmentscontainer}>
-        {list}
-        <div className={appL.decisions}>
-    
+    <div className={appL.appointmentscontainer}>
+      {list}
+      <div className={appL.decisions}>
+
         <button>
           view all
         </button>
@@ -35,10 +55,10 @@ const AppointmentsList = () => {
           view future appointments
         </button>
       </div>
-      </div>
-    
-      
-    
+    </div>
+
+
+
   );
 };
 
