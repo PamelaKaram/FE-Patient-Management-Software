@@ -1,10 +1,4 @@
-.App {
-    background-color: #eee;
-    width: 100vw;
-    height: 100vh;
-  }
-  
-  .searchBarContainer {
+.searchBarContainer {
     padding-top: 20vw;
     width: 40%;
     margin: auto;
