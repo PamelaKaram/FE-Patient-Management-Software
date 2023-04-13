@@ -19,3 +19,20 @@ function InfoBoxes() {
                 <p>Cardiologist</p>
             </div>
         </div>
+        <div className={SideStyles.contactInfo}>
+            <Image 
+                src={inboxIcon.src} 
+                alt="inbox" 
+                width={25}
+                height={25}
+                className="contactImage"/>
+            <div className={SideStyles.text}>
+                <p>example@hotmail.com</p>
+                <p>0X-XXX XXX</p>
+            </div>
+        </div>
+      </div>
+    );
+  }
+  
+  export default InfoBoxes;
