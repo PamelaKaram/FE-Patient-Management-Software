@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import SearchBar from './SearchBar';
 import SearchResultsList from './SearchResultsList';
-import SideStyles from "../styles/FinalSearchBar.module.css"
+import SideStyles from "../styles/finalSearchBar.module.css"
 
 export default function Searchbar() {
   const [results, setResults] = useState([]);
