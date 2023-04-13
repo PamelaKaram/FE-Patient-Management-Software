@@ -1,0 +1,9 @@
+.searchBarContainer {
+  padding-top: 20vw;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 40vw;
+  max-width: 50%;
+}

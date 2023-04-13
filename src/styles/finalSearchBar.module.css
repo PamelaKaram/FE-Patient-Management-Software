@@ -9,8 +9,8 @@
     width: 40%;
     margin: auto;
     display: flex;
-    flex-direction: column;
     align-items: center;
-    min-width: 400px;
-    max-width: 33%;
+    flex-direction: column;
+    max-width: 50%;
+    min-width: 40vw;
   }

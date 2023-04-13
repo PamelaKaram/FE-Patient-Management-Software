@@ -10,7 +10,7 @@
     align-items: center;
   }
   
-  .searchBarInput {
+.searchBarInput {
     background-color: transparent;
     border: none;
     height: 100%;
@@ -19,6 +19,6 @@
     margin-left: 0.3125rem;
   }
   
-  .searchBarInput:focus {
+.searchBarInput:focus {
     outline: none;
   }
