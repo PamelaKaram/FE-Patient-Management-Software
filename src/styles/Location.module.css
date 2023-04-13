@@ -1,0 +1,19 @@
+.greyText {
+    color: #7f7f7f;
+}
+
+.locationImage {
+    padding-bottom: 0;
+    margin-bottom: 5px;
+    border-radius: 25px;
+}
+
+.text {
+    line-height: 0.75;
+    padding-top: 0;
+    margin-top: 0;
+}
+
+.locbox {
+    flex-basis: 45%;
+  }
