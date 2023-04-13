@@ -31,3 +31,21 @@
     align-items: center;
     padding-left: 22px;
   }
+
+.text {
+    flex-direction: column;
+    padding-left: 10px;
+}
+
+.contactInfo img {
+    margin-right: 10px;
+  }
+  
+.contactInfo h4 {
+    margin: 0;
+  }
+  
+.contactInfo p {
+    margin: 0;
+    margin-left: 5px;
+  }
