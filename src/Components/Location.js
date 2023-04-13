@@ -19,3 +19,21 @@ function Locations() {
                     <p className={SideStyles.greyText}>Zalka, Lebanon</p>
                 </div>
             </div>
+            <div className={SideStyles.locbox}>
+                <Image 
+                src={clinicIcon.src} 
+                alt="clinic" 
+                width={200}
+                height={200}
+                className={SideStyles.locationImage}/>
+                <div className={SideStyles.text}>
+                    <p><b>Clinic</b></p>
+                    <p className={SideStyles.greyText}>Jal El Dib, Lebanon</p>
+                </div>
+            </div>
+        </div>
+
+    );
+}
+
+export default Locations;
