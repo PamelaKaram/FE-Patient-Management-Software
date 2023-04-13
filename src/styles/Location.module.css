@@ -17,3 +17,24 @@
 .locbox {
     flex-basis: 45%;
   }
+
+.div {
+    display: flex;
+  }
+
+.locbox {
+    display: inline-block; 
+    width: 50%; 
+    vertical-align: top; 
+    padding-right: 110px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    margin-bottom: 10px;
+  }
+
+.locContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
