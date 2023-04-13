@@ -12,7 +12,7 @@ export default function Pharmacy() {
             <div>
                 <div className={SideStyles.imageContainer}>
                     <div className={SideStyles.bottomCenter}>
-                        <SearchBar />
+                        <Searchbar />
                     </div>
                 </div>
             </div>
