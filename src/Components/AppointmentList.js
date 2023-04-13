@@ -9,17 +9,36 @@ const appointmentsData = [
 ];
 
 const AppointmentsList = () => {
-  return (
-    <div className={appL.appointmentscontainer}>
-      {appointmentsData.map((appointment) => (
-        <div key={appointment.id} className={appL.appointmentpreview}>
-          <div className={appL.previewtitle}>{appointment.title}</div>
-          <div className={appL.previewtime}>
-            {appointment.startTime} - {appointment.endTime}
-          </div>
+  const list = appointmentsData.map((appointment) => (
+    <div key={appointment.id} className={appL.appointmentpreview}>
+      <div className={appL.previewtitle}>{appointment.title}</div>
+      <div className={appL.info}>
+        <div className={appL.previewtime}>
+          {appointment.startTime} - {appointment.endTime}
         </div>
-      ))}
+        <div className={appL.buttons}>
+          test
+        </div>
+      </div>
+      
     </div>
+  ))
+  return (
+      <div className={appL.appointmentscontainer}>
+        {list}
+        <div className={appL.decisions}>
+    
+        <button>
+          view all
+        </button>
+        <button>
+          view future appointments
+        </button>
+      </div>
+      </div>
+    
+      
+    
   );
 };
 
