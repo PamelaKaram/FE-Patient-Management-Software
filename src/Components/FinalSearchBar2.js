@@ -1,8 +1,8 @@
 import { useState } from "react";
-
-import SearchBar2 from './SearchBar2';
+import SearchIcon from "../icons/orangeSearchBarIcon.svg";
+import SearchBar from './SearchBar';
 import SearchResultsList from './SearchResultsList';
-import SideStyles from "../styles/FinalSearchBar2.module.css"
+import SideStyles from "../styles/finalSearchBar.module.css"
 
 export default function Searchbar() {
   const [results, setResults] = useState([]);
@@ -10,7 +10,7 @@ export default function Searchbar() {
   return (
     <div className={SideStyles.App}>
       <div className={SideStyles.searchBarContainer}>
-        <SearchBar2 setResults={setResults} />
+        <SearchBar setResults={setResults} iconUrl={SearchIcon}/>
         {results && results.length > 0 && <SearchResultsList results={results} />}
       </div>
     </div>
