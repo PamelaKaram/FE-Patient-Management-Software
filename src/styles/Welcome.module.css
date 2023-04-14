@@ -1,0 +1,6 @@
+.main > h1 {
+    font-size: 2rem ;
+    font-weight: bold;
+    text-decoration: underline;
+    line-height: 40px ;
+}
