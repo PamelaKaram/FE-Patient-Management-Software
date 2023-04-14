@@ -6,7 +6,7 @@ const RegisterPatient = () => {
   const [lastName, setLastName] = useState('');
   const [age, setAge] = useState('');
   const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [patientOrPharmacy, setPatientOrPharmacy] = useState('patient');
   const [phone, setPhone] = useState('');
 
   const handleSubmit = (event) => {
@@ -16,25 +16,25 @@ const RegisterPatient = () => {
     console.log('Last Name:', lastName);
     console.log('Age:', age);
     console.log('Email:', email);
-    console.log('Password:', password);
+    console.log('Patient/Pharmacy:', patientOrPharmacy);
     console.log('Phone Number:', phone);
   };
 
   return (
     <form className={SideStyles.page} onSubmit={handleSubmit}>
       <div className={SideStyles.header}>
-        <h2 className={SideStyles.title}>Register Patient</h2>
+        <h2 className={SideStyles.title}>Register Patient/Pharmacy</h2>
       </div>
-      <label className={SideStyles.attribute}>
-        First Name:
-        <input className={SideStyles.text} type="text" value={firstName} onChange={(event) => setFirstName(event.target.value)} />
-      </label>
-      <br />
-      <label className={SideStyles.attribute}>
-        Last Name:
-        <input className={SideStyles.text} type="text" value={lastName} onChange={(event) => setLastName(event.target.value)} />
-      </label>
-      <br />
+      <div className={SideStyles.nameContainer}>
+        <label className={SideStyles.attribute}>
+          First Name:
+          <input className={SideStyles.text} type="text" value={firstName} onChange={(event) => setFirstName(event.target.value)} />
+        </label>
+        <label className={SideStyles.attribute}>
+          Last Name:
+          <input className={SideStyles.text} type="text" value={lastName} onChange={(event) => setLastName(event.target.value)} />
+        </label>
+      </div>
       <label className={SideStyles.attribute}>
         Age:
         <input className={SideStyles.text} type="text" value={age} onChange={(event) => setAge(event.target.value)} />
@@ -46,8 +46,11 @@ const RegisterPatient = () => {
       </label>
       <br />
       <label className={SideStyles.attribute}>
-        Password:
-        <input className={SideStyles.text} type="password" value={password} onChange={(event) => setPassword(event.target.value)} />
+        Patient/Pharmacy:
+        <select className={SideStyles.text} value={patientOrPharmacy} onChange={(event) => setPatientOrPharmacy(event.target.value)}>
+          <option value="patient">Patient</option>
+          <option value="pharmacy">Pharmacy</option>
+        </select>
       </label>
       <br />
       <label className={SideStyles.attribute}>
