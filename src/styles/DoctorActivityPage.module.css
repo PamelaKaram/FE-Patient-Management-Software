@@ -1,0 +1,16 @@
+.title {
+    position: relative;
+    display: inline-block;
+    margin-left: 20px;
+    border-bottom: 2px solid #aaa;
+    padding-bottom: 5px;
+    margin-bottom: 20px;  
+    font-size: 25px;;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* add space between each button */
+    background-color: #ffffff;
+    padding-bottom: 50px;
+  }

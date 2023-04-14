@@ -29,18 +29,7 @@ export default function Doctor() {
         {/*<Link to="/patient_registration">
           <ActivityButton name="Register Patient" path="/patient_registration" />
         </Link> */}
-        {/* <div className={SideStyles.container}>
-          <ul className={SideStyles.buttonContainer}>
-            <ActivityButton className={SideStyles.button} name="Register Patient" path="/patient_registration" />
-            <ActivityButton className={SideStyles.button} name="Patient Medical Condition" path="" />
-            <ActivityButton className={SideStyles.button} name="Patient Medical History" path="" />
-          </ul>
-          <ul className={SideStyles.buttonContainer}>
-            <ActivityButton className={SideStyles.button} name="Patient Medical Records & Tests" path="/patient_registration" />
-            <ActivityButton className={SideStyles.button} name="Patient changes in Medical Condition" path="" />
-            <ActivityButton className={SideStyles.button} name="Update Patient Medical Prescription" path="" />
-          </ul>
-        </div> */}
+          <ActivityButton className={SideStyles.button} name="Register Patient" path="/patient_registration" />
       </div>
   );
 }
