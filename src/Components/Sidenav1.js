@@ -17,7 +17,7 @@ const Sidebar = () => {
           width={50}
           height={50}
          />
-         <span>Dashboard</span>
+         <span style={{color:"black"}}>Dashboard</span>
         </li>
         <li>
           <Image src={calendarIcon.src} alt="Calendar" 
