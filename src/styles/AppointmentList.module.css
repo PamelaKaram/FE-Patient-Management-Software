@@ -1,69 +1,94 @@
 .appointmentscontainer {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .appointmentpreview {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-    width: 25%;
-    height: 60px;
-    background-color: #ccc;
-    border-radius: 20px;
-    margin-bottom: 10px;
-    padding: 10px;
-  }
-  .info {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-right: .75rem;
-  }
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.appointmentpreview {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  width: 50%;
+  height: 75%;
+  background-color: #F5F6F8;
+  border-radius: 20px;
+  margin-bottom: 10px;
+  min-width: 300px;
+
+  padding: 10px;
+}
+.info {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 0.75rem;
+}
 .decisions {
   width: 25%;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-  .decisions > button{
-    height: 50px;
-    border: none;
-    background-color: #91BF76;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    font-weight: lighter;
-    border-radius: 5px;
-  }
+.decisions button {
+  height: 50px;
+  border: none;
+  background-color: #91bf76;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-weight: lighter;
+  border-radius: 5px;
 
-  .decisions > button:hover{
-    cursor: pointer;
+ 
   
-  }
+}
 
-  .decisions > button:first-of-type{
-    width: 30%;
-    
-  }
+.decisions button:hover {
+  cursor: pointer;
+}
 
-  .decisions > button:last-of-type{
-    width: 65%;
-  }
+.decisions button:first-of-type {
+  width: 30%;
+  min-width: 50px;
+}
+
+.decisions button:last-of-type {
+  width: 65%;
+  min-width: 80px;
+}
+
+.previewtime {
+  font-size: 14px;
+  color: #7F7F7F;
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+.previewpatient {
+  font-size: 18px;
+  color: #000;
+  font-weight: bold;
+  padding-top: 20px;
   
-  .previewtime {
-    font-size: 14px;
-    color: #000;
-    margin-right: 10px;
-  }
+}
+
+.previewpatient span {
+  font-size: 18px;
+  color:  #7F7F7F;
+  font-weight: normal;
+ 
+}
+.buttons ul {
+  display: flex;
+  list-style: none;
   
-  .previewtitle {
-    font-size: 18px;
-    color: #000;
-  }
-  
+}
+
+.buttons ul li {
+  display: inline-block;
+  margin-right: 10px;
+}
