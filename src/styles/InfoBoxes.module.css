@@ -1,0 +1,51 @@
+.container { /*FOR THE TWO BOXES*/
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-right: 150px;
+    padding-left: 0;
+}
+
+.contactInfo {  /*FOR EACH BOX*/
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    align-items: flex-start;
+    margin: 10px;
+    padding: 10px;
+    background-color: rgb(218, 218, 218);
+    border-radius: 1.7rem;
+    width: 400px;
+    height: 70px;
+}
+
+.contactImage {
+    padding-right: 30px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.contactInfo {
+    display: flex;
+    align-items: center;
+    padding-left: 22px;
+  }
+
+.text {
+    flex-direction: column;
+    padding-left: 10px;
+}
+
+.contactInfo img {
+    margin-right: 10px;
+  }
+  
+.contactInfo h4 {
+    margin: 0;
+  }
+  
+.contactInfo p {
+    margin: 0;
+    margin-left: 5px;
+  }

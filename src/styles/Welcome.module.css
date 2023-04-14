@@ -1,0 +1,47 @@
+.main { 
+    margin: 2vh 4vw ; 
+}
+
+.main > h1 {
+    font-size: 2rem ;
+    font-weight: bold;
+    line-height: 60px ;
+    position: relative;
+    margin-bottom: 40px ;
+}
+.main > h1::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -15px;
+    width: 100%;
+    border-bottom: 1px solid black;
+}
+.main .card {
+    background-color:#F5F6F8;
+    padding: 10px ;
+    border-radius: 10px ;
+}
+
+.stats {
+    display: flex ;
+    flex-direction: row;
+    align-items: end;
+}   
+.bar {
+    text-align: center;
+    
+}
+.bar > div {
+    border-top-right-radius: 5px ;
+    border-top-left-radius: 5px ;
+    background-color:#D2E5C9;
+    margin: 0 10px ;
+    width: 30px ;
+}
+/* pamelaaaaa */
+div.stats:nth-child(1) {
+    background-color: red ;
+}
+
+
