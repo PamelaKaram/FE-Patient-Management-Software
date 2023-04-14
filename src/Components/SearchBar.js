@@ -1,25 +1,24 @@
 import { useState } from "react";
-import searchBarIcon from "../icons/coloredSearchIcon.svg";
 import SideStyles from "../styles/SearchBar.module.css";
 import Image from 'next/image';
 
-const SearchBar = ({ setResults }) => {
+const SearchBar = ({ setResults, iconUrl }) => {
   const [input, setInput] = useState("");
 
   const fetchData = (value) => {
     if (!value) {
-        setResults([]);
-        return;
-      }
+      setResults([]);
+      return;
+    }
     fetch("https://jsonplaceholder.typicode.com/users")
       .then((response) => response.json())
       .then((json) => {
         const results = json.filter((user) => {
+          const searchTerms = value.toLowerCase().split(" ");
+          const firstName = user.f_name.toLowerCase();
+          const lastName = user.l_name.toLowerCase();
           return (
-            value &&
-            user &&
-            user.name &&
-            user.name.toLowerCase().includes(value.toLowerCase())
+            searchTerms.every((term) => firstName.includes(term) || lastName.includes(term))
           );
         });
         setResults(results);
@@ -46,7 +45,7 @@ const SearchBar = ({ setResults }) => {
         /* onChange={(e) => handleChange(e.target.value)} */
       />
       <Image 
-         src={searchBarIcon.src} 
+         src={iconUrl} 
          alt="Search"  
           width={33}
           height={33}
