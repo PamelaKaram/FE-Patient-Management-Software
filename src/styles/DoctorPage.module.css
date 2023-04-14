@@ -29,7 +29,7 @@
 .header {
     display: flex ;
     flex-direction: row;
-
+    padding: 40px ;
 }
 .body {
     /* background-color: white; */
