@@ -3,6 +3,7 @@ import React from "react";
 import doneIcon from "../icons/doneIcon.svg";
 import cancelIcon from "../icons/cancelIcon.svg";
 import Image from "next/image";
+import WelcomeStyles from "../styles/Welcome.module.css";
 
 const appointmentsData = [
   { id: 1, patient: "patient", startTime: "10:00 AM", endTime: "11:00 AM" },
@@ -12,6 +13,7 @@ const appointmentsData = [
 ];
 
 const AppointmentsList = () => {
+  
   const list = appointmentsData.map((appointment) => (
     <div key={appointment.id} className={appL.appointmentpreview}>
       <div className={appL.previewpatient}> Appointment <span>with</span> {appointment.patient}</div>
@@ -25,16 +27,16 @@ const AppointmentsList = () => {
               <Image
                 src={doneIcon.src}
                 alt="done"
-                width={35}
-                height={35}
+                width={25}
+                height={25}
               />
             </li>
             <li>
               <Image
                 src={cancelIcon.src}
                 alt="done"
-                width={35}
-                height={35}
+                width={25}
+                height={25}
               />
             </li>
           </ul>
@@ -44,6 +46,11 @@ const AppointmentsList = () => {
     </div>
   ))
   return (
+    <div>
+      <div className={WelcomeStyles.main}>
+        <h1>List Of Appointments</h1>
+      </div>
+    
     <div className={appL.appointmentscontainer}>
       {list}
       <div className={appL.decisions}>
@@ -55,9 +62,8 @@ const AppointmentsList = () => {
         </button>
       </div>
     </div>
-
-
-
+    
+    </div>
   );
 };
 
