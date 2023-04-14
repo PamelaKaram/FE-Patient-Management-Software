@@ -16,7 +16,7 @@
     width: 500px;
     bottom: -20px;
     z-index: 1;
-  }
+}
 
 .buttonContainer {
     display: flex;
@@ -25,10 +25,15 @@
     gap: 10px;
     background-color: #eee;
 }
+.header {
+    display: flex ;
+    flex-direction: row;
 
+}
 .body {
-    background-color: #eee;
+    /* background-color: white; */
     display: grid;
+    margin-left: 100px;
 }
 
 @media (max-width: 768px) {
