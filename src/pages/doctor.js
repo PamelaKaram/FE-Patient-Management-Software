@@ -5,6 +5,7 @@ import { BrowserRouter, Link } from 'react-router-dom';
 import DoctorStyles from "../styles/DoctorPage.module.css"
 import Sidebar from '../Components/Sidenav1';
 import Welcome from "../Components/Welcome";
+import AppointmentsList from '../Components/AppointmentList';
 
 export default function Doctor() {
   return (
@@ -20,7 +21,11 @@ export default function Doctor() {
         
         <div className={DoctorStyles.header}>
           <Welcome />
+          <div className={AppointmentsList.apt}>
+            <AppointmentsList />
+          </div>
         </div>
+
         {/*<Link to="/patient_registration">
           <ActivityButton name="Register Patient" path="/patient_registration" />
         </Link> */}
