@@ -1,0 +1,24 @@
+.drName {
+    color: #7f7f7f;
+    font-style: italic;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 1050px;
+    width: 360px;
+    background-image: url('../icons/patientBackgroundIcon.svg');
+    padding-top: 50px;
+}
+  
+.center {
+    display: block;
+    margin: 0 auto;
+  }
+  
+.text {
+    text-align: center;
+    margin: 4px 0;
+  }
