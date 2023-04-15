@@ -1,9 +1,9 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
-import SideStyles from '../styles/ActivityButton.module.css';
+import SideStyles from '../styles/AppointmentButton.module.css';
 
-const ActivityButton = ({ name, path }) => {
-  /* const history = useHistory(); */
+const AppointmentButton = ({ name, path }) => {
+  /*const history = useHistory();*/
 
   const handleClick = () => {
     history.push(path);
@@ -16,4 +16,4 @@ const ActivityButton = ({ name, path }) => {
   );
 };
 
-export default ActivityButton;
+export default AppointmentButton;
