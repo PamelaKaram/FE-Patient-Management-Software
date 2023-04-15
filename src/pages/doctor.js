@@ -6,6 +6,7 @@ import DoctorStyles from "../styles/DoctorPage.module.css"
 import Sidebar from '../Components/Sidenav1';
 import Welcome from "../Components/Welcome";
 import AppointmentsList from '../Components/AppointmentList';
+import SideStyles from "../styles/DoctorActivityPage.module.css";
 
 export default function Doctor() {
   return (
