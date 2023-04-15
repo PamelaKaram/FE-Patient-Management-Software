@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 import SideStyles from '../styles/PharmacyLookupPopUp.module.css';
-import ActivityButton from '../Components/ActivityButton';
 import SearchBar from '../Components/FinalSearchBar3';
 import { useHistory } from 'react-router-dom';
-import path from "../pages/doctor.js"
 
 function PharmacyPermissionPopup() {
   const [isOpen, setIsOpen] = useState(false);
@@ -13,18 +11,23 @@ function PharmacyPermissionPopup() {
   };
 
   return (
-    <div className="popup">
-      <ActivityButton className={SideStyles.button} name="Pharmacy/Hospital Patient Lookup Permission" path={path} />
+    <div>
+      <button className={SideStyles.customButton} onClick={togglePopup}>
+       Pharmacy/Hospital Patient Lookup Permission
+      </button>
 
       {isOpen && (
-        <div className="popup-inner">
-          <div className="header">
-            <h2>Pharmacy Lookup Permission</h2>
-            <button className="close-btn" onClick={togglePopup}>
+        <div className={SideStyles.popupInner}>
+          <div className={SideStyles.header}>
+            <h2 className={SideStyles.title}> Pharmacy Lookup Permission</h2>
+            <button className={SideStyles.closeBtn} onClick={togglePopup}>
               X
             </button>
           </div>
-          <div className="search-bar">
+          <div className={SideStyles.info}>
+            <p>Give Pharmacies or Hospitals access to look up patients' Medical Prescription to help them find Medication.</p>
+          </div>
+          <div className={SideStyles.searchBar}>
             <SearchBar />
           </div>
         </div>

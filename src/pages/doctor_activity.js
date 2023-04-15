@@ -13,7 +13,6 @@ export default function Doctor() {
             <ActivityButton className={SideStyles.button} name="Patient changes in Medical Condition" path="" />
             <ActivityButton className={SideStyles.button} name="View/Update Patient Medical Prescription" path="" />
             <PharmacyPermissionPopup />
-            {/* <ActivityButton className={SideStyles.button} name="Pharmacy/Hospital Patient Lookup Permission" path="" /> */}
         </div>
     );
 }
