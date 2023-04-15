@@ -9,7 +9,7 @@ export default function Searchbar() {
 
   return (
     <div className={SideStyles.App}>
-      <div className={SideStyles.searchBarContainer}>
+      <div className={SideStyles.searchBarContainer2}>
         <SearchBar setResults={setResults} iconUrl={SearchIcon}/>
         {results && results.length > 0 && <SearchResultsList results={results} setResults={setResults}/>}
       </div>
