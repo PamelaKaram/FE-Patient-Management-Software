@@ -43,6 +43,20 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     max-width: 500px;
     width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9998;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+  }
+
+.popupInner.clicked + .overlay {
+    opacity: 1;
+  }
+
+.popupInner:target:before,
+.popupInner.clicked:before {
+    opacity: 5;
   }
   
 .header {
