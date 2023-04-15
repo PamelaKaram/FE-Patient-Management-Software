@@ -25,11 +25,7 @@ export default function Doctor() {
             <AppointmentsList />
           </div>
         </div>
-
-        {/*<Link to="/patient_registration">
-          <ActivityButton name="Register Patient" path="/patient_registration" />
-        </Link> */}
-          <ActivityButton className={SideStyles.button} name="Register Patient" path="/patient_registration" />
+          <ActivityButton className={DoctorStyles.button} name="Register Patient" path="/patient_registration" />
       </div>
   );
 }
