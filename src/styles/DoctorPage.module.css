@@ -30,6 +30,8 @@
     display: flex ;
     flex-direction: row;
     padding: 40px ;
+    align-items: center;
+    justify-content: center;
 }
 .body {
     /* background-color: white; */
@@ -45,6 +47,14 @@
         scroll-snap-type: x mandatory;
         scroll-behavior: smooth;
     }
+}
+@media (max-width: 768px) {
+    .header{
+
+        flex-direction: column;
+
+    }
+
 }
 
 .container {
