@@ -10,17 +10,13 @@ const SearchBar = ({ setResults, iconUrl }) => {
       setResults([]);
       return;
     }
-    fetch("https://jsonplaceholder.typicode.com/users")
+    fetch(`https://api.example.com/pharmacies?q=${value}`)
       .then((response) => response.json())
       .then((json) => {
-        const results = json.filter((user) => {
-          const searchTerms = value.toLowerCase().split(" ");
-          const firstName = user.f_name.toLowerCase();
-          const lastName = user.l_name.toLowerCase();
-          return (
-            searchTerms.every((term) => firstName.includes(term) || lastName.includes(term))
-          );
+        const results = json.map((pharmacy) => {
+          return { name: pharmacy.name, hasAccess: false };
         });
+          
         setResults(results);
       })
       .catch((error) => {
@@ -42,7 +38,6 @@ const SearchBar = ({ setResults, iconUrl }) => {
         placeholder="Search for pharmacy/hospital..."
         value={input}
         onChange={handleChange}
-        /* onChange={(e) => handleChange(e.target.value)} */
       />
       <Image 
          src={iconUrl} 
