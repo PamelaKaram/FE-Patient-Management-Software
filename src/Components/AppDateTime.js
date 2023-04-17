@@ -5,16 +5,19 @@ import Image from 'next/image';
 
 const AppDateTime = () => {
     return (
-        <div className={SideStyles.colDiv}>
-            <Image 
-            src={ClinicIcon} 
-            alt="Clinic"  
-            width={250}
-            height={250}
-            className={SideStyles.myImageClass} style={{ margin: "0", padding: "0" }}/>
-            <div style={{ marginLeft: "20px" }}>
-                <p style={{ margin: "0", marginBottom: "5px" }}>Clinic</p>
-                <p style={{ margin: "0"}}>Jal El Dib</p>
+        <div className={SideStyles.rowDiv}>
+            <div>
+                <Image 
+                src={ClinicIcon} 
+                alt="Clinic"  
+                width={200}
+                height={200}
+                className={SideStyles.myImageClass}/>
+                <div>
+                    <p>Clinic</p>
+                    <p className={SideStyles.details}>Jal El Dib, Lebanon</p>
+                </div>
+            </div>
             </div>
         </div>
     );
