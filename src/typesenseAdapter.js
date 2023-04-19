@@ -5,7 +5,7 @@ const typesenseInstantsearchAdapter = new TypesenseInstantsearchAdapter({
     apiKey: process.env.TYPESENSE_API_KEY, // Be sure to use the search-only-api-key
     nodes: [
       {
-        host: process.env.TYPESENSE_HOST,
+        host: "localhost",
         port: process.env.TYPESENSE_PORT,
         protocol: process.env.TYPESENSE_PROTOCOL,
       },
@@ -15,7 +15,7 @@ const typesenseInstantsearchAdapter = new TypesenseInstantsearchAdapter({
   //  So you can pass any parameters supported by the search endpoint below.
   //  queryBy is required.
   additionalSearchParameters: {
-    query_by: "firtsName,lastName",
+    query_by: "firstName,lastName",
     num_typos: 2,
   },
 });
