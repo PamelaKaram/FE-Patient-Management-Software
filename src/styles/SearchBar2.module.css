@@ -4,13 +4,13 @@
     border: none;
     border-radius: 1.7rem;
     padding: 0 0.9375rem;
-    box-shadow: 0px 0px 8px #ddd;
+    box-shadow: 0 0 0.5rem #ddd;
     background-color: rgb(218, 218, 218);
     display: flex;
     align-items: center;
   }
   
-  .searchBarInput {
+.searchBarInput {
     background-color: transparent;
     border: none;
     height: 100%;
@@ -19,6 +19,7 @@
     margin-left: 0.3rem;
   }
   
-  .searchBarInput:focus {
+.searchBarInput:focus {
     outline: none;
   }
+  
