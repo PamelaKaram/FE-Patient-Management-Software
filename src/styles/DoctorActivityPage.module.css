@@ -1,18 +1,19 @@
 .title {
     position: relative;
     display: inline-block;
-    margin-left: 20px;
-    border-bottom: 2px solid #aaa;
-    padding-bottom: 5px;
-    margin-bottom: 20px;  
-    font-size: 25px;;
-}
+    margin-left: 1rem;
+    border-bottom: 0.125rem solid #aaa;
+    padding-bottom: 0.25rem;
+    margin-bottom: 1rem;
+    font-size: 1.5625rem;
+  }
+  
 .container {
     display: flex;
     flex-direction: column;
-    gap: 15px; /* add space between each button */
+    gap: 0.9375rem; /* add space between each button */
     background-color: #ffffff;
-    padding-bottom: 50px;
-    margin-top: 40px;
-    margin-left: 30px;
+    padding-bottom: 3.125rem;
+    margin-top: 2.5rem;
+    margin-left: 1.875rem;
   }
