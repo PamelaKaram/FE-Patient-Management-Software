@@ -1,5 +1,57 @@
 .body {
     /* background-color: white; */
-    display: grid;
-    padding-left: 5%;
+    display: flex;
+    padding-left: 80px;
+    flex-direction: row;
+}
+
+.text {
+    color: rgb(110, 110, 110);
+    padding-top: 10px;
+    font-size: 15px;
+}
+
+.header {
+    flex: 1;
+    padding-top: 25px;
+    padding-left: 30px;
+}
+
+.lefttHalf {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  
+.app {
+    margin-top: 30px;
+    padding-left: 30px;
+  }
+
+.activities {
+    margin-left: 30px;
+    margin-top: 20px;
+    width: 650px;
+}
+
+.activities {
+    padding-top: 20px;
+}
+
+.reminder {
+    padding-top: 40px;
+    padding-left: 30px;
+}
+
+.bottom {
+    display: flex;
+    flex-direction: row;
+}
+
+.link {
+    padding-top: 40px;
+    padding-left: 30px;
 }
