@@ -11,27 +11,26 @@
 .item {
     display: flex;
     align-items: center;
-    margin-bottom: 10px;
-    line-height: 45px;
-  }
-  
+    margin-bottom: 0.625rem;
+    line-height: 2.8125rem;
+}
+
 .imageClass {
-    margin-right: 10px;
-  }
-  
-  /* Define styles for the columns */
+    margin-right: 0.625rem;
+}
+
 .sets {
     display: flex;
     flex-direction: column;
-    margin-right: 20px;
+    margin-right: 1.25rem;
     list-style: none;
     margin: 0;
     padding: 0;
-  }
-  .sets:first-child {
-    margin-right: 120px;
-  }
-  
-  .sets:last-child {
-    margin-left: 120px;
-  }
+}
+.sets:first-child {
+    margin-right: 7.5rem;
+}
+
+.sets:last-child {
+    margin-left: 7.5rem;
+}

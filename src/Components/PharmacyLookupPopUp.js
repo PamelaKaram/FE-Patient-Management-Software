@@ -13,8 +13,11 @@ function PharmacyPermissionPopup() {
   return (
     <div>
       <button className={SideStyles.customButton} onClick={togglePopup}>
+      <span className={SideStyles.text}>
        Pharmacy/Hospital Patient Lookup Permission
-      </button>
+      </span>
+    </button>
+
 
       {isOpen && (
         <div className={SideStyles.popupInner}>
