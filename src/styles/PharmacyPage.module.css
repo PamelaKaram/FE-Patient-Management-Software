@@ -9,7 +9,7 @@
   align-items: center;
   padding: 0;
   margin: 0;
-  border-radius: 20px;
+  border-radius: 2rem;
 }
 
 .body {
@@ -18,7 +18,7 @@
 }
 
 .leftHalf {
-  width: 80px;
+  width: 5rem;
   height: 100%;
   display: flex;
   justify-content: center;
@@ -46,12 +46,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 500px;
-  bottom: -20px;
+  width: 31.25rem;
+  bottom: -1.25rem;
   z-index: 1;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 48em) {
   .buttonContainer {
     flex-wrap: nowrap;
     overflow-x: auto;
@@ -64,10 +64,10 @@
 .underline {
   position: relative;
   display: inline-block;
-  margin-left: 20px;
+  margin-left: 1.25rem;
   border-bottom: 2px solid #aaa;
-  padding-bottom: 5px;
-  margin-bottom: 20px;
+  padding-bottom: 0.3125rem;
+  margin-bottom: 1.25rem;
 }
 
 .underline::after {
@@ -80,10 +80,10 @@
 }
 
 .drInfo {
-  margin-top: 60px;
-  padding: 30px;
+  margin-top: 3.75rem;
+  padding: 1.875rem;
   background-color: #f2f2f2;
-  border-radius: 15px;
+  border-radius: 0.9375rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -91,15 +91,15 @@
 }
 
 .drInfo h3 {
-  margin-bottom: 10px;
+  margin-bottom: 0.625rem;
 }
 
 .drBox {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  margin-top: 30px;
-  padding-left: 80px;
+  margin-top: 1.875rem;
+  padding-left: 5rem;
 }
 
 .infoLocContainer {
@@ -107,7 +107,7 @@
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  padding-top: 45px;
+  padding-top: 2.8125rem;
   align-items: center;
 }
 
@@ -116,5 +116,5 @@
   justify-content: flex-start;
   flex-direction: row;
   align-items: space-between;
-  padding-top: 30px;
+  padding-top: 1.875rem;
 }

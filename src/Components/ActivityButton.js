@@ -11,7 +11,7 @@ const ActivityButton = ({ name, path }) => {
 
   return (
     <button className={SideStyles.customButton} onClick={handleClick}>
-      {name}
+      <span className={SideStyles.text}>{name}</span>
     </button>
   );
 };

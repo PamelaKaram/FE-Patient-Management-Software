@@ -1,11 +1,11 @@
 .customButton {
     background-color: #2E77B1;
     color: #fff;
-    border-radius: 25px; 
-    padding: 20px 30px;
+    border-radius: 1.5rem;
+    padding: 1.25rem 1.875rem;
     text-align: center;
     display: inline-block;
     cursor: pointer;
     border: none;
-    margin-top: 40px;
+    margin-top: 2.5rem;
   }
