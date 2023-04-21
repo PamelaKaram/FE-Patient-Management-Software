@@ -32,8 +32,24 @@ export default function Home() {
       console.log("Logout");
        setUser({name:"",email:""});
     }
+  
+    function validateUsername(username) {
+      if (username.length < 4 || username.length > 20) {
+        return false;
+      }
+      return true;
+    }
 
-  return (
+    function validatePassword(password) {
+      var re = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
+      return re.test(password);
+    }
+
+    
+
+
+  return ( 
+    
     
      <div className="App"> 
       {(user.email!="" ) ? (
@@ -46,6 +62,8 @@ export default function Home() {
       <LoginForm Login={Login} error={error} />
       )}  
       
+     
+
      {/* <main className="test">
         <Sidebar/>
       </main> */}
