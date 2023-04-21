@@ -1,0 +1,25 @@
+.col {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 30px;
+    padding-right: 35px;
+}
+
+.reminder {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    margin-left: 10px;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+}

@@ -7,8 +7,8 @@
     display: flex;
     align-items: center;
     flex-direction: column;
-    height: 1050px;
-    width: 360px;
+    height: 1000px;
+    width: 320px;
     background-image: url('../icons/patientBackgroundIcon.svg');
     padding-top: 50px;
 }
