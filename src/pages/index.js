@@ -4,6 +4,9 @@ import Sidebar from '../Components/Sidenav1';
 // import AppointmentsList from '../Components/AppointmentList';
 import LoginForm from '../Components/LoginForm';
 import React, { useState } from 'react';
+import LoginStyles from '@/styles/login.module.css';
+
+
 
 export default function Home() {
   const adminUser={
@@ -51,7 +54,7 @@ export default function Home() {
   return ( 
     
     
-     <div className="App"> 
+     <div className={LoginStyles.App}> 
       {(user.email!="" ) ? (
         <div className="welcome">
           <h2>Welcome, <span>{user.name}</span></h2>
@@ -60,9 +63,7 @@ export default function Home() {
         
       ): ( 
       <LoginForm Login={Login} error={error} />
-      )}  
-      
-     
+      )}   
 
      {/* <main className="test">
         <Sidebar/>
