@@ -1,0 +1,82 @@
+.input {
+    appearance: none;
+    border: none;
+    outline: none;
+    background: none;
+
+}
+.button{
+    appearance: none;
+    border: none;
+    outline: none;
+    background: none;
+}
+.App{
+    height: 100vh;
+    background: #f1f1f1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.form{
+    display: block;
+    position:relative;
+}
+.form::after{
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    z-index: 1;
+    background-image: -moz-linear-gradient(to bottom right, #ffce00 , #fe4800);
+
+}
+.form .formInner{
+    position: relative;
+    display: block;
+    z-index: 2;
+    background-color: aliceblue;
+    padding: 20px;
+    
+}
+/* .form .form-inner .form-field{
+    display: block;
+    margin-bottom: 20px;
+} */
+
+.form .formInner h2{
+    color: red;
+    font-size: 28px;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.form .formInner .formGroup{
+    display: block;
+    margin-bottom: 20px;
+    color: #666;
+    width: 300px;
+
+
+}
+.form .formGroup label{
+    display: block;
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 5px;
+    transition: 0.5ms;
+}
+
+.formInner .formGroup::focus{
+    box-shadow: 0px 0px 0px 2px #ffce00;
+}
+.form .formInner input[type="submit"]{
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 8px;
+    transition: 0.4ms;
+
+}
+
