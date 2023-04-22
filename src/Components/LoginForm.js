@@ -16,8 +16,9 @@ export default function LoginForm() {
             <h1>Login</h1>
 
             <form onSubmit={handleSubmit(onSubmit)} noValidate>
-                <div className={LoginStyles.formControl}>
+               
                     <label htmlFor="username">Username</label>
+                    <div className={LoginStyles.formControl}>
                     <input
                         type="text"
                         id="username"
@@ -45,8 +46,9 @@ export default function LoginForm() {
                     />
                 </div>
                 <p className={LoginStyles.error}>{errors.email?.message}</p>
-                <div className={LoginStyles.formControl}>
+               
                     <label htmlFor="password">Password</label>
+                    <div className={LoginStyles.formControl}>
                     <input
                         type="password"
                         id="password"
