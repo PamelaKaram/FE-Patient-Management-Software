@@ -97,7 +97,3 @@
     right: 20px;
     transform: translateY(-50%);
   }
-
-::placeholder {
-    font-size: 8px;
-  }
