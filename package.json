@@ -25,10 +25,14 @@
     "react-big-calendar": "^1.6.9",
     "react-calendar": "^4.2.1",
     "react-dom": "18.2.0",
+    "react-hook-form": "^7.43.9",
     "react-instantsearch-dom": "^6.39.1",
     "react-router-dom": "^6.10.0",
     "sass": "^1.62.0",
     "typescript": "5.0.3",
     "typesense-instantsearch-adapter": "^2.6.0"
+  },
+  "devDependencies": {
+    "@hookform/devtools": "^4.3.1"
   }
 }
