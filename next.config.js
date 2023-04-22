@@ -6,6 +6,7 @@ const nextConfig = {
     TYPESENSE_HOST: "localhost",
     TYPESENSE_PORT: 8108,
     TYPESENSE_PROTOCOL: "http",
+    SECRET: "secret",
   },
 };
 
