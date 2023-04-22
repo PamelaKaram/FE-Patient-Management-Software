@@ -55,3 +55,45 @@ const AddPharmacy = () => {
   }
 
   return (
+    <form className={SideStyles.page} onSubmit={onSubmit}>
+      <div className={SideStyles.form}>
+        <div className={SideStyles.header}>
+          <h2 className={SideStyles.title}>Add Pharmacy</h2>
+        </div>
+        <p className={SideStyles.inst}>Enter the correct fields to register a new pharmacy:</p>
+        <div className={SideStyles.fields}>
+          <label className={SideStyles.attribute}>
+            <input className={SideStyles.text} type="text" placeholder="Name" value={name} onChange={(event) => setName(event.target.value)} style={{ fontSize: "13px" }}/>
+          </label>
+          <label className={SideStyles.attribute}>
+            <input className={SideStyles.text} type="text" placeholder="Email" value={email} onChange={(event) => setEmail(event.target.value)} style={{ fontSize: "13px" }}/>
+          </label>
+          <br />
+          <label className={SideStyles.attribute}>
+            <input className={SideStyles.text} type="tel" placeholder="Phone Number" value={phoneNumber} onChange={(event) => setPhone(event.target.value)} style={{ fontSize: "13px" }}/>
+          </label>
+          <br />
+          <label className={SideStyles.attribute}>
+            <input className={SideStyles.text} type="date" placeholder="Date of Establishment" value={birthday} onChange={(event) => setBirthday(event.target.value)} style={{ fontSize: "13px" }}/>
+          </label>
+          <br />
+          </div>
+          <div className={SideStyles.buttons}>
+            <button className={SideStyles.button} type="submit">Register</button>
+            <button className={SideStyles.customButton} type="button" onClick={() => { window.location.href = "/patient_registration" }}>Register Patient</button>
+          </div>
+          <div className={SideStyles.message}>{message}</div>
+          </div>
+          <div className={SideStyles.image}>
+      <Image 
+        src={SideImage.src} 
+        alt="Phone"  
+        width={450}
+        height={800}
+        className={SideStyles.imageClass} />
+      </div>
+    </form>
+  );
+};
+
+export default AddPharmacy;
