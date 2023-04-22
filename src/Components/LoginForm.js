@@ -2,6 +2,9 @@ import { useForm } from "react-hook-form";
 import { DevTool } from "@hookform/devtools";
 import useAxiosAuth from "../../lib/hooks/useAxiosAuth";
 import LoginStyles from "@/styles/login.module.css";
+import Image from "next/image";
+import SideImage from '../Icons/registrationFormIcon.svg';
+
 export default function LoginForm() {
     const defaultValues = {
         username: "Username",
@@ -19,12 +22,13 @@ export default function LoginForm() {
 
     return (
         <div className={LoginStyles.formContainer}>
-            <h1>Login</h1>
+        <div className={LoginStyles.form}>
+            <h2 className={LoginStyles.title} >Login</h2>
             <form onSubmit={handleSubmit(onSubmit)} noValidate>
 
                 <div className={LoginStyles.formControl}>
                     <input
-                        type="text"
+                        type={LoginStyles.text}
                         id="username"
                         {...register("username", {
                             required: {
@@ -41,7 +45,7 @@ export default function LoginForm() {
 
                 <div className={LoginStyles.formControl}>
                     <input
-                        type="email"
+                        type={LoginStyles.email}
                         id="email"
                         {...register("email", {
                             pattern: {
@@ -58,7 +62,7 @@ export default function LoginForm() {
 
                 <div className={LoginStyles.formControl}>
                     <input
-                        type="text"
+                        type={LoginStyles.text}
                         id="password"
                         {...register("password", {
                             required: {
@@ -82,9 +86,18 @@ export default function LoginForm() {
 
                 </div>
                 <p className={LoginStyles.error}>{errors.password?.message}</p>
-                <button type="submit">Login</button>
+                <button className={LoginStyles.customButton} type="submit">Login</button>
             </form>
             <DevTool control={control} />
         </div>
+        <div className={LoginStyles.image}>
+        <Image
+          src={SideImage.src}
+          alt="Phone"
+          width={0}
+          height={0}
+          className={LoginStyles.imageClass} />
+      </div>
+    </div>
     );
 }

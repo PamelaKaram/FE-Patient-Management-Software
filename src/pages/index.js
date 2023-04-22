@@ -9,10 +9,10 @@ import LoginForm from '../Components/LoginForm';
 export default function Home() {
 
   return (
-      <main className="login">
-        <LoginForm/>
-      </main> 
-    
+    <main className="login">
+      <LoginForm />
+    </main>
+
   )
 }
 
