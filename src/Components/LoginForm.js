@@ -1,36 +1,37 @@
-import React, { useState } from 'react';
-import LoginStyles from '../styles/login.module.css';
+import { useForm } from "react-hook-form";
 
-export default function LoginForm({ Login, error}) {
-    const [details, setDetails] = useState({name:"",email:"",password:""});
+export default function LoginForm() {
+    const form = useForm();
+    const { register } = form
+    // const { name, ref, onChange, onBlur } = register("username")
+    return (
+        <div>
+            <form>
+                <label htmlFor="username">Username</label>
+                <input
+                    type="text"
+                    id="username"
+                    {...register("username")}
+                />
+                <label htmlFor="email">Email</label>
+                <input
+                    type="email"
+                    id="email"
+                    {...register("email")} />
 
-    const submitHandler = e => {
-        e.preventDefault();
+                <label htmlFor="password">Password</label>
+                <input
+                    type="password"
+                    id="password"
+                    {...register("password")} />
 
-        Login(details);
-    }
+                <button type="submit">Login</button>
 
-  return (
-    <form onSubmit={submitHandler}>
-        <div className={LoginStyles.formInner}>
-            <h2>Login</h2>
-            {(error != ""  )? ( <div className={LoginStyles.error}>{error}</div> ) : ""}
-            <div className={LoginStyles.formGroup}>
-                <label htmlFor="name">Name: </label>
-                <input type="text" name="name" id="name" onChange={e => setDetails({...details, name: e.target.value }) } value={details.name}/>
-            </div>
-            <div className={LoginStyles.formGroup}>
-                <label htmlFor="email">Email: </label>
-                <input type="email" name="email" id="email" onChange={e => setDetails({...details, email: e.target.value }) } value={details.email} />
-            </div>
-            <div className={LoginStyles.formGroup}>
-                <label htmlFor="password">Password: </label>
-                <input type="password" name="password" id="password" onChange={e => setDetails({...details, password: e.target.value }) } value={details.password}/>
-            </div>
-
-            <input type="submit" value="LOGIN" />
+            </form>
         </div>
 
-    </form>
-  );
+    )
+
+
 }
+
