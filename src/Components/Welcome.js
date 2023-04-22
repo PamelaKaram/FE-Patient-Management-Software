@@ -43,7 +43,10 @@ const Welcome = () => {
 const Bar = ({ height, day }) => (
   <div className={WelcomeStyles.bar}>
      <span>{day}</span>
-     <div style={{height: height}}/>
+     <div 
+     style={{height: height}}
+     
+     />
   </div> 
 );
 
