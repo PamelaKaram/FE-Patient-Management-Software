@@ -7,7 +7,7 @@
     display: flex;
     align-items: center;
     flex-direction: column;
-    height: 100vh;
+    height: 140vh;
     width: 25vw;
     background-image: url('../icons/patientBackgroundIcon.svg');
     padding-top: 5%;
