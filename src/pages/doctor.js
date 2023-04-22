@@ -7,8 +7,10 @@ import Sidebar from '../Components/Sidenav1';
 import Welcome from "../Components/Welcome";
 import AppointmentsList from '../Components/AppointmentList';
 import SideStyles from "../styles/DoctorActivityPage.module.css";
+import {Routes, Route, useNavigate} from 'react-router-dom';
 
-export default function Doctor() {
+function Doctor() {
+  
   return (
       <div className={DoctorStyles.body}>
         <Sidebar/>
@@ -26,7 +28,14 @@ export default function Doctor() {
             <AppointmentsList />
           </div>
         </div>
-          <ActivityButton className={DoctorStyles.button} name="Register Patient" path="/patient_registration" />
+        <button className={DoctorStyles.customButton} onClick={() => { window.location.href = "/patient_registration" }}>
+          Register Patient
+        </button>
+        <button className={DoctorStyles.customButton} onClick={() => { window.location.href = "/pharmacy_registration" }}>
+          Add Pharmacy
+        </button>
       </div>
   );
 }
+
+export default Doctor;
