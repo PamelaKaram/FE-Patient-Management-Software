@@ -5,7 +5,7 @@ import Image from "next/image";
 import SideImage from '../Icons/registrationFormIcon.svg';
 
 const RegisterPatient = () => {
-  
+
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
@@ -16,7 +16,7 @@ const RegisterPatient = () => {
 
   const onSubmit = async (event) => {
     event.preventDefault();
-    
+
     if (!/^[a-zA-Z]+$/.test(firstName) || firstName === '') {
       alert('Please enter a valid first name.');
       return;
@@ -37,22 +37,22 @@ const RegisterPatient = () => {
       alert('Please enter a valid date of birth in the format mm/dd/yyyy.');
       return;
     }
-    
+
     try {
-      const res= await axios.post("http://localhost:8080/api/v1/auth/registerPatient", 
-      {
-        firstName: firstName,
-        lastName: lastName,
-        email: email,
-        phoneNumber: phoneNumber,
-        birthday: birthday,
-      }, 
-      {
-      headers: {
-        "Authorization": "Bearer"
-      },
-      }
-    );
+      const res = await axios.post("http://localhost:8080/api/v1/auth/registerPatient",
+        {
+          firstName: firstName,
+          lastName: lastName,
+          email: email,
+          phoneNumber: phoneNumber,
+          birthday: birthday,
+        },
+        {
+          headers: {
+            "Authorization": "Bearer"
+          },
+        }
+      );
       setMessage("The patient was successfully registered!");
     } catch (error) {
       console.error(error);
@@ -69,23 +69,15 @@ const RegisterPatient = () => {
         <p className={SideStyles.inst}>Enter the correct fields to register a new patient:</p>
         <div className={SideStyles.fields}>
           <label className={SideStyles.attribute}>
-            <input className={SideStyles.text} type="text" placeholder="First Name" value={firstName} onChange={(event) => setFirstName(event.target.value)}  style={{ fontSize: "13px" }}/>
+            <input className={SideStyles.text} type="text" placeholder="First Name" value={firstName} onChange={(event) => setFirstName(event.target.value)} style={{ fontSize: "13px" }} />
+            <input className={SideStyles.text} type="text" placeholder="Last Name" value={lastName} onChange={(event) => setLastName(event.target.value)} style={{ fontSize: "13px" }} />
+            <input className={SideStyles.text} type="text" placeholder="Email" value={email} onChange={(event) => setEmail(event.target.value)} style={{ fontSize: "13px" }} />
+            <br />
+            <input className={SideStyles.text} type="tel" placeholder="Phone Number" value={phoneNumber} onChange={(event) => setPhone(event.target.value)} style={{ fontSize: "13px" }} />
+            <br />
+            <input className={SideStyles.text} type="date" placeholder="Date of Birth" value={birthday} onChange={(event) => setBirthday(event.target.value)} style={{ fontSize: "13px" }} />
+            <br />
           </label>
-          <label className={SideStyles.attribute}>
-            <input className={SideStyles.text} type="text" placeholder="Last Name" value={lastName} onChange={(event) => setLastName(event.target.value)} style={{ fontSize: "13px" }}/>
-          </label>
-          <label className={SideStyles.attribute}>
-            <input className={SideStyles.text} type="text" placeholder="Email" value={email} onChange={(event) => setEmail(event.target.value)} style={{ fontSize: "13px" }}/>
-          </label>
-          <br />
-          <label className={SideStyles.attribute}>
-            <input className={SideStyles.text} type="tel" placeholder="Phone Number" value={phoneNumber} onChange={(event) => setPhone(event.target.value)} style={{ fontSize: "13px" }}/>
-          </label>
-          <br />
-          <label className={SideStyles.attribute}>
-            <input className={SideStyles.text} type="date" placeholder="Date of Birth" value={birthday} onChange={(event) => setBirthday(event.target.value)} style={{ fontSize: "13px" }}/>
-          </label>
-          <br />
         </div>
         <div className={SideStyles.buttons}>
           <button className={SideStyles.button} type="submit">Register</button>
@@ -94,12 +86,12 @@ const RegisterPatient = () => {
         <div className={SideStyles.message}>{message}</div>
       </div>
       <div className={SideStyles.image}>
-      <Image 
-        src={SideImage.src} 
-        alt="Phone"  
-        width={0}
-        height={0}
-        className={SideStyles.imageClass} />
+        <Image
+          src={SideImage.src}
+          alt="Phone"
+          width={0}
+          height={0}
+          className={SideStyles.imageClass} />
       </div>
     </form>
   );
