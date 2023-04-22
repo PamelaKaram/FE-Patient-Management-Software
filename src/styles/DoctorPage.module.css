@@ -59,5 +59,45 @@
 .container {
     display: grid;
     grid-template-columns: 1fr;
-    grid-gap: 0.5rem;
+    grid-gap: 10px;
 }
+
+.customButton {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #87b46c;
+    color: #fff;
+    border: none;
+    font-size: 16px;
+    display: flex;
+    flex-direction: center;
+    width: 160px;
+    border-radius: 30px;
+    word-wrap: break-word;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    width: 500px;
+    height: 60px;
+    display: flex;
+    position: relative;
+    align-items: center;
+    text-align: center;
+    font-weight: 500;
+  }
+  
+.customButton:hover {
+    background-color: rgb(162, 214, 131);
+    cursor: pointer;
+  }
+  
+.customButton::after {
+    content: ">";
+    font-size: 25px;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+  }
+
+::placeholder {
+    font-size: 8px;
+  }

@@ -4,10 +4,9 @@ import axios from "axios";
 import Image from "next/image";
 import SideImage from '../Icons/registrationFormIcon.svg';
 
-const RegisterPatient = () => {
-  
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
+const AddPharmacy = () => {
+
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [phoneNumber, setPhone] = useState('');
   const [birthday, setBirthday] = useState('');
@@ -16,13 +15,9 @@ const RegisterPatient = () => {
 
   const onSubmit = async (event) => {
     event.preventDefault();
-    
-    if (!/^[a-zA-Z]+$/.test(firstName) || firstName === '') {
-      alert('Please enter a valid first name.');
-      return;
-    }
-    if (!/^[a-zA-Z]+$/.test(lastName) || lastName === '') {
-      alert('Please enter a valid last name.');
+
+    if (!/^[a-zA-Z]+$/.test(name) || name === '') {
+      alert('Please enter a valid name.');
       return;
     }
     if (email === '' || !/\S+@\S+\.\S+/.test(email)) {
@@ -37,12 +32,11 @@ const RegisterPatient = () => {
       alert('Please enter a valid date of birth in the format mm/dd/yyyy.');
       return;
     }
-    
+
     try {
-      const res= await axios.post("http://localhost:8080/api/v1/auth/registerPatient", 
+      const res= await axios.post("http://localhost:8080/api/v1/auth/addPharmacy", 
       {
-        firstName: firstName,
-        lastName: lastName,
+        name: name,
         email: email,
         phoneNumber: phoneNumber,
         birthday: birthday,
@@ -53,10 +47,10 @@ const RegisterPatient = () => {
       },
       }
     );
-      setMessage("The patient was successfully registered!");
+    setMessage("The pharmacy was successfully added!");
     } catch (error) {
       console.error(error);
-      setMessage("An error occurred while registering the patient.");
+      setMessage("An error occurred while adding the pharmacy.");
     };
   }
 
@@ -64,15 +58,12 @@ const RegisterPatient = () => {
     <form className={SideStyles.page} onSubmit={onSubmit}>
       <div className={SideStyles.form}>
         <div className={SideStyles.header}>
-          <h2 className={SideStyles.title}>Register Patient</h2>
+          <h2 className={SideStyles.title}>Add Pharmacy</h2>
         </div>
-        <p className={SideStyles.inst}>Enter the correct fields to register a new patient:</p>
+        <p className={SideStyles.inst}>Enter the correct fields to register a new pharmacy:</p>
         <div className={SideStyles.fields}>
           <label className={SideStyles.attribute}>
-            <input className={SideStyles.text} type="text" placeholder="First Name" value={firstName} onChange={(event) => setFirstName(event.target.value)}  style={{ fontSize: "13px" }}/>
-          </label>
-          <label className={SideStyles.attribute}>
-            <input className={SideStyles.text} type="text" placeholder="Last Name" value={lastName} onChange={(event) => setLastName(event.target.value)} style={{ fontSize: "13px" }}/>
+            <input className={SideStyles.text} type="text" placeholder="Name" value={name} onChange={(event) => setName(event.target.value)} style={{ fontSize: "13px" }}/>
           </label>
           <label className={SideStyles.attribute}>
             <input className={SideStyles.text} type="text" placeholder="Email" value={email} onChange={(event) => setEmail(event.target.value)} style={{ fontSize: "13px" }}/>
@@ -83,26 +74,26 @@ const RegisterPatient = () => {
           </label>
           <br />
           <label className={SideStyles.attribute}>
-            <input className={SideStyles.text} type="date" placeholder="Date of Birth" value={birthday} onChange={(event) => setBirthday(event.target.value)} style={{ fontSize: "13px" }}/>
+            <input className={SideStyles.text} type="date" placeholder="Date of Establishment" value={birthday} onChange={(event) => setBirthday(event.target.value)} style={{ fontSize: "13px" }}/>
           </label>
           <br />
-        </div>
-        <div className={SideStyles.buttons}>
-          <button className={SideStyles.button} type="submit">Register</button>
-          <button className={SideStyles.customButton} type="button" onClick={() => { window.location.href = "/pharmacy_registration" }}>Add Pharmacy</button>
-        </div>
-        <div className={SideStyles.message}>{message}</div>
-      </div>
-      <div className={SideStyles.image}>
+          </div>
+          <div className={SideStyles.buttons}>
+            <button className={SideStyles.button} type="submit">Register</button>
+            <button className={SideStyles.customButton} type="button" onClick={() => { window.location.href = "/patient_registration" }}>Register Patient</button>
+          </div>
+          <div className={SideStyles.message}>{message}</div>
+          </div>
+          <div className={SideStyles.image}>
       <Image 
         src={SideImage.src} 
         alt="Phone"  
-        width={0}
-        height={0}
+        width={450}
+        height={800}
         className={SideStyles.imageClass} />
       </div>
     </form>
   );
 };
 
-export default RegisterPatient;
+export default AddPharmacy;
