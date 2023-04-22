@@ -6,16 +6,16 @@
   align-items: center;
 }
 .appointmentpreview:nth-child(4n+1) {
-    background-color:#7091d3
+    background-color:#D9D9D9
 }
 .appointmentpreview:nth-child(4n+2) {
-    background-color:#2b4477
+    background-color:#E4F5F9
 }
 .appointmentpreview:nth-child(4n+3) {
-    background-color:#3560b6
+    background-color:#ACEAF7
 }
 .appointmentpreview:nth-child(4n) {
-    background-color:#7091d3
+    background-color:#2AC2C7
 }
 
 .appointmentpreview {
@@ -80,11 +80,13 @@
 .decisions button:first-of-type {
   padding: 8px 20px;
   margin-right:7px;
+  background-color: #959596;
   
 }
 
 .decisions button:last-of-type {
   padding: 8px 20px;
+    background-color: #91BF76;
 }
 
 .previewtime {

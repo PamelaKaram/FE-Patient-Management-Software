@@ -7,10 +7,10 @@ import WelcomeStyles from "../styles/Welcome.module.css";
 import { Avatar } from '@mui/material';
 // import ChatActivity from '../styles/ChatActivity.module.css';
 const appointmentsData = [
-    { id: 1, patient: "Jad Abou Karam" },
-    { id: 2, patient: "Habib El Deek" },
-    { id: 3, patient: "Habib El Deek" },
-    { id: 4, patient: "Tracy Salloum" }
+    { id: 1, patient: "Jad Abou Karam" , message:"I took my blood pressure this morning. The result is 120–139 mm Hg. Should I be worried? " },
+    { id: 2, patient: "Habib El Deek", message:"I took my blood pressure this morning. The result is 120–139 mm Hg. Should I be worried?" },
+    { id: 3, patient: "Habib El Deek" , message:"I took my blood pressure this morning. The result is 120–139 mm Hg. Should I be worried?"},
+    { id: 4, patient: "Tracy Salloum" , message:"I took my blood pressure this morning. The result is 120–139 mm Hg. Should I be worried?"}
 ];
 //note redirect to wpp
 const AppointmentsList = () => {
@@ -26,17 +26,13 @@ const AppointmentsList = () => {
             <div className={ChatActivity.previewpatient}> {appointment.patient}</div>
             <div className={ChatActivity.info}>
                 <div className={ChatActivity.previewtime}>
-                    Lorem epsum dolor sit amet,
-                    consectetur adipiscing elit,
-                    sed do eiusmod tempor incididunt ut
-                    labore et dolore magna aliqua. amco ln proident
-
+                    {appointment.message}
                 </div>
                 <div className={ChatActivity.decisions}>
-                    <button className={ChatActivity.color1}>
+                    <button>
                         Answer
                     </button>
-                    <button className={ChatActivity.color2}>
+                    <button>
                         Call
                     </button>
                 </div>
