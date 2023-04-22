@@ -1,8 +1,9 @@
 import { useForm } from "react-hook-form";
+import { DevTool }  from "@hookform/devtools";
 
 export default function LoginForm() {
     const form = useForm();
-    const { register } = form
+    const { register ,control} = form
     // const { name, ref, onChange, onBlur } = register("username")
     return (
         <div>
@@ -28,6 +29,7 @@ export default function LoginForm() {
                 <button type="submit">Login</button>
 
             </form>
+            <DevTool control={control} />
         </div>
 
     )
