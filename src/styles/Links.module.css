@@ -23,3 +23,18 @@
     padding-top: 20px;
     padding-left: 10px;
 }
+.line > h1 {
+    font-size: 2rem ;
+    font-weight: bold;
+    line-height: 60px ;
+    position: relative;
+    margin-bottom: 40px ;
+}
+.line > h1::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -15px;
+    width: 100%;
+    border-bottom: 1px solid black;
+}
