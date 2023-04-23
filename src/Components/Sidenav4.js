@@ -14,32 +14,32 @@ const Sidebar = () => {
          <Image 
          src={dashboardIcon.src} 
          alt="dashbaord" 
-          width={50}
-          height={50}
+          width={30}
+          height={30}
          />
          <span style={{color:"black"}}>Dashboard</span>
         </li>
         <li>
           <Image src={calendarIcon.src} alt="Calendar" 
-          width={50}
-          height={50}/>
+          width={30}
+          height={30}/>
         </li>
         <li>
           <Image src={chatIcon.src} alt="chat"
-          width={50}
-          height={50}/>
+          width={30}
+          height={30}/>
         </li>
          <li>
           <Image src={settingsIcon.src} alt="Calendar" 
-          width={50}
-          height={50}/>
+          width={30}
+          height={30}/>
         </li>
       </ul>
 
       <div className={SideStyles.logout}>
         <Image src={logoutIcon.src} alt="Logout" 
-          width={50}
-          height={50}/>
+          width={30}
+          height={30}/>
       </div>
     </div>
   );

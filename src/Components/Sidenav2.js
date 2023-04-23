@@ -15,32 +15,32 @@ const Sidebar = () => {
          <Image 
          src={homeIcon.src} 
          alt="Home" 
-          width={50}
-          height={50}
+          width={25}
+          height={25}
          />
          <span>Home</span>
         </li>
         <li>
           <Image src={chatIcon.src} alt="Chat" 
-          width={50}
-          height={50}/>
+          width={25}
+          height={25}/>
         </li>
         <li>
           <Image src={searchIcon.src} alt="Search"
-          width={50}
-          height={50}/>
+          width={25}
+          height={25}/>
         </li>
         <li>
           <Image src={settingsIcon.src} alt="Settings"
-          width={50}
-          height={50}/>
+          width={25}
+          height={25}/>
         </li>
       </ul>
 
       <div className={SideStyles.logout}>
         <Image src={loginIcon.src} alt="Login" 
-          width={50}
-          height={50}/>
+          width={25}
+          height={25}/>
       </div>
     </div>
   );
