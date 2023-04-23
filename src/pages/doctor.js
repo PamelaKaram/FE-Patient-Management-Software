@@ -35,12 +35,21 @@ function Doctor() {
         </div>
       </div>
       
-      <div className={DoctorStyles.body}>
-      {/* <Sidebar /> */}
+      <div className={DoctorStyles.section}>
       <div className={AppointmentsList.apt}>
+      here we will display the calendar
+          {/* <Calendar /> */}
+         
+        </div>
+        <div className={AppointmentsList.apt}>
           <ChatActivty />
         </div>
+        </div>
+
+      <div className={DoctorStyles.body}>
+      {/* <Sidebar /> */}
       
+     
        
       </div>
 

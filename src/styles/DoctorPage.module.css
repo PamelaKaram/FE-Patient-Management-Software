@@ -39,6 +39,13 @@
     display: grid;
     padding-left: 4rem;
 }
+.section{
+    display: flex;
+    flex-direction: row;
+    padding: 2rem;
+  
+    justify-content: center;
+}
 
 @media (max-width: 768px) {
     .buttonContainer {
@@ -52,6 +59,13 @@
 
 @media (max-width: 768px) {
     .header {
+        flex-direction: column;
+    }
+}
+
+@media(max-width: 768px) {
+    .section {
+        display: flex;
         flex-direction: column;
     }
 }
