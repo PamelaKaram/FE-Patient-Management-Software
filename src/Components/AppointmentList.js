@@ -5,12 +5,14 @@ import cancelIcon from "../icons/cancelIcon.svg";
 import Image from "next/image";
 import WelcomeStyles from "../styles/Welcome.module.css";
 
+
 const appointmentsData = [
   { id: 1, patient: "patient", startTime: "10:00 AM", endTime: "11:00 AM" },
   { id: 2, patient: "patient", startTime: "11:00 AM", endTime: "12:00 PM" },
   { id: 3, patient: "patient", startTime: "12:00 PM", endTime: "1:00 PM" },
   { id: 4, patient: "patient", startTime: "1:00 PM", endTime: "2:00 PM" }
 ];
+
 
 const AppointmentsList = () => {
   
@@ -21,7 +23,7 @@ const AppointmentsList = () => {
         <div className={appL.previewtime}>
           {appointment.startTime} - {appointment.endTime}
         </div>
-        <div className={appL.buttons}>
+        {/* <div className={appL.buttons}>
           <ul>
             <li>
               <Image
@@ -40,7 +42,7 @@ const AppointmentsList = () => {
               />
             </li>
           </ul>
-        </div>
+        </div> */}
       </div>
 
     </div>
@@ -55,10 +57,10 @@ const AppointmentsList = () => {
       {list}
       <div className={appL.decisions}>
         <button>
-          view all
+          Create new appointment
         </button>
         <button>
-          view future appointments
+          View future appointments
         </button>
       </div>
     </div>
