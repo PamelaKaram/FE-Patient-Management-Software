@@ -4,10 +4,10 @@ import useAxiosAuth from "../../lib/hooks/useAxiosAuth";
 import LoginStyles from "@/styles/login.module.css";
 import Image from "next/image";
 import SideImage from '../Icons/registrationFormIcon.svg';
-
+import { signIn } from "next-auth/react";
 export default function LoginForm() {
+    
     const defaultValues = {
-        username: "Username",
         email: "Email",
         password: "Password"
     };
@@ -16,33 +16,17 @@ export default function LoginForm() {
     const { register, control, handleSubmit, formState } = form;
     const { errors } = formState;
 
-    const onSubmit = (data) => {
-        console.log(data);
+    const onSubmit = async(data) => {
+        await signIn("credentials", {email: data.email , password: data.password});
+        console.log();
     };
+    
 
     return (
         <div className={LoginStyles.formContainer}>
         <div className={LoginStyles.form}>
             <h2 className={LoginStyles.title} >Login</h2>
             <form onSubmit={handleSubmit(onSubmit)} noValidate>
-
-                <div className={LoginStyles.formControl}>
-                    <input
-                        type={LoginStyles.text}
-                        id="username"
-                        {...register("username", {
-                            required: {
-                                value: true,
-                                message: "Username is required",
-                            },
-                        })}
-                        className={LoginStyles.input}
-                        onFocus={(e) => e.target.value = ''}
-                        defaultValue={defaultValues.username}
-                    />
-                </div>
-                <p className={LoginStyles.error}>{errors.username?.message}</p>
-
                 <div className={LoginStyles.formControl}>
                     <input
                         type={LoginStyles.email}
