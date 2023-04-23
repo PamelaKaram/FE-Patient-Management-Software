@@ -44,24 +44,46 @@
     background-color:#E9F3E8;
   
 }
+.bar:nth-child(1) > div:hover {
+    background-color:#D2E5C9;
+    cursor: pointer;
+  
+}
 
 .bar:nth-child(2) > div {
     background-color:#D2E5C9;
+  
+}
+
+.bar:nth-child(2) > div:hover {
+    background-color:#C8DEBD;
+    cursor: pointer;
 }
 
 .bar:nth-child(3) > div {
     background-color:#C8DEBD;
 
 }
-
+.bar:nth-child(3) > div:hover {
+    background-color:#AFD4A1;
+    cursor: pointer;
+}
 .bar:nth-child(4) > div {
     background-color:#AFD4A1;
   
+}
+.bar:nth-child(4) > div:hover {
+    background-color:#91BF76;
+    cursor: pointer;
 }
 
 .bar:nth-child(5) > div {
     background-color:#91BF76;
    
+}
+.bar:nth-child(5) > div:hover {
+    background-color:#82a96b;
+    cursor: pointer;
 }
 .button{
     border: none;
