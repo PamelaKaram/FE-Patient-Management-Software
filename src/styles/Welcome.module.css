@@ -39,39 +39,46 @@
     margin: 0 10px ;
     width: 30px ;
 }
-/* pamelaaaaa */
-div.bar.hey:nth-child(5n+1) {
-    background-color: red ;
-}
 
 .bar:nth-child(1) > div {
     background-color:#E9F3E8;
   
 }
 
-/* Targets the second div element that is a child of .bar class */
 .bar:nth-child(2) > div {
-
     background-color:#D2E5C9;
 }
 
-/* Targets the third div element that is a child of .bar class */
 .bar:nth-child(3) > div {
-   
     background-color:#C8DEBD;
-   
+
 }
 
-/* Targets the fourth div element that is a child of .bar class */
 .bar:nth-child(4) > div {
-  
     background-color:#AFD4A1;
   
 }
 
-/* Targets the fifth div element that is a child of .bar class */
 .bar:nth-child(5) > div {
-    
     background-color:#91BF76;
    
 }
+.button{
+    border: none;
+    background-color: #91bf76;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: lighter;
+    border-radius: 5px;
+    position:relative;
+    top: 10px;
+    left: 10px;
+    padding: 8px 20px;
+ 
+}
+.button:hover {
+    cursor: pointer;
+  }
+  
