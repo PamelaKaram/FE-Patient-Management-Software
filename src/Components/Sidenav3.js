@@ -13,8 +13,8 @@ const Sidebar = () => {
          <Image 
          src={dashboardIcon.src} 
          alt="dashbaord" 
-          width={50}
-          height={50}
+          width={30}
+          height={30}
          />
          <span>Dashboard</span>
         </li>
@@ -22,16 +22,16 @@ const Sidebar = () => {
          <Image 
          src={settingIcon.src} 
          alt="settings" 
-          width={50}
-          height={50}
+          width={30}
+          height={30}
          />
         </li>
       </ul>
 
       <div className={SideStyles.logout}>
         <Image src={logoutIcon.src} alt="Logout" 
-          width={50}
-          height={50}/>
+          width={30}
+          height={30}/>
       </div>
     </div>
   );
