@@ -28,16 +28,7 @@ return(
   <LoginForm />
 
   </main>
-  
-
-
-
-  
- 
 
 )
 
-
-  
-  
 }
