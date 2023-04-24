@@ -57,3 +57,58 @@
 .title1 {
     padding-bottom: 20px;
 }
+
+.titleText {
+    position: relative;
+    text-decoration: none;
+}
+
+.titleText::after {
+    content: '';
+    position: absolute;
+    bottom: -25px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #e4e3e3;
+}
+
+.page {
+    padding-left: 150px;
+    padding-top: 30px;
+}
+
+.currAct {
+    color: #5DA95E;
+}
+
+.act {
+    color: rgb(156, 155, 155);
+    text-decoration: none;
+}
+
+.act:hover {
+    color: #5DA95E;
+    cursor: pointer;
+}
+
+.activities {
+    padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.sideAct {
+    padding-top: 70px;
+}
+
+.lower {
+    display: flex;
+    flex-direction: row;
+}
+
+.imageClass {
+    border-radius: 100px;
+    margin-bottom: 7px;
+}
