@@ -1,3 +1,8 @@
+import Styles from '../styles/PatientProfile.module.css';
+import ProfileIcon from '../icons/greenProfileIcon.svg';
+import CalendarIcon from '../icons/greenCalendarIcon.svg';
+import PhoneIcon from '../icons/greenPhoneIcon.svg';
+import MailIcon from '../icons/greenMailIcon.svg';
 import Image from 'next/image';
 import ProfileImage from '../icons/profileImage.svg';
 import React, { useState } from 'react';
@@ -53,3 +58,103 @@ const UserPage = ({ userData }) => {
                     </a>
               </div>
           </div>
+          <div className={Styles.personalInfo}>
+                <div>
+                    <h2 className={Styles.title1}>Personal Information</h2>
+                    <p className={Styles.detail2}>Here are some personal information about your patient and where you can contact them</p>
+                </div>
+              <div className={Styles.userIinfo}>
+                <div className={Styles.boxesContainer}>
+                  <div className={Styles.column}>
+                    <div className={Styles.box}>
+                      <div className={Styles.field}>
+                        <h3>Name</h3>
+                        <p className={Styles.detail}>{userData.firstName} {userData.lastName}</p>
+                      </div>
+                      <Image 
+                        src={ProfileIcon.src} 
+                        alt="Profile"  
+                        width={25}
+                        height={25}
+                        className={Styles.myImageClass} />
+                    </div>
+                    <div className={Styles.box}>
+                      <div className={Styles.field}>
+                        <h3>Date of Birth</h3>
+                        <p className={Styles.detail}>{userData.dateOfBirth}</p>
+                      </div>
+                      <Image 
+                        src={CalendarIcon.src} 
+                        alt="Calendar"  
+                        width={25}
+                        height={25}
+                        className={Styles.myImageClass} />
+                    </div>
+                  </div>
+
+                  
+                  <div className={Styles.column}>
+                    <div className={Styles.box}>
+                      <div className={Styles.field}>
+                        <h3>Email</h3>
+                        <p className={Styles.detail}>{userData.email}</p>
+                      </div>
+                      <Image 
+                      src={MailIcon.src} 
+                      alt="Mail"  
+                      width={25}
+                      height={25}
+                      className={Styles.myImageClass} />
+                    </div>
+                    <div className={Styles.box}>
+                      <div className={Styles.field}>
+                        <h3>Phone Number</h3>
+                        <p className={Styles.detail}>{userData.phoneNumber}</p>
+                      </div>
+                      <Image 
+                        src={PhoneIcon.src} 
+                        alt="Phone"  
+                        width={25}
+                        height={25}
+                        className={Styles.myImageClass} />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </>
+    );
+  };
+
+  export async function getServerSideProps(context) {
+    const { id } = context.params;
+    try {
+      const res = await axios.get(`https://example.com/api/users/\${id}`);
+  
+      if (res.status >= 200 && res.status < 300) {
+        return {
+          props: {
+            userData: res.data,
+          },
+        };
+      } else {
+        console.error(`Error fetching user data: \${res.status}`);
+        return {
+          props: {
+            userData: null,
+          },
+        };
+      }
+    } catch (error) {
+      console.error(`Error fetching user data: \${error.message}`);
+      return {
+        props: {
+          userData: null,
+        },
+      };
+    }
+  }
+  
+  export default UserPage;
