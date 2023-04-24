@@ -8,6 +8,13 @@
     border-bottom: 1px solid #7f7f7f;
 }
 
+.act {
+    text-decoration: none;
+    color: white;
+    font-size: 12px;
+    font-weight: 550;
+}
+
 .first {
     color: #ffffff;
     background-color: #B8D3FB;
@@ -21,8 +28,6 @@
     justify-content: center;
     text-align: center;
     border-radius: 18px;
-    font-size: 16px;
-    font-weight: 550;
 }
 
 .first:hover {
