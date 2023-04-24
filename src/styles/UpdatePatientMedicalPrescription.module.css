@@ -134,3 +134,125 @@
     width: 9.375rem;
   }
   
+  .buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 0.625rem;
+  }
+  
+  .message {
+    font-size: 0.875rem;
+    color: #696969;
+  }
+  
+  /* Media queries for responsive design */
+  @media (min-width: 769px) {
+    .page {
+      width: 80%;
+    }
+  
+    .form {
+      width: 50%;
+    }
+  
+    .text {
+      width: 100%;
+    }
+  
+    .attribute {
+      width: 24vw;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .page {
+      width: 90%;
+      flex-direction: column;
+    }
+  
+    .form {
+      width: 100%;
+    }
+  
+    .image {
+      width: 100%;
+      height: auto;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .page {
+      width: 100%;
+      padding: 1rem;
+    }
+  
+    .form {
+      width: 100;
+    }
+    .image {
+      display: none;
+    }
+  }
+  
+  @media (max-width: 300px) {
+    .page {
+      width: 100%;
+      padding: 0.5rem;
+    }
+  
+    .form {
+      width: 100%;
+    }
+  
+    .text {
+      width: 100%;
+    }
+  
+    .buttons {
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+  
+    .inst{
+      word-wrap: break-word;
+      white-space: normal;
+    }
+  
+    .button,
+    .customButton {
+      width: 100%;
+      gap: 0.2rem;
+    }
+  }
+  
+  @media (max-width: 300px) {
+    .page {
+      width: 100%;
+      padding: 0.5rem;
+    }
+  
+    .form {
+      width: 100%;
+    }
+  
+    .text {
+      width: 100%;
+    }
+  
+    .buttons {
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+  
+    .inst{
+      word-wrap: break-word;
+      white-space: normal;
+    }
+  
+    .button,
+    .customButton {
+      width: 100%;
+      gap: 0.2rem;
+    }
+  }
+  
