@@ -7,3 +7,7 @@
   min-height: 100vh;
 }
 
+.rectangle{
+  background-Color: #E8F1FF;
+  display: flex;
+}
