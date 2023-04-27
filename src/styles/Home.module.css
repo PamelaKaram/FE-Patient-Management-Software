@@ -7,3 +7,16 @@
   min-height: 100vh;
 }
 
+.rectangle{
+  background-Color: #E8F1FF;
+  display: flex;
+}
+
+.about {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+}

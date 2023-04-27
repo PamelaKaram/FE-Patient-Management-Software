@@ -1,80 +1,51 @@
 .style {
     display: flex;
     flex-direction: row;
-    gap: 45px;
-    padding-top: 30px;
+    gap: 2.8125rem;
+    padding-top: 1.875rem;
     align-items: center;
-    padding-bottom: 40px;
+    padding-bottom: 2.5rem;
     border-bottom: 1px solid #7f7f7f;
 }
 
-.act {
-    text-decoration: none;
-    color: white;
-    font-size: 12px;
+.first, .second, .third {
+    color: #ffffff;
+    border: none;
+    height: 7.8125rem;
+    width: 11.5625rem;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-radius: 1.125rem;
+    font-size: 1rem;
     font-weight: 550;
 }
 
 .first {
-    color: #ffffff;
     background-color: #B8D3FB;
-    border: none;
-    height: 125px;
-    width: 185px;
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    border-radius: 18px;
 }
 
-.first:hover {
+.first:hover, .second:hover, .third:hover {
     cursor: pointer;
-    box-shadow: 14px 14px 14px rgba(199, 187, 233, 0.6);
+    box-shadow: 0.875rem 0.875rem 0.875rem rgba(199, 187, 233, 0.6);
 }
 
 .second {
-    color: #ffffff;
     background-color: #86B2F3;
-    border: none;
-    height: 125px;
-    width: 185px;
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    border-radius: 18px;
-    font-size: 16px;
-    font-weight: 550;
-}
-
-.second:hover {
-    cursor: pointer;
-    box-shadow: 14px 14px 14px rgba(199, 187, 233, 0.6);
 }
 
 .third {
-    color: #ffffff;
     background-color: #3B84F0;
-    border: none;
-    height: 125px;
-    width: 185px;
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    border-radius: 18px;
-    font-size: 16px;
-    font-weight: 550;
 }
 
-.third:hover {
-    cursor: pointer;
-    box-shadow: 14px 14px 14px rgba(199, 187, 233, 0.6);
+/* Media queries */
+@media (max-width: 768px) {
+    .style {
+        flex-direction: column;
+        gap: 1.5rem;
+        padding-bottom: 1rem;
+    }
 }

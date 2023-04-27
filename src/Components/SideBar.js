@@ -12,11 +12,14 @@ const Sidebar = () => {
             alt="profile" 
             width={100}
             height={100}
+            className={SideStyles.image}
             />
-            <h3 className={SideStyles.text}>Check Your Condition</h3>
-            <p className={SideStyles.text}>Request an Appointment with</p>
-            <p className={SideStyles.drName}>Dr. Abou Karam</p>
-            <AppointmentButton name="Request Appointment Now" path=""/>
+            <div className={SideStyles.textsContainer}>
+                <h3 className={SideStyles.text}>Check Your Condition</h3>
+                <p className={SideStyles.text}>Request an Appointment with</p>
+                <p className={SideStyles.drName}>Dr. Abou Karam</p>
+            </div>
+            <AppointmentButton className={SideStyles.app} name="Request Appointment Now" path=""/>
         </div>
     );
 };

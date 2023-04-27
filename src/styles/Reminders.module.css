@@ -1,25 +1,57 @@
 .col {
     display: flex;
     flex-direction: column;
-    gap: 15px;
-    margin-top: 30px;
-    padding-right: 35px;
+    gap: 0.9375rem;
+    margin-top: 1.875rem;
+    padding-right: 2.1875rem;
 }
 
 .reminder {
     display: flex;
     flex-direction: row;
-    gap: 10px;
-    margin-left: 10px;
+    gap: 0.625rem;
+    margin-left: 0.625rem;
 }
 
 .item {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 0.9375rem;
 }
 
 .row {
     display: flex;
     flex-direction: row;
+}
+
+/* Media queries */
+@media (max-width: 920px) {
+    .col {
+        padding-right: 1rem;
+    }
+    .row {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 480px) {
+    .col {
+        margin-top: 1.5rem;
+        padding-right: 0.5rem;
+    }
+
+    .row {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .reminder {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .item {
+        gap: 0.5rem;
+    }
 }

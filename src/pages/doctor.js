@@ -113,8 +113,28 @@ function Doctor() {
           <AppointmentsList />
         </div>
       </div>
-      <div className={AppointmentsList.apt}>
-        <ChatActivty />
+
+      <div className={DoctorStyles.section}>
+        <div className={AppointmentsList.apt}>
+          <div style={{ width: "100%", margin: "50px" }}>
+            <LocalizationProvider dateAdapter={AdapterDateFns}>
+              <StaticDatePicker
+                value={date}
+                label="See Appointments"
+                onChange={handleSingleDateChange}
+
+                // initialVisibleMonth={() => moment()}
+                // focused={focus}
+                // numberOfMonths={1}
+                // onFocusChange={({ focused }) => setFocus(focused)}
+                // isDayBlocked={isBlocked}
+              />
+            </LocalizationProvider>
+          </div>
+        </div>
+        <div className={AppointmentsList.apt}>
+          <ChatActivty />
+        </div>
       </div>
 
       <div className={DoctorStyles.body}>{/* <Sidebar /> */}</div>

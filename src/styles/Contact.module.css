@@ -1,10 +1,8 @@
 .container {
     display: flex;
     flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    left: 50%;
-    right: 50%;
+    align-items: flex-start;
+    justify-content: space-between;
     background-color: #eee;
 }
 
@@ -13,6 +11,8 @@
     align-items: center;
     margin-bottom: 0.625rem;
     line-height: 2.8125rem;
+    margin-left: 30px;
+    margin-right: 30px;
 }
 
 .imageClass {
@@ -33,4 +33,13 @@
 
 .sets:last-child {
     margin-left: 7.5rem;
+}
+
+.textClass {
+    transition: transform 0.3s ease;
+    font-size: 14px;
+}
+
+.item:hover .textClass {
+    transform: translateX(12px);
 }
