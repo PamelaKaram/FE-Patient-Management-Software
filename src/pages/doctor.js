@@ -70,7 +70,10 @@ function Doctor() {
           <Links />
         </div>
       </div>
-      <div style={{ width: "100%", margin: "50px" }}>
+
+      <div className={DoctorStyles.section}>
+        <div className={AppointmentsList.apt}>
+          <div style={{ width: "100%", margin: "50px" }}>
         <LocalizationProvider dateAdapter={AdapterDateFns}>
           <StaticDatePicker
             value={date}
@@ -85,10 +88,6 @@ function Doctor() {
           />
         </LocalizationProvider>
       </div>
-      <div className={DoctorStyles.section}>
-        <div className={AppointmentsList.apt}>
-          here we will display the calendar
-          {/* <Calendar /> */}
         </div>
         <div className={AppointmentsList.apt}>
           <ChatActivty />
