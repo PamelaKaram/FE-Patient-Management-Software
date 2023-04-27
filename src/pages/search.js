@@ -1,8 +1,7 @@
 import { InstantSearch, SearchBox } from "react-instantsearch-dom";
 import { searchClient } from "../typesenseAdapter";
-import HitsContainer from "../Components/hitsContainer";
 
-function Search() {
+function Search({ HitsContainer }) {
   console.log(searchClient);
   return (
     <div
