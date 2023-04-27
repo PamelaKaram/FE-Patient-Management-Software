@@ -7,6 +7,8 @@ import SidenavMobile from "../Components/SideNavResponsive";
 import SidenavWeb from "../Components/Sidenav2";
 import { useState, useEffect } from "react";
 import Buttons from '../Components/HomePageButtons';
+import BlogArticle from '../Components/BlogsAndArticles';
+import Contact from '../Components/Contact';
 
 export default function Home() {
   // render the SidnavMobile component if the screen width is less than 768px
@@ -18,6 +20,27 @@ export default function Home() {
     setWidth(window.innerWidth);
     setHeight(window.innerHeight);
   };
+
+  const articles = [
+    {
+      imageUrl: '/icons/ArticleImage1.jpg',
+      releaseDate: 'Friday, December 12, 2022',
+      title: 'Heart Disease in Pregnancy',
+      link: 'https://www.sciencedirect.com/science/article/abs/pii/S152169341500070X?via%3Dihub',
+    },
+    {
+      imageUrl: '/icons/ArticleImage2.jpg',
+      releaseDate: 'Friday, December 12, 2022',
+      title: 'The Relationship between Physical and Mental Health',
+      link: 'https://www.sciencedirect.com/science/article/pii/S0277953617306639?via%3Dihub',
+    },
+    {
+      imageUrl: '/icons/ArticleImage3.jpg',
+      releaseDate: 'Friday, December 12, 2022',
+      title: 'Blogs',
+      link: 'https://medium.com/@NewYorkCardiovascularAssociate',
+    },
+  ];
 
   useEffect(() => {
     window.addEventListener("resize", updateDimensions);
@@ -31,7 +54,10 @@ export default function Home() {
     <div> 
       <Buttons />
     </div>
-    
+    <div>
+      <BlogArticle articles={articles} />
+      <Contact />
+    </div>
   </main>
   )
   
