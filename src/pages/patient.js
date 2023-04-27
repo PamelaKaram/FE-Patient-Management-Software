@@ -10,8 +10,8 @@ import Links from '../Components/Links';
 export default function Doctor() {
     return (
         <div className={SideStyles.body}>
-          <NavBar/>
-          <SideBar />
+          <NavBar className={SideStyles.navbar}/>
+          <SideBar className={SideStyles.sidebar}/>
           <div className={SideStyles.leftHalf}>
             <div className={SideStyles.header}>
               <h1>Hi, Pamela Karam</h1>
