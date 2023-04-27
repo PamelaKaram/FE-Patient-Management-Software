@@ -19,7 +19,10 @@ import LogoutIcon from "../icons/logoutIcon.svg";
 import CalendarIcon from "../icons/calendarIcon.svg";
 import ChatIcon from "../icons/chatIcon.svg";
 import SearchIcon from "../icons/searchIcon.svg";
+import loginIcon from "../icons/homeLoginIcon.svg";
+
 import { signOut } from "next-auth/react";
+
 export default function TemporaryDrawer() {
   const [state, setState] = React.useState({
     left: false,
@@ -96,6 +99,7 @@ export default function TemporaryDrawer() {
               alt="Settings"
               width={27}
               height={27}
+             
             />
           </ListItemIcon>
           <ListItemText primary={"Settings"} />
@@ -103,11 +107,15 @@ export default function TemporaryDrawer() {
       </List>
 
       <Divider sx={{ color: "#EDF8EB" }} />
-      <ListItemButton onClick={() => signOut()}>
+      <ListItemButton onClick={() => window.location.href = "/login"}>
         <ListItemIcon>
-          <Image src={LogoutIcon.src} alt="Logout" width={27} height={27} />
+          <Image src={loginIcon.src} 
+          alt="Login" 
+          width={27} 
+          height={27} 
+       />
         </ListItemIcon>
-        <ListItemText primary={"Logout"} />
+        <ListItemText primary={"Login"} />
       </ListItemButton>
     </Box>
   );
