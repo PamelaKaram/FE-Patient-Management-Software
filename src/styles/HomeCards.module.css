@@ -4,7 +4,14 @@
     align-items: center;
     height: 80px;
   }
-  
+.title{
+    margin-left: 90px;;
+}
+/* .title.span{
+    margin-left: 90px;
+    font-size: 8px;
+    font-weight: lighter;
+} */
   .blueRectangle {
     background-color: #E8F1FF;
     width: 100%;
