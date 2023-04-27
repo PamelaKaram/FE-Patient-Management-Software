@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import SideStyles from '../styles/EmailReq.module.css';
 
 
-function PharmacyPermissionPopup() {
+function RequestAptPop() {
   const [isOpen, setIsOpen] = useState(false);
   const { register, handleSubmit } = useForm();
 
@@ -55,4 +55,4 @@ function PharmacyPermissionPopup() {
   );
 }
 
-export default PharmacyPermissionPopup;
+export default RequestAptPop;
