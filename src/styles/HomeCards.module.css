@@ -7,14 +7,14 @@
   .blueRectangle {
     background-color: #E8F1FF;
     width: 100%;
-    height: 100%;
+    height: 50vh;
     display: flex;
     align-items: center;
   }
   
   .logo {
     height: auto;
-    margin-left: 20px;
+    margin-left: 65rem;
   }
 
 
@@ -33,6 +33,7 @@
   display: flex;
 }
 .card {
+    
   width: 30%;
   height: 250px;
   background-color: #fff;
@@ -43,6 +44,7 @@
   justify-content: space-around;
   padding: 10px;
   margin: 16px;
+  margin-top: -40px;
 }
 
 .card h3 {
