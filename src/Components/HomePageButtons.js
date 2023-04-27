@@ -1,7 +1,7 @@
 import React from 'react';
 import Card from '../Components/Card.js';
 import buttonStyles from '../styles/HomeCards.module.css';
-import back from '../icons/headerBack.svg';
+import back from '../icons/drImage.svg';
 import Image from 'next/image';
 const CardList = () => {
 
@@ -9,12 +9,12 @@ const CardList = () => {
     <header className= {buttonStyles.headerContainer}>
  <div className={buttonStyles.blueRectangle}>
         <Image
-          className={buttonStyles.img}
+          className={buttonStyles.logo}
           src={back.src}
           alt="Dr image"
           loading="lazy"
-          width={100}
-          height={100}
+          width={400}
+          height={400}
         />
       </div>
     <div className={buttonStyles.cardsContainer}>
