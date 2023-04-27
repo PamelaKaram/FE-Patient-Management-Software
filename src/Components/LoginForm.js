@@ -4,7 +4,7 @@ import useAxiosAuth from "../../lib/hooks/useAxiosAuth";
 import LoginStyles from "@/styles/login.module.css";
 import Image from "next/image";
 import SideImage from '../Icons/registrationFormIcon.svg';
-import { signIn } from "next-auth/react";
+import { signIn, useSession } from "next-auth/react";
 export default function LoginForm() {
     
     const defaultValues = {
@@ -15,10 +15,13 @@ export default function LoginForm() {
     const form = useForm({ defaultValues });
     const { register, control, handleSubmit, formState } = form;
     const { errors } = formState;
+    const session = useSession()
+
+    console.log(session)
 
     const onSubmit = async(data) => {
         await signIn("credentials", {email: data.email , password: data.password});
-        console.log();
+        console.log("Logged in");
     };
     
 
