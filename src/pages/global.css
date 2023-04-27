@@ -1,0 +1,99 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.ais-Pagination-list {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+  }
+  
+  .ais-Pagination-item {
+    display: flex;
+    width: 40px;
+    height: 40px;
+  }
+  
+  .ais-Pagination-item--disabled {
+    visibility: hidden;
+  }
+  
+  .ais-Pagination-link {
+    flex: 1;
+    line-height: 40px;
+    text-align: center;
+    border: 1px solid rgb(203 213 225);
+    border-radius: 50%;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+  }
+  
+  .ais-Pagination-link:hover,
+  .ais-Pagination-link:focus,
+  .ais-Pagination-link--selected {
+    border: 0;
+    background-color: var(--primary-color);
+    color: white;
+  }
+  
+  .ais-SearchBox-form {
+    display: block;
+    position: relative;
+  }
+  
+  .ais-SearchBox-loadingIndicator,
+  .ais-SearchBox-reset,
+  .ais-SearchBox-submit {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    padding: 1rem;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
+  
+  .ais-SearchBox-input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    padding: 0.3rem 2.75rem;
+    width: 100%;
+    min-width: 700px;
+    position: relative;
+    min-height: 56px;
+    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 1);
+    font-size: 1rem;
+  }
+  
+  .ais-SearchBox-submit {
+    left: 0;
+    overflow: visible;
+    font: inherit;
+    line-height: normal;
+    color: inherit;
+    background: none;
+    border: 0;
+    cursor: pointer;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+  
+  .ais-SearchBox-submitIcon {
+    width: 14px;
+    height: 14px;
+  }
+  
+  .rtl .ais-SearchBox-input::placeholder {
+    text-align-last: right;
+  }
+  
+  .ais-SearchBox-reset {
+    right: 0.3rem;
+  }
