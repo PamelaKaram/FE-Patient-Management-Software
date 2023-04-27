@@ -7,10 +7,11 @@
     display: flex;
     align-items: center;
     flex-direction: column;
-    height: 140vh;
+    height: 100vh;
     width: 25vw;
     background-image: url('../icons/patientBackgroundIcon.svg');
     padding-top: 5%;
+    margin-left: -10px;
 }
   
 .center {
@@ -21,4 +22,58 @@
 .text {
     text-align: center;
     margin: 1rem 0;
+}
+
+.textsContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Media queries */
+
+@media (max-width: 1024px) {
+    .container {
+        width: 100%;
+        height: 300px;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: nowrap;
+        padding: 10% 0;
+        position: relative;
+        margin-left: 60px;
+    }
+
+    .text, .drName {
+        font-size: 0.9rem;
+    }
+
+    .textsContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding-left: 1rem;
+        margin-left: 1rem;
+    }
+
+    .text {
+        margin-left: 1rem;
+    }
+
+    .drName {
+        display: block;
+        margin-left: 1rem;
+    }
+
+    .image {
+        display: inline;
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+
+    .app {
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+    }
 }
