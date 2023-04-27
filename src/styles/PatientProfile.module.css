@@ -1,0 +1,114 @@
+.box {
+    background-color: rgb(242, 241, 241);
+    border-radius: 15px;
+    width: 350px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    border: 2px solid #f0eeee;
+    position: relative;
+    justify-content: center;
+}
+
+.boxesContainer {
+    display:flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.column {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.detail {
+    color: rgb(176, 176, 176);
+    font-size: 16px;
+    padding-top: 10px;
+}
+
+.detail2 {
+    color: rgb(176, 176, 176);
+    font-size: 18px;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    word-wrap: break-word;
+}
+
+.myImageClass {
+    position: absolute;
+    top: 45px;
+    right: 15px;
+  }
+
+.field {
+ padding-left: 20px;
+}
+
+.personalInfo {
+    display: flex;
+    flex-direction: column;
+    margin-top: 90px;
+    margin-left: 100px;
+}
+
+.title1 {
+    padding-bottom: 20px;
+}
+
+.titleText {
+    position: relative;
+    text-decoration: none;
+}
+
+.titleText::after {
+    content: '';
+    position: absolute;
+    bottom: -25px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #e4e3e3;
+}
+
+.page {
+    padding-left: 150px;
+    padding-top: 30px;
+}
+
+.currAct {
+    color: #5DA95E;
+}
+
+.act {
+    color: rgb(156, 155, 155);
+    text-decoration: none;
+}
+
+.act:hover {
+    color: #5DA95E;
+    cursor: pointer;
+}
+
+.activities {
+    padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.sideAct {
+    padding-top: 70px;
+}
+
+.lower {
+    display: flex;
+    flex-direction: row;
+}
+
+.imageClass {
+    border-radius: 100px;
+    margin-bottom: 7px;
+}
