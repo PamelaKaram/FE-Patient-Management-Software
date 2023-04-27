@@ -6,6 +6,7 @@ import LoginForm from "../Components/LoginForm";
 import SidenavMobile from "../Components/SideNavResponsive";
 import SidenavWeb from "../Components/Sidenav2";
 import { useState, useEffect } from "react";
+import Buttons from '../Components/HomePageButtons';
 
 export default function Home() {
   // render the SidnavMobile component if the screen width is less than 768px
@@ -22,5 +23,17 @@ export default function Home() {
     window.addEventListener("resize", updateDimensions);
     return () => window.removeEventListener("resize", updateDimensions);
   }, []);
-  return <main>{width < 768 ? <SidenavMobile /> : <SidenavWeb />}</main>;
+  return (
+  <main>
+    
+    {width < 768 ? <SidenavMobile /> : <SidenavWeb />}
+    
+    <div> 
+      <Buttons />
+    </div>
+    
+  </main>
+  )
+  
 }
+
