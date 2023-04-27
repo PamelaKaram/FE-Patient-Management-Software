@@ -1,4 +1,4 @@
-import Searchbar from "../Components/finalSearchBar";
+import Searchbar from "../Components/finalSearchBar.js";
 import React, { useState } from "react";
 import { StaticDatePicker, LocalizationProvider } from "@mui/x-date-pickers";
 import ActivityButton from "../Components/ActivityButton";
@@ -11,12 +11,16 @@ import SideStyles from "../styles/DoctorActivityPage.module.css";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import Links from "../Components/Links";
 import LinksStyles from "../styles/Links.module.css";
+import WelcomeStyles from "../styles/Welcome.module.css";
 import ChatActivty from "../Components/ChatActivity";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import moment from "moment";
+import HitsContainer from "../Components/hitsContainer";
+import { InstantSearch, SearchBox, Configure } from "react-instantsearch-dom";
+import { searchClient } from "../typesenseAdapter";
 
 function Doctor() {
-  const [date, setDate] = useState();
+  const [date, setDate] = useState(new Date());
   const [focus, setFocus] = useState(false);
 
   const handleSingleDateChange = (date) => {
@@ -52,47 +56,65 @@ function Doctor() {
   return (
     <div className={DoctorStyles.body}>
       <Sidebar />
-      <div>
-        <div className={DoctorStyles.imageContainer}>
-          <div className={DoctorStyles.bottomCenter}>
-            <Searchbar />
+      <InstantSearch searchClient={searchClient} indexName="patients">
+        <div>
+          <div className={DoctorStyles.imageContainer}>
+            <div className={DoctorStyles.bottomCenter}>
+              <div className="fixed">
+                <div className={SideStyles.searchBarContainer}>
+                  <SearchBox />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div className={DoctorStyles.header}>
-        <Welcome />
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            padding: "1rem",
+            justifyContent: "center",
+          }}
+        >
+          <div>
+            <Welcome />
+          </div>
+          <div>
+            <div className={WelcomeStyles.main}>
+              <h1>Patients</h1>
+              <HitsContainer />
+              <Configure hitsPerPage={5} />
+            </div>
+          </div>
+          <div className="">
+            <Links />
+          </div>
+        </div>
+      </InstantSearch>
+
+      <div className={DoctorStyles.section}>
+        <div className={AppointmentsList.apt}>
+          <LocalizationProvider dateAdapter={AdapterDateFns}>
+            <StaticDatePicker
+              value={date}
+              label="See Appointments"
+              onChange={handleSingleDateChange}
+
+              // initialVisibleMonth={() => moment()}
+              // focused={focus}
+              // numberOfMonths={1}
+              // onFocusChange={({ focused }) => setFocus(focused)}
+              // isDayBlocked={isBlocked}
+            />
+          </LocalizationProvider>
+        </div>
         <div className={AppointmentsList.apt}>
           <AppointmentsList />
         </div>
-        <div className={LinksStyles.line}>
-          <h1> Quick Links </h1>
-          <Links />
-        </div>
       </div>
-      <div style={{ width: "100%", margin: "50px" }}>
-        <LocalizationProvider dateAdapter={AdapterDateFns}>
-          <StaticDatePicker
-            value={date}
-            label="See Appointments"
-            onChange={handleSingleDateChange}
-
-            // initialVisibleMonth={() => moment()}
-            // focused={focus}
-            // numberOfMonths={1}
-            // onFocusChange={({ focused }) => setFocus(focused)}
-            // isDayBlocked={isBlocked}
-          />
-        </LocalizationProvider>
-      </div>
-      <div className={DoctorStyles.section}>
-        <div className={AppointmentsList.apt}>
-          here we will display the calendar
-          {/* <Calendar /> */}
-        </div>
-        <div className={AppointmentsList.apt}>
-          <ChatActivty />
-        </div>
+      <div className={AppointmentsList.apt}>
+        <ChatActivty />
       </div>
 
       <div className={DoctorStyles.body}>{/* <Sidebar /> */}</div>
