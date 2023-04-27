@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import SideStyles from '../styles/PharmacyLookupPopUp.module.css';
-import SearchBar from '../Components/FinalSearchBar3';
+import SearchBar from '../Components/Search';
 import { useHistory } from 'react-router-dom';
+import hitsContainer from '../Components/PharmSearchResults';
 
 function PharmacyPermissionPopup() {
   const [isOpen, setIsOpen] = useState(false);
+  const [results, setResults] = useState([]);
 
   const togglePopup = () => {
     setIsOpen(!isOpen);
@@ -12,12 +14,9 @@ function PharmacyPermissionPopup() {
 
   return (
     <div>
-      <button className={SideStyles.customButton} onClick={togglePopup}>
-      <span className={SideStyles.text}>
-       Pharmacy/Hospital Patient Lookup Permission
-      </span>
-    </button>
-
+      <a className={SideStyles.act} onClick={togglePopup}>
+        <h2>Pharmacy Patient Lookup Permission</h2>
+      </a>
 
       {isOpen && (
         <div className={SideStyles.popupInner}>
@@ -31,11 +30,11 @@ function PharmacyPermissionPopup() {
             <p>Give Pharmacies or Hospitals access to look up patients' Medical Prescription to help them find Medication.</p>
           </div>
           <div className={SideStyles.searchBar}>
-            <SearchBar />
+            <SearchBar HitsContainer={hitsContainer} results={results} setResults={setResults}/>
           </div>
         </div>
       )}
-    </div>
+  </div>
   );
 }
 
