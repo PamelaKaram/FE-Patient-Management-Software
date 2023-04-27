@@ -117,7 +117,7 @@
 .customButton {
     padding: 0.625em 1.25em;
     font-size: 1rem;
-    background-color: #87b46c;
+    background-color: #86B2F3;
     color: #fff;
     border: none;
     display: flex;
@@ -142,7 +142,7 @@
   }
   
 .customButton:hover {
-    background-color: rgb(162, 214, 131);
+    background-color: #7296cd;
     cursor: pointer;
   }
   
