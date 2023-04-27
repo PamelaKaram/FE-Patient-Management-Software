@@ -1,0 +1,38 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.file-row {
+  display: flex;
+  align-items: center;
+  background-color: #f0f0f0; /* Very light grey background */
+  padding: 10px;
+  margin-bottom: 5px;
+  border-radius: 5px;
+}
+
+.file-icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+}
+
+.file-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #007bff; /* Link color */
+  text-decoration: underline;
+  margin-right: 10px;
+}
+
+.file-button:hover {
+  text-decoration: none;
+}
+
+.file-size {
+  font-size: 14px;
+  color: #777;
+}

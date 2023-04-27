@@ -1,6 +1,6 @@
 import { connectHits } from "react-instantsearch-dom";
 import Link from "next/link";
-import styles from "./HitsContainer.module.css";
+import styles from "../styles/HitsContainer.module.css";
 
 function HitsContainer({ hits }) {
   console.log(hits);
@@ -8,9 +8,9 @@ function HitsContainer({ hits }) {
     <div className={styles.container}>
       {hits.map((hit) => (
         <div key={hit.objectID} className={styles.hit}>
-          <Link href={`/patient/\${hit.objectID}`}>
-            <a>{hit.firstName} {hit.lastName}</a>
-          </Link>
+            <Link href={`/pharm_patient_medical_prescription?patientId=${hit.objectID}`}>
+                <a>{hit.firstName} {hit.lastName}</a>
+            </Link>
         </div>
       ))}
     </div>

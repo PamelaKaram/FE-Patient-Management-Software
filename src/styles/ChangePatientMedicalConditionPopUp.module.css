@@ -1,0 +1,112 @@
+.overlay {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+.popup {
+  transform: translate(-50%, -50%);
+  background-color: rgb(242, 241, 241);
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  width: 500px;
+  height: 350px;
+  z-index: 9999;
+}
+
+  
+.title {
+    color: #5da95e;
+    margin-bottom: 25px;
+    position: absolute;
+    top: 10px;
+    left: 20px;
+  }
+  
+.closeButtonX {
+    background-color: #5da95e;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    padding: 5px 8px;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+  }
+
+.closeButton {
+    border-radius: 5px;
+    padding: 5px 8px;
+    cursor: pointer;
+    font-size: 0.875rem;
+    background-color: #5da95e;
+    color: #ffffff;
+    font-weight: bold;
+    text-align: center;
+    border: none;
+    width: 8rem;
+}
+  
+.textBox {
+    width: 100%;
+    height: 200px;
+    resize: none;
+    margin-top: 50px;
+    margin-bottom: 15px;
+  }
+  
+.customButton {
+    border-radius: 5px;
+    padding: 5px 8px;
+    cursor: pointer;
+    font-size: 0.875rem;
+    background-color: #ffffff;
+    color: #5da95e;
+    font-weight: bold;
+    border: 2px solid #5da95e;
+    text-align: center;
+    width: 8rem;
+  }
+
+.customButton:hover {
+    background-color: #5da95e;
+    color: #ffffff;
+  }
+  
+.buttonsContainer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+  }
+
+.message {
+    position: absolute;
+    top: calc(100% + 5px);
+    left: 0;
+    width: 100%;
+    background-color: #ffffff;
+    color: #ff0000;
+    font-size: 0.875rem;
+    padding: 5px 8px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
