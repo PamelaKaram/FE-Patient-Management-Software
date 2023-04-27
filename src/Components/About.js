@@ -9,7 +9,7 @@ function About() {
       src={back.src} alt="About section image" width="400" height="400"
       className={homeStyles.pic}/>
       <div>
-        <h2>About Us</h2>
+        <h2>About Me</h2>
         <p>My mission is to promote heart health and prevent heart disease in my patients. 
             I offer a range of preventive measures such as lifestyle modifications, medication 
             management, and regular monitoring to help my patients maintain optimal heart health.
