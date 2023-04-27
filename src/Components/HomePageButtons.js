@@ -6,8 +6,14 @@ import Image from 'next/image';
 const CardList = () => {
 
   return (
-    <header className= {buttonStyles.headerContainer}>
- <div className={buttonStyles.blueRectangle}>
+    <header className={buttonStyles.headerContainer}>
+      <div className={buttonStyles.blueRectangle}>
+        <h1 className={buttonStyles.title}>
+          Trust your health to the best specialists 
+      
+          <span> Dr. Abou Karam</span>
+          </h1>
+       
         <Image
           className={buttonStyles.logo}
           src={back.src}
@@ -17,12 +23,12 @@ const CardList = () => {
           height={400}
         />
       </div>
-    <div className={buttonStyles.cardsContainer}>
-   
-      <Card title="Stay up to date with the latest articles on health." buttonColor="primary" buttonText="Blogs & Articles" />
-      <Card title="Good Health Good Wealth." buttonColor="secondary" buttonText="Tips" />
-      <Card title="Are you looking for a cardiologist?" buttonColor="tertiary" buttonText="About" />
-    </div>
+      <div className={buttonStyles.cardsContainer}>
+
+        <Card title="Stay up to date with the latest articles on health." buttonColor="primary" buttonText="Blogs & Articles" />
+        <Card title="Good Health Good Wealth." buttonColor="secondary" buttonText="Tips" />
+        <Card title="Are you looking for a cardiologist?" buttonColor="tertiary" buttonText="About" />
+      </div>
     </header>
   );
 };
