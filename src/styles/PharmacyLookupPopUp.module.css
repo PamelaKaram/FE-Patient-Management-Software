@@ -21,6 +21,16 @@
     display: flex;
     left: 1rem;
   }
+
+.act {
+    color: rgb(156, 155, 155);
+    text-decoration: none;
+}
+
+.act:hover {
+  color: #5DA95E;
+  cursor: pointer;
+}
   
 .popupInner:before {
     content: "";
