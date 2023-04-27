@@ -1,3 +1,4 @@
+
 .header {
     display: flex;
     align-items: center;
@@ -17,26 +18,15 @@
     margin-left: 65rem;
   }
 
-
-.headerContainer {
-  /* background-image: url("../icons/headerBack.svg");
- 
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 100% 100%; */
-
-}
-
 .cardsContainer {
-  
+    margin-left: 250px;
   display: flex;
 }
 .card {
-    
-  width: 30%;
+   
+
+  width: 25%;
   height: 250px;
-  background-color: #fff;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   display: flex;
@@ -63,21 +53,22 @@
 
 .card.primary {
   background-color: #b8d3fb;
-  color: #fff;
+  color: black;
 }
 
 .card.secondary {
   background-color: #86b2f3;
-  color: #fff;
+  color: black;
 }
 
 .card.tertiary {
   background-color: #6c9ce5;
-  color: #fff;
+  color: black;
 }
 
 @media only screen and (max-width: 768px) {
-  .card {
+  .headerContainer {
     width: 100%;
   }
 }
+
