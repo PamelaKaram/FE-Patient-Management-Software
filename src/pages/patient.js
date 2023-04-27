@@ -6,8 +6,18 @@ import AppDateTime from '../Components/AppDateTime';
 import Buttons from '../Components/Buttons';
 import Reminders from '../Components/Reminders';
 import Links from '../Components/Links';
+import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
+import moment from "moment";
+import { StaticDatePicker, LocalizationProvider } from "@mui/x-date-pickers";
+import react, { useState } from "react";
 
 export default function Doctor() {
+  const [date, setDate] = useState();
+  const [focus, setFocus] = useState(false);
+
+  const handleSingleDateChange = (date) => {
+    setDate(date);
+  };
     return (
         <div className={SideStyles.body}>
           <NavBar/>
@@ -39,7 +49,24 @@ export default function Doctor() {
               </div>
             </div>
           </div>
+          <div style={{ width: "100%", margin: "50px" }}>
+        <LocalizationProvider dateAdapter={AdapterDateFns}>
+          <StaticDatePicker
+            value={date}
+            label="See Appointments"
+            onChange={handleSingleDateChange}
+
+            // initialVisibleMonth={() => moment()}
+            // focused={focus}
+            // numberOfMonths={1}
+            // onFocusChange={({ focused }) => setFocus(focused)}
+            // isDayBlocked={isBlocked}
+          />
+        </LocalizationProvider>
+      </div>
+
         </div>
+        
 
     );
 }
