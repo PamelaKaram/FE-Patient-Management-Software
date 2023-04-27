@@ -22,5 +22,10 @@ export default function Home() {
     window.addEventListener("resize", updateDimensions);
     return () => window.removeEventListener("resize", updateDimensions);
   }, []);
-  return <main>{width < 768 ? <SidenavMobile /> : <SidenavWeb />}</main>;
+  return (
+    <main>
+      {width < 768 ? <SidenavMobile /> : <SidenavWeb />}
+      <LoginForm />
+    </main>
+  );
 }
