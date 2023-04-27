@@ -1,11 +1,30 @@
+.header {
+    display: flex;
+    align-items: center;
+    height: 80px;
+  }
+  
+  .blueRectangle {
+    background-color: #E8F1FF;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo {
+    height: auto;
+    margin-left: 20px;
+  }
+
+
 .headerContainer {
-  background-image: url("../icons/headerBack.svg");
-  /* height: 100vh; */
-  /* no repeat; */
+  /* background-image: url("../icons/headerBack.svg");
+ 
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-size: 100% 100%;
+  background-size: 100% 100%; */
 
 }
 
