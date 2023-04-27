@@ -9,7 +9,7 @@ import { useState, useEffect } from "react";
 import Buttons from '../Components/HomePageButtons';
 import BlogArticle from '../Components/BlogsAndArticles';
 import Contact from '../Components/Contact';
-
+import About from '../Components/About';
 export default function Home() {
   // render the SidnavMobile component if the screen width is less than 768px
   // render the SidenavWeb component if the screen width is greater than 768px
@@ -53,6 +53,9 @@ export default function Home() {
     
     <div> 
       <Buttons />
+    </div>
+    <div> 
+      <About />
     </div>
     <div>
       <BlogArticle articles={articles} />
