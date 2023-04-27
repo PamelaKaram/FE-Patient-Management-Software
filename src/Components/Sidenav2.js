@@ -26,13 +26,15 @@ const Sidebar = () => {
         </li>
       </ul>
 
-      <div className={SideStyles.logout}>
+      <div className={SideStyles.signIn}>
         <Image
           src={loginIcon.src}
           alt="Logout"
           width={25}
           height={25}
-          onClick={() => signOut()}
+          onClick={() => {
+            window.location.href = "/login";
+          }}
         />
       </div>
     </div>
