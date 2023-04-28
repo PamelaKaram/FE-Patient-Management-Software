@@ -30,3 +30,32 @@ export default function Pharmacy() {
         </div>
     );
 }
+export async function getServerSideProps(context) {
+    const session = await getSession(context);
+  
+    if (!session) {
+      return {
+        redirect: {
+          destination: "/login",
+          permanent: false,
+        },
+      };
+    }
+  
+    if (session.user.role !== "phaarmacy") {
+      const role = session.user.role;
+      return {
+        redirect: {
+          destination: `/${role}`,
+          permanent: false,
+        },
+      };
+    }
+  
+    return {
+      props: {
+        session,
+      },
+    };
+  }
+  
