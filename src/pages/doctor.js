@@ -1,4 +1,4 @@
-import Searchbar from "../Components/finalSearchBar.js";
+// import Searchbar from "../Components/finalSearchBar.js";
 import React, { useState } from "react";
 import { StaticDatePicker, LocalizationProvider } from "@mui/x-date-pickers";
 import ActivityButton from "../Components/ActivityButton";
