@@ -1,9 +1,9 @@
 import React from 'react';
 import Image from 'next/image';
-import back from '../icons/drImage.svg';
+import back from '../icons/drImage.jpg';
 import homeStyles from '../styles/Home.module.css';
 import ChatButton from '../Components/RequestAptPop';
-
+import home from '../styles/EmailReq.module.css';
 
 
 
@@ -14,7 +14,7 @@ function About() {
         <div className={homeStyles.rectangle}>
             <Image
                 src={back.src} alt="About section image" width="400" height="400"
-                className={homeStyles.pic} />
+                className={home.pic} />
             <div className={homeStyles.about}>
                 <h2>About Me</h2>
                 <p>My mission is to promote heart health and prevent heart disease in my patients.
