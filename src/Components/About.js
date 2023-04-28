@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-import back from '../icons/drImage.jpg';
+import back from '../icons/drImagee.png';
 import homeStyles from '../styles/Home.module.css';
 import ChatButton from '../Components/RequestAptPop';
 import home from '../styles/EmailReq.module.css';

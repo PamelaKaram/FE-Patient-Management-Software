@@ -3,6 +3,7 @@ import Card from '../Components/Card.js';
 import buttonStyles from '../styles/HomeCards.module.css';
 import back from '../icons/drImage.jpg';
 import Image from 'next/image';
+import homeImage from '../icons/backImage.jpg';
 const CardList = () => {
 
   return (
@@ -14,14 +15,7 @@ const CardList = () => {
           <span> Dr. Abou Karam</span>
           </h1>
        
-        <Image
-          className={buttonStyles.logo}
-          src={back.src}
-          alt="Dr image"
-          loading="lazy"
-          width={400}
-          height={400}
-        />
+     
       </div>
       <div className={buttonStyles.cardsContainer}>
 
