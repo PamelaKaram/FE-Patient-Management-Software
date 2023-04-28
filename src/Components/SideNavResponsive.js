@@ -9,7 +9,7 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import { useTheme } from "@mui/material/styles";
-
+import { getSession } from "next-auth/react";
 import menu from "../icons/SideNav.svg";
 import Image from "next/image";
 import SideStyles from "../styles/Sidenav3.module.css";
@@ -22,15 +22,15 @@ import SearchIcon from "../icons/searchIcon.svg";
 import loginIcon from "../icons/loginIcon.svg";
 import homeIcon from "../icons/homeIconB.svg";
 import { signOut } from "next-auth/react";
-
 import { useRouter } from 'next/router'
 
-export default function TemporaryDrawer() {
+export default function TemporaryDrawer({ role, uuid }) {
+
   const router = useRouter()
   const [state, setState] = React.useState({
     left: false,
   });
- 
+
   const toggleDrawer = (anchor, open) => (event) => {
     if (
       event.type === "keydown" &&
@@ -43,9 +43,9 @@ export default function TemporaryDrawer() {
   };
 
   const list = (anchor) => (
-    
+
     <Box
-    
+
       sx={{
         width: anchor === "top" || anchor === "bottom" ? "auto" : 250,
         height: "100vh",
@@ -61,9 +61,9 @@ export default function TemporaryDrawer() {
               alt="Home"
               width={25}
               height={25}
-             />
+            />
           </ListItemIcon>
-          <ListItemText primary={"Home"} onClick={() => window.location.href = "../"} />
+          <ListItemText primary={"Home"} onClick={() => router.push("/")} />
         </ListItemButton>
 
 
@@ -95,7 +95,7 @@ export default function TemporaryDrawer() {
               alt="Settings"
               width={27}
               height={27}
-             
+
             />
           </ListItemIcon>
           <ListItemText primary={"Settings"} />
@@ -103,16 +103,28 @@ export default function TemporaryDrawer() {
       </List>
 
       <Divider sx={{ color: "#EDF8EB" }} />
-      <ListItemButton onClick={() => window.location.href = "/login"}>
+      {role && uuid ? <ListItemButton onClick={() => router.push(`/${role}/${uuid}`)} >
+
         <ListItemIcon>
-          <Image src={loginIcon.src} 
-          alt="Login" 
-          width={23} 
-          height={23} 
-       />
+          <Image src={loginIcon.src}
+            alt="Login"
+            width={23}
+            height={23}
+          />
+        </ListItemIcon>
+        <ListItemText primary={"Back to page"} />
+      </ListItemButton> : <ListItemButton onClick={() => router.push("/login")} >
+
+        <ListItemIcon>
+          <Image src={loginIcon.src}
+            alt="Login"
+            width={23}
+            height={23}
+          />
         </ListItemIcon>
         <ListItemText primary={"Login"} />
-      </ListItemButton>
+      </ListItemButton>}
+
     </Box>
   );
 
@@ -134,4 +146,28 @@ export default function TemporaryDrawer() {
       </Box>
     </div>
   );
+}
+
+// server side props
+export async function getServerSideProps(context) {
+  const session = await getSession(context);
+  let role;
+  let uuid;
+  if (session) {
+    role = session.user.role;
+    uuid = session.user.uuid;
+    return {
+      props: {
+        role,
+        uuid
+
+      }
+    }
+  }
+
+  return {
+    props: {
+
+    },
+  };
 }
