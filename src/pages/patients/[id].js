@@ -1,12 +1,13 @@
-import Styles from '../styles/PatientProfile.module.css';
-import ProfileIcon from '../icons/greenProfileIcon.svg';
-import CalendarIcon from '../icons/greenCalendarIcon.svg';
-import PhoneIcon from '../icons/greenPhoneIcon.svg';
-import MailIcon from '../icons/greenMailIcon.svg';
+import Styles from '../../styles/PatientProfile.module.css';
+import ProfileIcon from '../../icons/greenProfileIcon.svg';
+import CalendarIcon from '../../icons/greenCalendarIcon.svg';
+import PhoneIcon from '../../icons/greenPhoneIcon.svg';
+import MailIcon from '../../icons/greenMailIcon.svg';
 import Image from 'next/image';
-import ProfileImage from '../icons/profileImage.svg';
+import ProfileImage from '../../icons/profileImage.svg';
 import React, { useState } from 'react';
-import ChangePatientMedicalConditionPopup from '../Components/ChangePatientMedicalConditionPopUp';
+import ChangePatientMedicalConditionPopup from '../../Components/ChangePatientMedicalConditionPopUp';
+import PharmacyLookupPopUp from '../../Components/PharmacyLookupPopUp';
 import axios from 'axios';
 import { useRouter } from 'next/router';
 
@@ -56,6 +57,7 @@ const UserPage = ({ userData }) => {
                     <a href="/update_patient_medical_prescription" className={Styles.act}>
                         <h2>Update Patient Medical Prescription</h2>
                     </a>
+                    <PharmacyLookupPopUp />
               </div>
           </div>
           <div className={Styles.personalInfo}>
