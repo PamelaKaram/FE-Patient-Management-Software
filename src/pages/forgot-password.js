@@ -45,8 +45,8 @@ const ForgotPassword = () => {
             />
             {errors.email && <p className={LoginStyles.error}>Please enter a valid email address</p>}
           </div>
-          <button className={LoginStyles.customButton} type="submit">
-            Reset Password
+          <button className={LoginStyles.customButton} type="submit" onClick={() => router.push("/forgot-passwordd")}>
+            Reset Password 
           </button>
         </form>
         <Link href="/login" className={LoginStyles.forgotPassword}>
