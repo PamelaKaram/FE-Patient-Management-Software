@@ -1,7 +1,7 @@
 import React from 'react';
 import Card from '../Components/Card.js';
 import buttonStyles from '../styles/HomeCards.module.css';
-import back from '../icons/drImage.svg';
+import back from '../icons/drImage.jpg';
 import Image from 'next/image';
 const CardList = () => {
 
