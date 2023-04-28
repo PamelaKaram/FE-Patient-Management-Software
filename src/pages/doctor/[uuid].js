@@ -65,7 +65,7 @@ function Doctor({ data }) {
             <div className={DoctorStyles.bottomCenter}>
               <div className="fixed">
                 <div className={SideStyles.searchBarContainer}>
-                  <SearchBox />
+                  <SearchBox className={DoctorStyles.searchDoctor}/>
                 </div>
               </div>
             </div>
