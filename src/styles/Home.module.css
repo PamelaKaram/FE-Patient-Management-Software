@@ -10,6 +10,14 @@
 .rectangle{
   background-Color: #E8F1FF;
   display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.rectangle img {
+  width: 30vw;
+  object-fit: cover;
 }
 
 .about {
@@ -18,5 +26,17 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 20px;
+  width: 40%;
+  gap: 10px;
+}
+
+/*media queries for less than 768 px*/
+@media (max-width: 768px) {
+  .rectangle{
+    justify-content: space-between;
+  }
+  .about {
+    width: 60%;
+    gap: 10px;
+  }
 }
