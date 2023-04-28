@@ -15,7 +15,7 @@ function Search({ HitsContainer }) {
       }}
     >
       <h1>Search Patients</h1>
-      <InstantSearch searchClient={searchClient} indexName="users">
+      <InstantSearch searchClient={searchClient} indexName="patients">
         <SearchBox />
         <HitsContainer />
       </InstantSearch>
