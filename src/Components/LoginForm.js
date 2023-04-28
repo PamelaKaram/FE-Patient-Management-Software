@@ -15,7 +15,6 @@ export default function LoginForm() {
   const { register, control, handleSubmit, formState } = form;
   const { errors } = formState;
   const session = useSession();
-  console.log(session);
 
   const onSubmit = async (data) => {
     try {
@@ -27,9 +26,8 @@ export default function LoginForm() {
       if (signin.error) setSignInError(signin.error);
       else {
         const role = session.data.user.role;
-        if (role === "doctor") router.push("/doctor");
-        else if (role === "patient") router.push("/patient");
-        else if (role === "pharmacy") router.push("/pharmacy");
+        const uuid = session.data.user.uuid;
+        router.push(`/${role}/${uuid}`);
       }
     } catch (err) {
       console.log(err);
