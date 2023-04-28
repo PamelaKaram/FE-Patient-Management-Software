@@ -10,12 +10,11 @@ import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import { StaticDatePicker, LocalizationProvider } from "@mui/x-date-pickers";
 import react, { useState } from "react";
 import { getSession } from "next-auth/react";
+import axios from "../../../lib/axios.js";
 
-export default function Patient({ session, uuid }) {
+export default function Patient({ data }) {
   const [date, setDate] = useState();
   const [focus, setFocus] = useState(false);
-
-  console.log(uuid);
 
   const handleSingleDateChange = (date) => {
     setDate(date);
@@ -93,10 +92,18 @@ export async function getServerSideProps(context) {
     };
   }
 
+  const data = await axios.get("info/patient", {
+    params: {
+      patientUUID: uuid,
+    },
+    headers: {
+      Authorization: `Bearer ${session.user.accessToken}`,
+    },
+  });
+
   return {
     props: {
-      session,
-      uuid,
+      data: data.data.data,
     },
   };
 }

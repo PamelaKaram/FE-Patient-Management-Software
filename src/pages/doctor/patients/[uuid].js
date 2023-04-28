@@ -13,19 +13,10 @@ import Link from "next/link";
 import axios from "../../../../lib/axios.js";
 import { getSession } from "next-auth/react";
 
-const UserPage = ({ uuid, session }) => {
+const UserPage = ({ data }) => {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const router = useRouter();
-  const funct = async () => {
-    const data = await axios.get("info/patient", {
-      params: {
-        patientUUID: "f9e265cb-7213-4366-97b4-c94b49751ed7",
-      },
-    });
-    console.log(data);
-  };
-  funct();
-
+  console.log(data);
   return (
     <>
       {/* <div className={Styles.page}>
@@ -189,10 +180,18 @@ export async function getServerSideProps(context) {
     };
   }
 
+  const data = await axios.get("info/patient", {
+    params: {
+      patientUUID: uuid,
+    },
+    headers: {
+      Authorization: `Bearer ${session.user.accessToken}`,
+    },
+  });
+
   return {
     props: {
-      uuid,
-      session,
+      data: data.data.data,
     },
   };
 }

@@ -5,8 +5,9 @@ import Searchbar from "../../Components/FinalSearchBar2";
 import InfoBoxes from "../../Components/InfoBoxes";
 import Location from "../../Components/Location";
 import { getSession } from "next-auth/react";
+import axios from "../../../lib/axios";
 
-export default function Pharmacy({ session, uuid }) {
+export default function Pharmacy({ data }) {
   return (
     <div className={SideStyles.body}>
       <div className={SideStyles.leftHalf}>
@@ -55,10 +56,18 @@ export async function getServerSideProps(context) {
     };
   }
 
+  const data = await axios.get("info/pharmacy", {
+    params: {
+      pharmacyUUID: uuid,
+    },
+    headers: {
+      Authorization: `Bearer ${session.user.accessToken}`,
+    },
+  });
+
   return {
     props: {
-      session,
-      uuid,
+      data: data.data.data,
     },
   };
 }

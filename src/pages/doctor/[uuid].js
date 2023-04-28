@@ -19,11 +19,12 @@ import HitsContainer from "../../Components/hitsContainer";
 import { InstantSearch, SearchBox, Configure } from "react-instantsearch-dom";
 import { searchClient } from "../../typesenseAdapter";
 import { getSession } from "next-auth/react";
+import axios from "../../../lib/axios";
 
-function Doctor({ session, uuid }) {
+function Doctor({ data }) {
   const [date, setDate] = useState(new Date());
   const [focus, setFocus] = useState(false);
-  console.log(session);
+  console.log(data);
 
   const handleSingleDateChange = (date) => {
     setDate(date);
@@ -169,10 +170,18 @@ export async function getServerSideProps(context) {
     };
   }
 
+  const data = await axios.get("info/doctor", {
+    params: {
+      doctorUUID: uuid,
+    },
+    headers: {
+      Authorization: `Bearer ${session.user.accessToken}`,
+    },
+  });
+
   return {
     props: {
-      session,
-      uuid,
+      data: data.data.data,
     },
   };
 }
