@@ -1,18 +1,67 @@
 import { connectHits } from "react-instantsearch-dom";
 import Link from "next/link";
-import styles from "./HitsContainer.module.css";
+import { useRouter } from "next/router";
+import WelcomeStyles from "../styles/Welcome.module.css";
 
 function HitsContainer({ hits }) {
-  console.log(hits);
+  const router = useRouter();
   return (
-    <div className={styles.container}>
+    <div>
       {hits.map((hit) => (
-        <div key={hit.objectID} className={styles.hit}>
-          <Link href={`/patient/\${hit.objectID}`}>
-            <a>{hit.firstName} {hit.lastName}</a>
-          </Link>
+        <div
+          style={{
+            cursor: "pointer",
+          }}
+          key={hit.objectID}
+        >
+          <div
+            style={{
+              display: "flex",
+              minWidth: "350px",
+              flexDirection: "row",
+              justifyContent: "space-between",
+              alignItems: "center",
+              padding: "0.5rem",
+              width: "100%",
+            }}
+          >
+            <h2
+              style={{
+                width: "100%",
+              }}
+            >
+              {hit.firstName} {hit.lastName}
+            </h2>
+            <button
+              onClick={() => router.push(`/patients/${hit.objectID}`)}
+              className={WelcomeStyles.button}
+            >
+              View Patient
+            </button>
+          </div>
         </div>
       ))}
+      {hits.length === 0 && (
+        <div
+          style={{
+            display: "flex",
+            minWidth: "350px",
+            flexDirection: "row",
+            justifyContent: "space-between",
+            alignItems: "center",
+            padding: "0.5rem",
+            width: "100%",
+          }}
+        >
+          <h2
+            style={{
+              width: "100%",
+            }}
+          >
+            None found
+          </h2>
+        </div>
+      )}
     </div>
   );
 }
