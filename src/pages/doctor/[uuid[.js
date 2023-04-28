@@ -1,26 +1,26 @@
 // import Searchbar from "../Components/finalSearchBar.js";
 import React, { useState } from "react";
 import { StaticDatePicker, LocalizationProvider } from "@mui/x-date-pickers";
-import ActivityButton from "../Components/ActivityButton";
+import ActivityButton from "../../Components/ActivityButton";
 import { BrowserRouter, Link } from "react-router-dom";
 import DoctorStyles from "../styles/DoctorPage.module.css";
-import Sidebar from "../Components/Sidenav1";
-import Welcome from "../Components/Welcome";
-import AppointmentsList from "../Components/AppointmentList";
+import Sidebar from "../../Components/Sidenav1";
+import Welcome from "../../Components/Welcome";
+import AppointmentsList from "../../Components/AppointmentList";
 import SideStyles from "../styles/DoctorActivityPage.module.css";
 import { Routes, Route, useNavigate } from "react-router-dom";
-import Links from "../Components/Links";
+import Links from "../../Components/Links";
 import LinksStyles from "../styles/Links.module.css";
 import WelcomeStyles from "../styles/Welcome.module.css";
-import ChatActivty from "../Components/ChatActivity";
+import ChatActivty from "../../Components/ChatActivity";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import moment from "moment";
-import HitsContainer from "../Components/hitsContainer";
+import HitsContainer from "../../Components/hitsContainer";
 import { InstantSearch, SearchBox, Configure } from "react-instantsearch-dom";
-import { searchClient } from "../typesenseAdapter";
+import { searchClient } from "../../typesenseAdapter";
 import { getSession } from "next-auth/react";
 
-function Doctor({ session }) {
+function Doctor({ session, uuid }) {
   const [date, setDate] = useState(new Date());
   const [focus, setFocus] = useState(false);
   console.log(session);
@@ -146,6 +146,7 @@ function Doctor({ session }) {
 
 export async function getServerSideProps(context) {
   const session = await getSession(context);
+  const { uuid } = context.query;
 
   if (!session) {
     return {
@@ -170,6 +171,7 @@ export async function getServerSideProps(context) {
   return {
     props: {
       session,
+      uuid,
     },
   };
 }
