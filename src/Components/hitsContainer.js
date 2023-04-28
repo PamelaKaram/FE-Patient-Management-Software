@@ -5,6 +5,7 @@ import WelcomeStyles from "../styles/Welcome.module.css";
 
 function HitsContainer({ hits }) {
   const router = useRouter();
+  console.log(hits);
   return (
     <div>
       {hits.map((hit) => (
@@ -33,7 +34,7 @@ function HitsContainer({ hits }) {
               {hit.firstName} {hit.lastName}
             </h2>
             <button
-              onClick={() => router.push(`/patients/${hit.objectID}`)}
+              onClick={() => router.push(`/doctor/patients/${hit.uuid}`)}
               className={WelcomeStyles.button}
             >
               View Patient

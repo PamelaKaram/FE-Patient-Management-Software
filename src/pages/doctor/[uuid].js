@@ -3,15 +3,15 @@ import React, { useState } from "react";
 import { StaticDatePicker, LocalizationProvider } from "@mui/x-date-pickers";
 import ActivityButton from "../../Components/ActivityButton";
 import { BrowserRouter, Link } from "react-router-dom";
-import DoctorStyles from "../styles/DoctorPage.module.css";
+import DoctorStyles from "../../styles/DoctorPage.module.css";
 import Sidebar from "../../Components/Sidenav1";
 import Welcome from "../../Components/Welcome";
 import AppointmentsList from "../../Components/AppointmentList";
-import SideStyles from "../styles/DoctorActivityPage.module.css";
+import SideStyles from "../../styles/DoctorActivityPage.module.css";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import Links from "../../Components/Links";
-import LinksStyles from "../styles/Links.module.css";
-import WelcomeStyles from "../styles/Welcome.module.css";
+import LinksStyles from "../../styles/Links.module.css";
+import WelcomeStyles from "../../styles/Welcome.module.css";
 import ChatActivty from "../../Components/ChatActivity";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import moment from "moment";
@@ -89,7 +89,8 @@ function Doctor({ session, uuid }) {
               <Configure hitsPerPage={5} />
             </div>
           </div>
-          <div className="">
+          <div className={WelcomeStyles.main}>
+            <h1>Quick Links</h1>
             <Links />
           </div>
         </div>
