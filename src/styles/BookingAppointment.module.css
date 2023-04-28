@@ -80,3 +80,54 @@
 .AppBox {
     width: 100%;
   }
+  
+.appointmentContainer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+  }
+  
+.calendarContainer {
+    margin-bottom: 1rem;
+  }
+  
+.timeSlotsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+  }
+  
+.timeSlot {
+    flex-basis: 45%;
+  }
+  
+.descriptionContainer {
+    margin-bottom: 1rem;
+  }
+
+.customButton {
+    padding: 0.625rem 1.25rem;
+    font-size: 0.875rem;
+    font-weight: bold;
+    border: 2px solid #1976D2;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 1.25rem;
+    margin-bottom: 1.5625rem;
+    text-align: center;
+    width: 9.375rem;
+    background-color: #1976D2;
+    color: #ffffff;
+    align-self: flex-end;
+  }
+  
+.customButton:hover {
+    background-color: #ffffff;
+    color: #1976D2;
+  }
+
+.errorMessage {
+    color: red;
+}
