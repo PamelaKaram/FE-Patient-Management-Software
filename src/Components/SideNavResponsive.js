@@ -19,8 +19,8 @@ import LogoutIcon from "../icons/logoutIcon.svg";
 import CalendarIcon from "../icons/calendarIcon.svg";
 import ChatIcon from "../icons/chatIcon.svg";
 import SearchIcon from "../icons/searchIcon.svg";
-import loginIcon from "../icons/homeLoginIcon.svg";
-
+import loginIcon from "../icons/loginIcon.svg";
+import homeIcon from "../icons/homeIconB.svg";
 import { signOut } from "next-auth/react";
 
 export default function TemporaryDrawer() {
@@ -52,25 +52,13 @@ export default function TemporaryDrawer() {
         <ListItemButton>
           <ListItemIcon>
             <Image
-              src={DashboardIcon.src}
-              alt="Dashboard"
+              src={homeIcon.src}
+              alt="Home"
               width={25}
               height={25}
             />
           </ListItemIcon>
-          <ListItemText primary={"Dashboard"} />
-        </ListItemButton>
-
-        <ListItemButton>
-          <ListItemIcon>
-            <Image
-              src={CalendarIcon.src}
-              alt="Calendar"
-              width={27}
-              height={27}
-            />
-          </ListItemIcon>
-          <ListItemText primary={"Calendar"} />
+          <ListItemText primary={"Home"} />
         </ListItemButton>
 
         <ListItemButton>
