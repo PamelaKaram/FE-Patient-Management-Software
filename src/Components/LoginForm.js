@@ -7,6 +7,7 @@ import SideImage from "../Icons/registrationFormIcon.svg";
 import { signIn, useSession } from "next-auth/react";
 import { useState } from "react";
 import { useRouter } from "next/router";
+import Link from "next/link";
 
 export default function LoginForm() {
   const form = useForm();
@@ -78,7 +79,12 @@ export default function LoginForm() {
           <button className={LoginStyles.customButton} type="submit">
             Login
           </button>
+
+
         </form>
+        <Link href="/forgot-password" className={LoginStyles.forgotPassword}>
+          Forgot Password?
+        </Link>
         <DevTool control={control} />
       </div>
       <div className={LoginStyles.image}>
