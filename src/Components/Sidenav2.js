@@ -5,7 +5,6 @@ import searchIcon from "../icons/homeSearchIcon.svg";
 import settingsIcon from "../icons/homeSettingsIcon.svg";
 import loginIcon from "../icons/homeLoginIcon.svg";
 import Image from "next/image";
-import { signOut } from "next-auth/react";
 
 const Sidebar = () => {
   return (
@@ -29,7 +28,7 @@ const Sidebar = () => {
       <div className={SideStyles.signIn}>
         <Image
           src={loginIcon.src}
-          alt="Logout"
+          alt="Login"
           width={25}
           height={25}
           onClick={() => {

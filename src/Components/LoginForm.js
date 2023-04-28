@@ -52,6 +52,7 @@ export default function LoginForm() {
                   message: "Invalid email address",
                 },
               })}
+              placeholder={"Email"}
               className={LoginStyles.input}
             />
           </div>
@@ -70,13 +71,9 @@ export default function LoginForm() {
                   value: 8,
                   message: "Password must be at least 8 characters",
                 },
-                pattern: {
-                  value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/,
-                  message:
-                    "Password must contain 1 upper and 1 lowercase letter and 1 number",
-                },
               })}
               className={LoginStyles.input}
+              placeholder={"Password"}
             />
           </div>
           <p className={LoginStyles.error}>{errors.password?.message}</p>

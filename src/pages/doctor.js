@@ -18,10 +18,12 @@ import moment from "moment";
 import HitsContainer from "../Components/hitsContainer";
 import { InstantSearch, SearchBox, Configure } from "react-instantsearch-dom";
 import { searchClient } from "../typesenseAdapter";
+import { getSession } from "next-auth/react";
 
-function Doctor() {
+function Doctor({ session }) {
   const [date, setDate] = useState(new Date());
   const [focus, setFocus] = useState(false);
+  console.log(session);
 
   const handleSingleDateChange = (date) => {
     setDate(date);
@@ -116,23 +118,6 @@ function Doctor() {
 
       <div className={DoctorStyles.section}>
         <div className={AppointmentsList.apt}>
-          <div style={{ width: "100%", margin: "50px" }}>
-            <LocalizationProvider dateAdapter={AdapterDateFns}>
-              <StaticDatePicker
-                value={date}
-                label="See Appointments"
-                onChange={handleSingleDateChange}
-
-                // initialVisibleMonth={() => moment()}
-                // focused={focus}
-                // numberOfMonths={1}
-                // onFocusChange={({ focused }) => setFocus(focused)}
-                // isDayBlocked={isBlocked}
-              />
-            </LocalizationProvider>
-          </div>
-        </div>
-        <div className={AppointmentsList.apt}>
           <ChatActivty />
         </div>
       </div>
@@ -157,6 +142,35 @@ function Doctor() {
       </button>
     </div>
   );
+}
+
+export async function getServerSideProps(context) {
+  const session = await getSession(context);
+
+  if (!session) {
+    return {
+      redirect: {
+        destination: "/login",
+        permanent: false,
+      },
+    };
+  }
+
+  if (session.user.role !== "doctor") {
+    const role = session.user.role;
+    return {
+      redirect: {
+        destination: `/${role}`,
+        permanent: false,
+      },
+    };
+  }
+
+  return {
+    props: {
+      session,
+    },
+  };
 }
 
 export default Doctor;
