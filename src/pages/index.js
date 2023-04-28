@@ -10,6 +10,8 @@ import Buttons from '../Components/HomePageButtons';
 import BlogArticle from '../Components/BlogsAndArticles';
 import Contact from '../Components/Contact';
 import About from '../Components/About';
+import Tips from '../Components/Tips';
+
 export default function Home() {
   // render the SidnavMobile component if the screen width is less than 768px
   // render the SidenavWeb component if the screen width is greater than 768px
@@ -59,6 +61,7 @@ export default function Home() {
     </div>
     <div>
       <BlogArticle articles={articles} />
+      <Tips />
       <Contact />
     </div>
   </main>

@@ -1,31 +1,67 @@
 .container {
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to right, #86B2F3 50%, #86B2F3 50%, #eee 50%);
-    border-radius: 15px;
-    line-height: 2.5;
-    padding-bottom: 27px;
-    padding-top: 15px;
-    padding-left: 50px;
-    font-weight: 500;
-}
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    margin-left: 25px;
+  }
 
-.tips {
-    background: #B8D3FB;
-    border-radius: 15px;
-    padding-bottom: 15px;
-    padding-top: 12px;
-    padding-left: 25px;
-}
-
-.introSentence {
+.title {
+    color: #000000;
+    padding-top: 30px;
     padding-bottom: 10px;
+    position: relative;
+    display: inline-block;
+    margin-left: 25px;
+}
+
+.header {
+    margin-bottom: 30px;
+}
+
+.title::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50%;
+    height: 2px;
+    background-color: currentColor;
+}
+  
+.tips {
+    list-style-type: none;
+    padding-left: 0;
+    margin: 0;
+    font-weight: 500;
+  }
+
+.tip:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-size: 18px;
 }
 
 .tip {
-    list-style-type: none;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #f8f8f8;
+    border-radius: 10px;
+    color: rgb(0, 0, 0);
+    height: 60px;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
   }
 
-.concSentence {
-    padding-top: 8px;
+.back {
+    width: 60px;
+    height: 60px;
+    background-color: #6C9CE5;
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    margin-right: 20px;
+    margin-left: 0;
 }
