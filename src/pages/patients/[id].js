@@ -58,6 +58,9 @@ const UserPage = ({ userData }) => {
                         <h2>Update Patient Medical Prescription</h2>
                     </a>
                     <PharmacyLookupPopUp />
+                    <a href="/booking_appointment" className={Styles.act}>
+                        <h2>Book an Appointment</h2>
+                    </a>
               </div>
           </div>
           <div className={Styles.personalInfo}>
