@@ -107,8 +107,8 @@ export default function TemporaryDrawer() {
         <ListItemIcon>
           <Image src={loginIcon.src} 
           alt="Login" 
-          width={27} 
-          height={27} 
+          width={23} 
+          height={23} 
        />
         </ListItemIcon>
         <ListItemText primary={"Login"} />
