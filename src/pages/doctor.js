@@ -158,9 +158,10 @@ export async function getServerSideProps(context) {
 
   if (session.user.role !== "doctor") {
     const role = session.user.role;
+    const uuid = session.user.uuid;
     return {
       redirect: {
-        destination: `/${role}`,
+        destination: `/${role}/${uuid}`,
         permanent: false,
       },
     };
