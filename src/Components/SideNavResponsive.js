@@ -73,7 +73,7 @@ export default function TemporaryDrawer() {
           <ListItemIcon>
             <Image src={ChatIcon.src} alt="Chat" width={27} height={27} />
           </ListItemIcon>
-          <ListItemText primary={"Chats"} />
+          <ListItemText primary={"Contact"} />
         </ListItemButton>
 
         <ListItemButton>
