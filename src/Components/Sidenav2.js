@@ -10,32 +10,26 @@ const Sidebar = () => {
   return (
     <div className={SideStyles.sidebar}>
       <ul>
-        <li>
-          <Image src={homeIcon.src} alt="Home" width={25} height={25} />
-          <span>Home</span>
+        <li className={SideStyles.list}>
+         Home
         </li>
-        <li>
-          <Image src={chatIcon.src} alt="Chat" width={25} height={25} />
+        <li className={SideStyles.list}>
+         Home
         </li>
-        <li>
-          <Image src={searchIcon.src} alt="Search" width={25} height={25} />
+        <li className={SideStyles.list}>
+          Search
         </li>
-        <li>
-          <Image src={settingsIcon.src} alt="Settings" width={25} height={25} />
+        <li className={SideStyles.list}>
+          Settings
+        </li>
+        <li className={SideStyles.list}
+        onClick={() => {
+          window.location.href = "/login";
+        }}>
+          Login
+          
         </li>
       </ul>
-
-      <div className={SideStyles.signIn}>
-        <Image
-          src={loginIcon.src}
-          alt="Login"
-          width={25}
-          height={25}
-          onClick={() => {
-            window.location.href = "/login";
-          }}
-        />
-      </div>
     </div>
   );
 };
