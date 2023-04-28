@@ -23,11 +23,14 @@ import loginIcon from "../icons/loginIcon.svg";
 import homeIcon from "../icons/homeIconB.svg";
 import { signOut } from "next-auth/react";
 
+import { useRouter } from 'next/router'
+
 export default function TemporaryDrawer() {
+  const router = useRouter()
   const [state, setState] = React.useState({
     left: false,
   });
-
+ 
   const toggleDrawer = (anchor, open) => (event) => {
     if (
       event.type === "keydown" &&
@@ -40,7 +43,9 @@ export default function TemporaryDrawer() {
   };
 
   const list = (anchor) => (
+    
     <Box
+    
       sx={{
         width: anchor === "top" || anchor === "bottom" ? "auto" : 250,
         height: "100vh",
@@ -56,10 +61,13 @@ export default function TemporaryDrawer() {
               alt="Home"
               width={25}
               height={25}
-            />
+             />
           </ListItemIcon>
-          <ListItemText primary={"Home"} />
+          <ListItemText primary={"Home"} onClick={() => window.location.href = "../"} />
         </ListItemButton>
+
+
+
 
         <ListItemButton>
           <ListItemIcon>
@@ -72,7 +80,7 @@ export default function TemporaryDrawer() {
           <ListItemIcon>
             <Image
               src={SearchIcon.src}
-              alt="Dashboard"
+              alt="Search"
               width={27}
               height={27}
             />
