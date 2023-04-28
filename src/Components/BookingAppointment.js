@@ -57,3 +57,49 @@ function Appointment() {
         }
     };
 
+    return (
+        <div className={Styles.page}>
+            <div className={Styles.container}>
+                <div className={Styles.title}>
+                    <h3 className={Styles.titleText}>Book an Appointment</h3>
+                </div>
+                <div className={Styles.AppBox}>
+                    <div className={Styles.appointmentContainer}>
+                        <div className={Styles.calendarContainer}>
+                            <LocalizationProvider dateAdapter={AdapterDateFns}>
+                                <StaticDatePicker
+                                    value={date}
+                                    label="See Appointments"
+                                    onChange={handleSingleDateChange}
+                                />
+                            </LocalizationProvider>
+                        </div>
+                        <div className={Styles.timeSlotsContainer}>
+                            <div className={Styles.timeSlot}>
+                                <label htmlFor="time">Time:</label>
+                                <br />
+                                <input id="time" className={Styles.time} type="time" value={selectedTime} onChange={(event) => handleTimeChange(event.target.value)} />
+                            </div>
+                        </div>
+                        <div className={Styles.descriptionContainer}>
+                            <label htmlFor="description">Description:</label>
+                            <br />
+                            <textarea id="description" className={Styles.description} value={description} onChange={handleDescriptionChange} />
+                        </div>
+                        {formErrors.length > 0 && (
+                          <ul className={Styles.formErrors}>
+                            {formErrors.map((error, index) => (
+                              <li key={index} className={Styles.errorMessage}>{error}</li>
+                            ))}
+                          </ul>
+                        )}
+                        <button className={Styles.customButton} onClick={handleSubmit} type="submit">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+}
+
+
+export default Appointment;
