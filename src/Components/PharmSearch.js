@@ -1,8 +1,7 @@
-import { InstantSearch, SearchBox } from "react-instantsearch-dom";
+import { InstantSearch, SearchBox, Hits } from "react-instantsearch-dom";
 import { searchClient } from "../typesenseAdapter";
 
 function Search({ HitsContainer }) {
-  console.log(searchClient);
   return (
     <div
       style={{
@@ -14,10 +13,9 @@ function Search({ HitsContainer }) {
         padding: "1rem",
       }}
     >
-      <h1>Search Patients</h1>
-      <InstantSearch searchClient={searchClient} indexName="patients">
+      <InstantSearch searchClient={searchClient} indexName="pharmacies">
         <SearchBox />
-        <HitsContainer />
+        <HitsContainer hitComponent={Hits} />
       </InstantSearch>
     </div>
   );

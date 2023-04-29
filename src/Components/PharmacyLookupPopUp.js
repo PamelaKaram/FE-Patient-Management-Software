@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import SideStyles from '../styles/PharmacyLookupPopUp.module.css';
-import SearchBar from '../Components/Search';
+import SearchBar from '../Components/PharmSearch';
 import { useHistory } from 'react-router-dom';
-import hitsContainer from '../Components/PharmSearchResults';
+import HitsContainer from '../Components/PharmAccessToLookup';
 
 function PharmacyPermissionPopup() {
   const [isOpen, setIsOpen] = useState(false);
@@ -30,11 +30,11 @@ function PharmacyPermissionPopup() {
             <p>Give Pharmacies or Hospitals access to look up patients' Medical Prescription to help them find Medication.</p>
           </div>
           <div className={SideStyles.searchBar}>
-            <SearchBar HitsContainer={hitsContainer} results={results} setResults={setResults}/>
+            <SearchBar HitsContainer={() => <HitsContainer results={results} setResults={setResults} />} />
           </div>
         </div>
       )}
-  </div>
+    </div>
   );
 }
 
