@@ -1,21 +1,16 @@
-import Head from "next/head";
-import styles from "@/styles/Home.module.css";
-import Sidebar from "../Components/Sidenav1";
-import LoginForm from "../Components/LoginForm";
 import SidenavMobile from "../Components/SideNavResponsive";
 import SidenavWeb from "../Components/Sidenav2";
 import { useState, useEffect } from "react";
-import Buttons from "../Components/HomePageButtons";
 import BlogArticle from "../Components/BlogsAndArticles";
-import Contact from "../Components/Contact";
 import back from '../icons/drImagee.png';
 import homeStyles from '../styles/Home.module.css';
 import ChatButton from '../Components/RequestAptPop';
 import home from '../styles/EmailReq.module.css';
 import Tips from "../Components/Tips";
 import Image from "next/image";
-
-
+import Card from '../Components/Card.js';
+import buttonStyles from '../styles/HomeCards.module.css';
+import Contact from "../Components/Contact";
 
 export default function Home() {
   // render the SidnavMobile component if the screen width is less than 768px
@@ -56,10 +51,22 @@ export default function Home() {
   return (
     <main>
       {width < 768 ? <SidenavMobile /> : <SidenavWeb />}
-
-      <div>
-        <Buttons />
+      <header className={buttonStyles.headerContainer}>
+      <div className={buttonStyles.blueRectangle}>
+        <h1 className={buttonStyles.title}>
+          Trust your health to the best specialists 
+          Dr. Abou Karam
+          </h1>
+       
+     
       </div>
+      <div className={buttonStyles.cardsContainer}>
+
+        <Card title="Stay up to date with the latest articles on health." buttonColor="primary" buttonText="Blogs & Articles" />
+        <Card title="Good Health Good Wealth." buttonColor="secondary" buttonText="Tips" />
+        <Card title="Are you looking for a cardiologist?" buttonColor="tertiary" buttonText="About" />
+      </div>
+    </header>
       <div className={homeStyles.aboutContainer}>
             <Image
                 src={back.src} alt="About section image" width="400" height="400"
