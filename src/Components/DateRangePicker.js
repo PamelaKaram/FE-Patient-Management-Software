@@ -41,10 +41,12 @@ function CustomDateRangePicker() {
     }
   };
 
-  const handleDateRangeChange = (newValue) => {
+  const handleDateRangeChange = async (newValue) => {
     setValue(newValue);
     if (newValue[0] && newValue[1]) {
-      fetchAppointments(newValue[0], newValue[1]);
+      await fetchAppointments(newValue[0], newValue[1]);
+      setPopupVisible(true);
+
     }
   };
 
