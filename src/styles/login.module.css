@@ -8,6 +8,8 @@
   margin-left: auto;
   margin-right: auto;
   margin-top: 10%;
+  gap: 10px;
+  position: relative;
 }
 
 .error {
@@ -19,9 +21,11 @@
 .input {
   background-color:#f8f7f7;;
   border: 2px solid #e6e5e5;
-  border-radius: 8px;
+  border-radius: 4px;
   width: 18.75;
-  color:#696969
+  color:#696969;
+  height: 1.5rem;
+
 }
 
 .customButton[type="submit"] {
@@ -48,7 +52,14 @@
 
 
 .image {
-  position: relative;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  overflow: hidden; /* add this line to hide any overflow */  position: relative;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+
 }
 .form {
   display: flex;
@@ -59,11 +70,11 @@
   border-radius: 10px;
   width: 100%;
   height: 100%;
+  gap: 10px;
 
 }
 
 .forgotPassword {
-  text-align: right;
   font-size: 14px;
   color: #666;
   text-decoration: none;
@@ -72,4 +83,17 @@
 .forgotPassword:hover {
   text-decoration: underline;
 }
+
+@media only screen and (max-width: 768px){
+  .image{ 
+    display:none;
+ }
+ .container{ 
+    width: 100%;
+ }
+ .formContainer{
+    width: 90%;
+ }
+}
+
 
