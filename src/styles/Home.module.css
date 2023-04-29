@@ -7,7 +7,7 @@
   min-height: 100vh;
 }
 
-.rectangle{
+.aboutContainer {
   background-Color: #E8F1FF;
   display: flex;
   justify-content: center;
@@ -15,7 +15,7 @@
   width: 100%;
 }
 
-.rectangle img {
+.aboutContainer img {
   width: 30vw;
   object-fit: cover;
 }

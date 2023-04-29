@@ -1,26 +1,26 @@
-import appL from '../styles/AppointmentList.module.css';
+import appL from '../styles/Prescription.module.css';
 import React from "react";
 import Image from "next/image";
 import WelcomeStyles from "../styles/Welcome.module.css";
 import downloadIcon   from "../icons/downloadIcon.svg";
+
 import viewIcon  from "../icons/viewIcon.svg";
-const appointmentsData = [
-  { id: 1, patient: "patient", startTime: "10:00 AM", endTime: "11:00 AM" },
-  { id: 2, patient: "patient", startTime: "11:00 AM", endTime: "12:00 PM" },
-  { id: 3, patient: "patient", startTime: "12:00 PM", endTime: "1:00 PM" },
-  { id: 4, patient: "patient", startTime: "1:00 PM", endTime: "2:00 PM" }
+const prescriptionData = [
+  { id: 1, medicine: "medicine", foodTiming: "10:AM", frequency:"1",  date: "2023-04-26 T16:50:05.000Z" },
+  { id: 2, medicine: "medicine", foodTiming: "10:AM",frequency:"1", date: "2023-04-26 T16:50:05.000Z" },
+  { id: 3, medicine: "medicine", foodTiming:  "10:AM",frequency:"1", date: "2023-04-26 T16:50:05.000Z"},
+  { id: 4, medicine: "medicine", foodTiming:  "10:AM",frequency:"1", date: "2023-04-26 T16:50:05.000Z" }
 ];
 
-
-const AppointmentsList = () => {
-  
-  const list = appointmentsData.map((appointment) => (
-    <div key={appointment.id} className={appL.appointmentpreview}>
-      <div className={appL.previewpatient}> Appointment <span>with</span> {appointment.patient}</div>
+const PreviousPrecriptions = ({ medicineData, medicines }) => {
+  console.log(medicineData, medicines);
+  const list = prescriptionData.map((prescription) => (
+    <div key={prescription.id} className={appL.prescriptionpreview}>
+      <div className={appL.previewmedicine}> Prescription on:</div>
       <div className={appL.info}>
-        <div className={appL.previewtime}>
-          {appointment.startTime} - {appointment.endTime}
-        </div>
+        <div className={appL.info}>
+            {prescription.date}
+      </div>
         <div className={appL.buttons}>
           <ul>
             <li>
@@ -48,18 +48,16 @@ const AppointmentsList = () => {
   return (
     <div>
       <div className={WelcomeStyles.main}>
-        <h1>List Of Appointments</h1>
+        <h1>List Of prescriptions</h1>
       </div>
     
-    <div className={appL.appointmentscontainer}>
+    <div className={appL.prescriptionscontainer}>
       {list}
       <div className={appL.decisions}>
         <button>
-          Create new appointment
+          View current medical prescription
         </button>
-        <button>
-          View future appointments
-        </button>
+      
       </div>
     </div>
     
@@ -67,4 +65,54 @@ const AppointmentsList = () => {
   );
 };
 
-export default AppointmentsList;
+export default PreviousPrecriptions;
+
+// export async function getServerSideProps(context) {
+//   const { uuid } = context.params;
+//   const session = await getSession(context);
+
+//   if (!session) {
+//     return {
+//       redirect: {
+//         destination: "/login",
+//         permanent: false,
+//       },
+//     };
+//   }
+
+//   if (session.user.role !== "doctor") {
+//     const role = session.user.role;
+//     const uuid = session.user.uuid;
+//     return {
+//       redirect: {
+//         destination: `/${role}/${uuid}`,
+//         permanent: false,
+//       },
+//     };
+//   }
+
+//   const data = await axios.get("info/medicine", {
+//     params: {
+//       medicineUUID: uuid,
+//     },
+//     headers: {
+//       Authorization: `Bearer ${session.user.accessToken}`,
+//     },
+//   });
+
+//   const pres = await axios.get("medicine/previousMedicalPrescription", {
+//     params: {
+//       medicineUUID: uuid,
+//     },
+//     headers: {
+//       Authorization: `Bearer ${session.user.accessToken}`,
+//     },
+//   });
+
+//   return {
+//     props: {
+//       medicineData: data.data.data,
+//       medicines: pres.data.data,
+//     },
+//   };
+// }

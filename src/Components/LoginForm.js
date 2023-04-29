@@ -3,7 +3,7 @@ import { DevTool } from "@hookform/devtools";
 import useAxiosAuth from "../../lib/hooks/useAxiosAuth";
 import LoginStyles from "@/styles/login.module.css";
 import Image from "next/image";
-import SideImage from "../Icons/registrationFormIcon.svg";
+import SideImage from "../icons/backImage.jpg";
 import { signIn, useSession } from "next-auth/react";
 import { useState } from "react";
 import { useRouter } from "next/router";
@@ -91,8 +91,9 @@ export default function LoginForm() {
         <Image
           src={SideImage.src}
           alt="Phone"
-          width={0}
-          height={0}
+          width={400}
+          height={400}
+
           className={LoginStyles.imageClass}
         />
       </div>
