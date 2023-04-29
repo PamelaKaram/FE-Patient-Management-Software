@@ -57,41 +57,25 @@ function DateRange() {
     const customStyles = `
         .rdrDayHovered {
             background-color: rgba(0, 128, 0, 0.2) !important;
-            border-radius: 50% !important;
+            border-radius: 10 !important;
+        }
+        .rdrToday {
+            background-color: green !important;
         }
 
         .rdrInRange,
         .rdrStartEdge,
         .rdrEndEdge {
-            background-color: rgba(0, 128, 0, 0.5) !important;
-            border-radius: 50% !important;
+          background-color: rgba(0, 128, 0, 0.5) !important;
+          border-radius: 10 !important;
         }
 
         .rdrSelected {
-            background-color: green !important;
-            border-radius: 50% !important;
+            background-color: #91bf76 !important;
+            border-radius: 10 !important;
         }
-
-        .rdrDayToday .rdrDayNumber span {
+        .rdrToday span {
             border-bottom: 2px solid green !important;
-        }
-
-        .rdrDayToday:hover .rdrDayNumber span {
-            background-color: green !important;
-            border-radius: 50% !important;
-        }
-
-        .rdrMonthAndYearWrapper .rdrMonthAndYearPickers .rdrYearPicker select:focus,
-        .rdrMonthAndYearWrapper .rdrMonthAndYearPickers .rdrMonthPicker select:focus {
-            border-color: green !important;
-        }
-
-        .rdrCalendarWrapper .rdrDateDisplayWrapper .rdrDateDisplayItem .rdrDateDisplayItemTitle {
-            color: green !important;
-        }
-
-        .rdrDayDisabled span {
-            color: rgba(0, 128, 0, 0.3) !important;
         }
     `;
 
