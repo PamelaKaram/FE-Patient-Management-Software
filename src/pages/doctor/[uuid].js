@@ -74,46 +74,28 @@ function Doctor({ data }) {
 
         <div
           style={{
-            display: "flex",
-            flexDirection: "row",
-            padding: "1rem",
-            justifyContent: "center",
+            padding: "4rem"
           }}
         >
-          <div>
+          <div className={WelcomeStyles.headerGrid}>
             <Welcome />
-          </div>
-          <div>
             <div className={WelcomeStyles.main}>
               <h1>Patients</h1>
               <HitsContainer />
               <Configure hitsPerPage={5} />
             </div>
+            <div className={WelcomeStyles.main}>
+              <h1>Quick Links</h1>
+              <Links />
+            </div>
           </div>
-          <div className={WelcomeStyles.main}>
-            <h1>Quick Links</h1>
-            <Links />
-          </div>
+          
         </div>
       </InstantSearch>
 
       <div className={DoctorStyles.section}>
         <div className={AppointmentsList.apt}>
-          <LocalizationProvider dateAdapter={AdapterDateFns}>
-            <StaticDatePicker
-              value={date}
-              label="See Appointments"
-              onChange={handleSingleDateChange}
-
-              // initialVisibleMonth={() => moment()}
-              // focused={focus}
-              // numberOfMonths={1}
-              // onFocusChange={({ focused }) => setFocus(focused)}
-              // isDayBlocked={isBlocked}
-            />
-          </LocalizationProvider>
-        </div>
-        <div className={AppointmentsList.apt}>
+          <DateRange />
           <AppointmentsList />
         </div>
       </div>
