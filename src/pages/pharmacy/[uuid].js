@@ -1,11 +1,14 @@
 import React from "react";
 import SideStyles from "../../styles/PharmacyPage.module.css";
+import DoctorStyles from "../../styles/DoctorPage.module.css";
 import Sidebar from "../../Components/Sidenav3";
-import Searchbar from "../../Components/FinalSearchBar2";
+import { searchClient } from "../../typesenseAdapter";
 import InfoBoxes from "../../Components/InfoBoxes";
 import Location from "../../Components/Location";
 import { getSession } from "next-auth/react";
 import axios from "../../../lib/axios";
+import { InstantSearch, SearchBox, Configure } from "react-instantsearch-dom";
+import HitsContainer from "../../Components/hitsContainer";
 
 export default function Pharmacy({ data }) {
   return (
@@ -13,22 +16,28 @@ export default function Pharmacy({ data }) {
       <div className={SideStyles.leftHalf}>
         <Sidebar />
       </div>
-      <div className={SideStyles.rightHalf}>
-        <div className={SideStyles.imageContainer}>
-          <div className={SideStyles.bottomCenter}>
-            <Searchbar />
+      <InstantSearch searchClient={searchClient} indexName="patients">
+        <div className={SideStyles.rightHalf}>
+          <div className={SideStyles.imageContainer}>
+            <div className={SideStyles.bottomCenter}>
+              <SearchBox className={DoctorStyles.searchDoctor} />
+              <Configure hitsPerPage={5} />
+            </div>
+          </div>
+          <div className={SideStyles.infoLocContainer}>
+            <div className={SideStyles.drBox}>
+              <h3 className={SideStyles.underline}>{"Doctor's Contact"}</h3>
+              <InfoBoxes className={SideStyles.drInfo} />
+            </div>
+            <div className={SideStyles.location} style={{ margin: "1rem" }}>
+              <HitsContainer />
+            </div>
+            <div className={SideStyles.location} style={{ margin: "2rem" }}>
+              <Location />
+            </div>
           </div>
         </div>
-        <div className={SideStyles.infoLocContainer}>
-          <div className={SideStyles.drBox}>
-            <h3 className={SideStyles.underline}>{"Doctor's Contact"}</h3>
-            <InfoBoxes className={SideStyles.drInfo} />
-          </div>
-          <div className={SideStyles.location}>
-            <Location />
-          </div>
-        </div>
-      </div>
+      </InstantSearch>
     </div>
   );
 }

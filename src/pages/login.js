@@ -8,13 +8,38 @@ import SidenavWeb from "../Components/Sidenav2";
 import { useState, useEffect } from "react";
 
 export default function Home() {
-
   return (
     <main>
-      <SidenavMobile/>
-      <div style={{display:"grid", placeItems:"center", height:"95vh", width: '100%'}}>
+      <SidenavMobile />
+      <div
+        style={{
+          display: "grid",
+          placeItems: "center",
+          height: "95vh",
+          width: "100%",
+        }}
+      >
         <LoginForm />
       </div>
     </main>
   );
+}
+
+export async function getServerSideProps(context) {
+  const session = await getSession(context);
+
+  if (session) {
+    const role = session.user.role;
+    const uuid = session.user.uuid;
+    return {
+      redirect: {
+        destination: `/${role}/${uuid}`,
+        permanent: false,
+      },
+    };
+  }
+
+  return {
+    props: {},
+  };
 }
