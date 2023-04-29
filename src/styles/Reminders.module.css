@@ -1,15 +1,8 @@
-.col {
-    display: flex;
-    flex-direction: column;
-    gap: 0.9375rem;
-    margin-top: 1.875rem;
-    padding-right: 2.1875rem;
-}
-
 .reminder {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     gap: 0.625rem;
+    top:0;
     margin-left: 0.625rem;
 }
 
@@ -21,7 +14,9 @@
 
 .row {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    margin-top: 30px;
+    gap: 25px;
 }
 
 /* Media queries */

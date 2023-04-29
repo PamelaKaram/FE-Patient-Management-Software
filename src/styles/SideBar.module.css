@@ -7,8 +7,8 @@
     display: flex;
     align-items: center;
     flex-direction: column;
-    height: 100vh;
-    width: 25vw;
+    height: 1300px;
+    width: 260px;
     background-image: url('../icons/patientBackgroundIcon.svg');
     padding-top: 5%;
     margin-left: -10px;
@@ -30,6 +30,18 @@
 }
 
 /* Media queries */
+
+@media (max-width: 1440px) {
+    .container {
+        width: 300px;
+    }
+}
+
+@media (max-width: 1280px) {
+    .container {
+        width: 300px;
+    }
+}
 
 @media (max-width: 1024px) {
     .container {
@@ -75,5 +87,21 @@
         position: absolute;
         bottom: 10px;
         right: 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 5% 0;
+    }
+
+    .text, .drName {
+        font-size: 0.8rem;
     }
 }
