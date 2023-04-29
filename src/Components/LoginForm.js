@@ -82,18 +82,20 @@ export default function LoginForm() {
 
 
         </form>
-        <Link href="/forgot-password" className={LoginStyles.forgotPassword}>
-          Forgot Password?
-        </Link>
+        <div className={LoginStyles.forgotContainer}>
+          <Link href="/forgot-password" className={LoginStyles.forgotPassword}>
+            Forgot Password?
+          </Link>
+        </div>
+        
         <DevTool control={control} />
       </div>
       <div className={LoginStyles.image}>
-        <Image
+        <img
           src={SideImage.src}
           alt="Phone"
-          width={400}
-          height={400}
-
+          // height={100}
+          // width={100}
           className={LoginStyles.imageClass}
         />
       </div>
