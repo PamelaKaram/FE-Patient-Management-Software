@@ -48,6 +48,10 @@ function CustomDateRangePicker() {
     }
   };
 
+  const closePopup = () => {
+    setPopupVisible(false);
+  };
+
   return (
     <ThemeProvider theme={theme}>
       <LocalizationProvider dateAdapter={AdapterDateFns}>
@@ -77,7 +81,12 @@ function CustomDateRangePicker() {
             },
           }}
         />
-        {popupVisible && <AppointmentsPopup appointments={appointments} />}
+        {popupVisible && (
+          <AppointmentsPopup
+            appointments={appointments}
+            onClose={closePopup}
+          />
+        )}
       </LocalizationProvider>
     </ThemeProvider>
   );
