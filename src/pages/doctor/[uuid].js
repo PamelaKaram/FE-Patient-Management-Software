@@ -1,4 +1,3 @@
-// import Searchbar from "../Components/finalSearchBar.js";
 import React, { useState } from "react";
 import { StaticDatePicker, LocalizationProvider } from "@mui/x-date-pickers";
 import ActivityButton from "../../Components/ActivityButton";
@@ -20,6 +19,7 @@ import { InstantSearch, SearchBox, Configure } from "react-instantsearch-dom";
 import { searchClient } from "../../typesenseAdapter";
 import { getSession } from "next-auth/react";
 import axios from "../../../lib/axios";
+import { DateRange } from "@mui/icons-material";
 
 function Doctor({ data }) {
   const [date, setDate] = useState(new Date());
