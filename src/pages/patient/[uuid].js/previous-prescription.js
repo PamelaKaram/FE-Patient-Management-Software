@@ -62,7 +62,7 @@ export async function getServerSideProps(context) {
     };
   }
 
-  if (session.user.role !== "doctor") {
+  if (session.user.role !== "patient") {
     const role = session.user.role;
     const uuid = session.user.uuid;
     return {

@@ -1,16 +1,16 @@
 import React from "react";
-import SideStyles from "../../styles/PatientPage.module.css";
-import NavBar from "../../Components/Sidenav4";
-import SideBar from "../../Components/SideBar";
-import AppDateTime from "../../Components/AppDateTime";
-import Buttons from "../../Components/Buttons";
-import Reminders from "../../Components/Reminders";
-import Links from "../../Components/Links";
+import SideStyles from "../../../styles/PatientPage.module.css";
+import NavBar from "../../../Components/Sidenav4";
+import SideBar from "../../../Components/SideBar";
+import AppDateTime from "../../../Components/AppDateTime";
+import Buttons from "../../../Components/Buttons";
+import Reminders from "../../../Components/Reminders";
+import Links from "../../../Components/Links";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import { StaticDatePicker, LocalizationProvider } from "@mui/x-date-pickers";
 import react, { useState } from "react";
 import { getSession } from "next-auth/react";
-import axios from "../../../lib/axios.js";
+import axios from "../../../../lib/axios.js";
 
 export default function Patient({ data }) {
   const [date, setDate] = useState();

@@ -11,9 +11,40 @@ import WelcomeStyles from "../styles/Welcome.module.css";
 import downloadIcon from "../icons/downloadIcon.svg";
 
 import viewIcon from "../icons/viewIcon.svg";
+const prescriptionData = [
+  {
+    id: 1,
+    medicine: "medicine",
+    foodTiming: "10:AM",
+    frequency: "1",
+    date: "2023-04-26 T16:50:05.000Z",
+  },
+  {
+    id: 2,
+    medicine: "medicine",
+    foodTiming: "10:AM",
+    frequency: "1",
+    date: "2023-04-26 T16:50:05.000Z",
+  },
+  {
+    id: 3,
+    medicine: "medicine",
+    foodTiming: "10:AM",
+    frequency: "1",
+    date: "2023-04-26 T16:50:05.000Z",
+  },
+  {
+    id: 4,
+    medicine: "medicine",
+    foodTiming: "10:AM",
+    frequency: "1",
+    date: "2023-04-26 T16:50:05.000Z",
+  },
+];
 
-const PreviousPrecriptions = ({ patientData, medicines }) => {
-  const list = medicines.map((prescription) => (
+const PreviousPrecriptions = ({ patientData }) => {
+  console.log(medicineData, medicines);
+  const list = prescriptionData.map((prescription) => (
     <div key={prescription.id} className={appL.prescriptionpreview}>
       <div className={appL.previewmedicine}> Prescription on:</div>
       <div className={appL.info}>
@@ -62,7 +93,7 @@ export async function getServerSideProps(context) {
     };
   }
 
-  if (session.user.role !== "doctor") {
+  if (session.user.role !== "patient") {
     const role = session.user.role;
     const uuid = session.user.uuid;
     return {
@@ -82,19 +113,18 @@ export async function getServerSideProps(context) {
     },
   });
 
-  const pres = await axios.get("medicine/previousMedicalPrescription", {
-    params: {
-      patientUUID: uuid,
-    },
-    headers: {
-      Authorization: `Bearer ${session.user.accessToken}`,
-    },
-  });
+  //   const pres = await axios.get("medicine/previousMedicalPrescription", {
+  //     params: {
+  //       patientUUID: uuid,
+  //     },
+  //     headers: {
+  //       Authorization: `Bearer ${session.user.accessToken}`,
+  //     },
+  //   });
 
   return {
     props: {
       patientData: data.data.data,
-      medicines: pres.data.medicines,
     },
   };
 }
