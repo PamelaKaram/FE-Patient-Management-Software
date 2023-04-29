@@ -1,40 +1,33 @@
+import {Button } from "@mui/material";
+import DownloadOutlinedIcon from "@mui/icons-material/DownloadOutlined";
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 
-export async function getServerSideProps(context) {
-    const session = await getSession(context);
-    const { uuid } = context.query;
-  
-    if (!session) {
-      return {
-        redirect: {
-          destination: "/login",
-          permanent: false,
-        },
-      };
-    }
-  
-    if (session.user.role !== "doctor") {
-      const role = session.user.role;
-      const uuid = session.user.uuid;
-      return {
-        redirect: {
-          destination: `/${role}/${uuid}`,
-          permanent: false,
-        },
-      };
-    }
-  
-    const data = await axios.get("info/doctor", {
-      params: {
-        doctorUUID: uuid,
-      },
-      headers: {
-        Authorization: `Bearer ${session.user.accessToken}`,
-      },
-    });
-  
-    return {
-      props: {
-        data: data.data.data,
-      },
-    };
-  }
+
+
+
+
+const pres = () => {
+    return (
+        <main>
+        <Button
+            sx={{
+                backgroundColor: "green",
+                color: "white",
+                fontSize: "14px",
+                fontWeight: "bold",
+                padding: "10px 20px",
+            }}
+        >
+            <DownloadOutlinedIcon sx={{ mr: "10px" }} />
+            Pick a Date
+        </Button>
+       
+    </main>
+
+
+    );
+};
+
+export default pres;
+
