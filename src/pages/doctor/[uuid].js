@@ -74,26 +74,22 @@ function Doctor({ data }) {
 
         <div
           style={{
-            display: "flex",
-            flexDirection: "row",
-            padding: "1rem",
-            justifyContent: "center",
+            padding: "4rem"
           }}
         >
-          <div>
+          <div className={WelcomeStyles.headerGrid}>
             <Welcome />
-          </div>
-          <div>
             <div className={WelcomeStyles.main}>
               <h1>Patients</h1>
               <HitsContainer />
               <Configure hitsPerPage={5} />
             </div>
+            <div className={WelcomeStyles.main}>
+              <h1>Quick Links</h1>
+              <Links />
+            </div>
           </div>
-          <div className={WelcomeStyles.main}>
-            <h1>Quick Links</h1>
-            <Links />
-          </div>
+          
         </div>
       </InstantSearch>
 
