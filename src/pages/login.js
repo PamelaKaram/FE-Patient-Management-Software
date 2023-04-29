@@ -12,7 +12,9 @@ export default function Home() {
   return (
     <main>
       <SidenavMobile/>
-      <LoginForm />
+      <div style={{display:"grid", placeItems:"center", height:"95vh", width: '100%'}}>
+        <LoginForm />
+      </div>
     </main>
   );
 }
