@@ -1,25 +1,26 @@
-import Styles from "../../../styles/PatientProfile.module.css";
-import ProfileIcon from "../../../icons/greenProfileIcon.svg";
-import CalendarIcon from "../../../icons/greenCalendarIcon.svg";
-import PhoneIcon from "../../../icons/greenPhoneIcon.svg";
-import MailIcon from "../../../icons/greenMailIcon.svg";
+import Styles from "../../../../styles/PatientProfile.module.css";
+import ProfileIcon from "../../../../icons/greenProfileIcon.svg";
+import CalendarIcon from "../../../../icons/greenCalendarIcon.svg";
+import PhoneIcon from "../../../../icons/greenPhoneIcon.svg";
+import MailIcon from "../../../../icons/greenMailIcon.svg";
 import Image from "next/image";
-import ProfileImage from "../../../icons/profileImage.svg";
+import ProfileImage from "../../../../icons/profileImage.svg";
 import React, { useState } from "react";
-import ChangePatientMedicalConditionPopup from "../../../Components/ChangePatientMedicalConditionPopUp";
-import PharmacyLookupPopUp from "../../../Components/PharmacyLookupPopUp";
+import ChangePatientMedicalConditionPopup from "../../../../Components/ChangePatientMedicalConditionPopUp";
+import PharmacyLookupPopUp from "../../../../Components/PharmacyLookupPopUp";
 import { useRouter } from "next/router";
 import Link from "next/link";
-import axios from "../../../../lib/axios.js";
+import axios from "../../../../../lib/axios.js";
 import { getSession } from "next-auth/react";
 
 const UserPage = ({ data }) => {
+  console.log(data);
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const router = useRouter();
   console.log(data);
   return (
     <>
-      {/* <div className={Styles.page}>
+      <div className={Styles.page}>
         <div className={Styles.title}>
           <h3 className={Styles.titleText}>Patient Profile</h3>
         </div>
@@ -33,9 +34,9 @@ const UserPage = ({ data }) => {
               className={Styles.imageClass}
             />
             <h2>
-              {userData.firstName} {userData.lastName}
+              {data.firstName} {data.lastName}
             </h2>
-            <p className={Styles.detail}>{userData.email}</p>
+            <p className={Styles.detail}>{data.email}</p>
             <div className={Styles.activities}>
               <h2 className={Styles.currAct}>Personal Information</h2>
               <Link
@@ -93,7 +94,7 @@ const UserPage = ({ data }) => {
                     <div className={Styles.field}>
                       <h3>Name</h3>
                       <p className={Styles.detail}>
-                        {userData.firstName} {userData.lastName}
+                        {data.firstName} {data.lastName}
                       </p>
                     </div>
                     <Image
@@ -107,7 +108,7 @@ const UserPage = ({ data }) => {
                   <div className={Styles.box}>
                     <div className={Styles.field}>
                       <h3>Date of Birth</h3>
-                      <p className={Styles.detail}>{userData.dateOfBirth}</p>
+                      <p className={Styles.detail}>{data.birthday}</p>
                     </div>
                     <Image
                       src={CalendarIcon.src}
@@ -123,7 +124,7 @@ const UserPage = ({ data }) => {
                   <div className={Styles.box}>
                     <div className={Styles.field}>
                       <h3>Email</h3>
-                      <p className={Styles.detail}>{userData.email}</p>
+                      <p className={Styles.detail}>{data.email}</p>
                     </div>
                     <Image
                       src={MailIcon.src}
@@ -136,7 +137,7 @@ const UserPage = ({ data }) => {
                   <div className={Styles.box}>
                     <div className={Styles.field}>
                       <h3>Phone Number</h3>
-                      <p className={Styles.detail}>{userData.phoneNumber}</p>
+                      <p className={Styles.detail}>{data.phoneNumber}</p>
                     </div>
                     <Image
                       src={PhoneIcon.src}
@@ -151,7 +152,7 @@ const UserPage = ({ data }) => {
             </div>
           </div>
         </div>
-      </div> */}
+      </div>
     </>
   );
 };

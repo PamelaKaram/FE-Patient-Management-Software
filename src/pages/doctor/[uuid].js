@@ -65,7 +65,7 @@ function Doctor({ data }) {
             <div className={DoctorStyles.bottomCenter}>
               <div className="fixed">
                 <div className={SideStyles.searchBarContainer}>
-                  <SearchBox className={DoctorStyles.searchDoctor}/>
+                  <SearchBox className={DoctorStyles.searchDoctor} />
                 </div>
               </div>
             </div>
@@ -181,7 +181,7 @@ export async function getServerSideProps(context) {
 
   return {
     props: {
-      data: data.data.data,
+      data: data.data.data ?? null,
     },
   };
 }
