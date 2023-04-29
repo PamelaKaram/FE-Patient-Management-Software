@@ -9,7 +9,6 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import { useTheme } from "@mui/material/styles";
-
 import menu from "../icons/SideNav.svg";
 import Image from "next/image";
 import SideStyles from "../styles/Sidenav3.module.css";
@@ -21,16 +20,18 @@ import ChatIcon from "../icons/chatIcon.svg";
 import SearchIcon from "../icons/searchIcon.svg";
 import loginIcon from "../icons/loginIcon.svg";
 import homeIcon from "../icons/homeIconB.svg";
-import { signOut } from "next-auth/react";
-
-import { useRouter } from 'next/router'
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/router";
 
 export default function TemporaryDrawer() {
-  const router = useRouter()
+  const router = useRouter();
   const [state, setState] = React.useState({
     left: false,
   });
- 
+  const session = useSession();
+
+  console.log(session);
+
   const toggleDrawer = (anchor, open) => (event) => {
     if (
       event.type === "keydown" &&
@@ -43,9 +44,7 @@ export default function TemporaryDrawer() {
   };
 
   const list = (anchor) => (
-    
     <Box
-    
       sx={{
         width: anchor === "top" || anchor === "bottom" ? "auto" : 250,
         height: "100vh",
@@ -56,18 +55,10 @@ export default function TemporaryDrawer() {
       <List>
         <ListItemButton>
           <ListItemIcon>
-            <Image
-              src={homeIcon.src}
-              alt="Home"
-              width={25}
-              height={25}
-             />
+            <Image src={homeIcon.src} alt="Home" width={25} height={25} />
           </ListItemIcon>
-          <ListItemText primary={"Home"} onClick={() => window.location.href = "../"} />
+          <ListItemText primary={"Home"} onClick={() => router.push("/")} />
         </ListItemButton>
-
-
-
 
         <ListItemButton>
           <ListItemIcon>
@@ -78,12 +69,7 @@ export default function TemporaryDrawer() {
 
         <ListItemButton>
           <ListItemIcon>
-            <Image
-              src={SearchIcon.src}
-              alt="Search"
-              width={27}
-              height={27}
-            />
+            <Image src={SearchIcon.src} alt="Search" width={27} height={27} />
           </ListItemIcon>
           <ListItemText primary={"Search"} />
         </ListItemButton>
@@ -95,7 +81,6 @@ export default function TemporaryDrawer() {
               alt="Settings"
               width={27}
               height={27}
-             
             />
           </ListItemIcon>
           <ListItemText primary={"Settings"} />
@@ -103,16 +88,25 @@ export default function TemporaryDrawer() {
       </List>
 
       <Divider sx={{ color: "#EDF8EB" }} />
-      <ListItemButton onClick={() => window.location.href = "/login"}>
-        <ListItemIcon>
-          <Image src={loginIcon.src} 
-          alt="Login" 
-          width={23} 
-          height={23} 
-       />
-        </ListItemIcon>
-        <ListItemText primary={"Login"} />
-      </ListItemButton>
+      {session?.data?.user?.role && session?.data?.user?.uuid ? (
+        <ListItemButton
+          onClick={() =>
+            router.push(`/${session.data.user.role}/${session.data.user.uuid}`)
+          }
+        >
+          <ListItemIcon>
+            <Image src={loginIcon.src} alt="Login" width={23} height={23} />
+          </ListItemIcon>
+          <ListItemText primary={"Back to page"} />
+        </ListItemButton>
+      ) : (
+        <ListItemButton onClick={() => router.push("/login")}>
+          <ListItemIcon>
+            <Image src={loginIcon.src} alt="Login" width={23} height={23} />
+          </ListItemIcon>
+          <ListItemText primary={"Login"} />
+        </ListItemButton>
+      )}
     </Box>
   );
 

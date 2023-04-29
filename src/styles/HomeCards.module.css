@@ -5,55 +5,54 @@
     height: 80px;
   }
 .title{
-    margin-left: 90px;;
+    margin-left: 8vw;
+    width: 25%;
 }
 /* .title.span{
     margin-left: 90px;
     font-size: 8px;
     font-weight: lighter;
 } */
-  .blueRectangle {
-    background-color: #E8F1FF;
-    width: 100%;
-    height: 50vh;
-    display: flex;
-    align-items: center;
-  }
-  
-  .logo {
-    height: auto;
-    margin-left: 65rem;
-  }
+.blueRectangle {
+  background-color: #E8F1FF;
+  width: 100%;
+  height: 30vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  height: auto;
+  width: 20vw;
+}
 
 .cardsContainer {
-    margin-left: 250px;
   display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1vw;
 }
 .card {
-   
-
-  width: 25%;
-  height: 250px;
+  width: 20%;
+  height: 30vh;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   padding: 10px;
-  margin: 16px;
-  margin-top: -40px;
 }
 
 .card h3 {
-  font-size: 24px;
-  margin: 0;
+  font-size: 2vw;
 }
 
 .button {
   border: none;
   padding: 12px 24px;
   border-radius: 8px;
-  font-size: 16px;
+  font-size: 2vw;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
@@ -76,6 +75,33 @@
 @media only screen and (max-width: 768px) {
   .headerContainer {
     width: 100%;
+  }
+  .title{
+    margin-left: 8vw;
+    width: 25%;
+  }
+  .logo {
+    height: auto;
+  }
+  /* .blueRectangle {
+    
+  } */
+
+  .logo {
+    width: 30vw;
+  }
+  .title{
+    width: 50%;
+  }
+  .card {
+    width: 30%;
+    height: 25vh; 
+  }
+  .card h3 {
+    font-size: 4vw;
+  }
+  .button{
+    font-size: 4vw;
   }
 }
 
