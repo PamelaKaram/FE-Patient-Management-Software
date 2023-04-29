@@ -115,30 +115,19 @@
   }
 
 .customButton {
-    padding: 0.625em 1.25em;
     font-size: 1rem;
     background-color: #86B2F3;
     color: #fff;
     border: none;
-    display: flex;
-    flex-direction: center;
     width: 100%;
-    max-width: 31.25em;
     border-radius: 1.875em;
-    word-wrap: break-word;
     box-shadow: 0.125em 0.125em 0.25em rgba(0, 0, 0, 0.3);
     height: 3.75em;
-    position: relative;
+    display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    font-weight: 500;
-    display: flex;
-    flex-direction: row;
-  }
-
-.text {
-    padding-right: 1.75rem;
+    padding: 1vw;
   }
   
 .customButton:hover {
