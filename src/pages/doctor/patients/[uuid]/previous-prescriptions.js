@@ -48,14 +48,14 @@ const PreviousPrecriptions = ({ medicineData, medicines }) => {
   return (
     <div>
       <div className={WelcomeStyles.main}>
-        <h1>List Of prescriptions</h1>
+        <h1>List Of Prescriptions</h1>
       </div>
     
     <div className={appL.prescriptionscontainer}>
       {list}
       <div className={appL.decisions}>
         <button>
-          View current medical prescription
+          View current prescription
         </button>
       
       </div>
