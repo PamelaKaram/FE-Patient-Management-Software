@@ -6,8 +6,53 @@ import { getSession } from "next-auth/react";
 import axios from "../../../../../lib/axios";
 
 const CurrentPrecription = ({ patientData, medicines }) => {
-  console.log(patientData, medicines, uuid, session);
-  return <main></main>;
+  const list = medicines.map((medicine) => (
+    <div key={medicine.id} className={appL.prescriptionpreview}>
+      <div className={appL.previewmedicine}>{medicine.medicine}</div>
+      <div className={appL.info}>
+        <div className={appL.info}>
+          Take {medicine.frequency} time/day, {medicine.foodTiming} food
+        </div>
+      </div>
+      <div className={appL.info}>
+        <div className={appL.info}>Take {medicine.description} time/day</div>
+      </div>
+    </div>
+  ));
+
+  const getPDF = () => {
+    const doc = new jsPDF();
+
+    let yOffset = 10;
+
+    medicines.forEach((medicine) => {
+      doc.text(
+        `${medicine.medicine} - ${medicine.frequency} time/day - ${medicine.foodTiming} food - ${medicine.description}`,
+        10,
+        yOffset
+      );
+      yOffset += 40;
+    });
+    doc.save("prescription.pdf");
+  };
+
+  return (
+    <div>
+      <div className={WelcomeStyles.main}>
+        <h1>List Of Prescriptions</h1>
+      </div>
+
+      <div className={appL.prescriptionscontainer}>
+        {list}
+        <div className={appL.decisions} style={{ margin: "1rem" }}>
+          <button onClick={() => getPDF()}>Download Prescription</button>
+        </div>
+        <div className={appL.decisions} style={{ margin: "1rem" }}>
+          <button>View current prescription</button>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export async function getServerSideProps(context) {

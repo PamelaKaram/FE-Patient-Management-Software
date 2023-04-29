@@ -9,28 +9,41 @@ import React from "react";
 import Image from "next/image";
 import WelcomeStyles from "../styles/Welcome.module.css";
 import downloadIcon from "../icons/downloadIcon.svg";
+import { jsPDF } from "jspdf";
 
 import viewIcon from "../icons/viewIcon.svg";
 
 const PreviousPrecriptions = ({ patientData, medicines }) => {
-  const list = medicines.map((prescription) => (
-    <div key={prescription.id} className={appL.prescriptionpreview}>
-      <div className={appL.previewmedicine}> Prescription on:</div>
+  const list = medicines.map((medicine) => (
+    <div key={medicine.id} className={appL.prescriptionpreview}>
+      <div className={appL.previewmedicine}>{medicine.medicine}</div>
       <div className={appL.info}>
-        <div className={appL.info}>{prescription.date}</div>
-        <div className={appL.buttons}>
-          <ul>
-            <li>
-              <Image src={viewIcon.src} alt="done" width={25} height={25} />
-            </li>
-            <li>
-              <Image src={downloadIcon.src} alt="done" width={25} height={25} />
-            </li>
-          </ul>
+        <div className={appL.info}>
+          Take {medicine.frequency} time/day, {medicine.foodTiming} food
         </div>
+      </div>
+      <div className={appL.info}>
+        <div className={appL.info}>Take {medicine.description} time/day</div>
       </div>
     </div>
   ));
+
+  const getPDF = () => {
+    const doc = new jsPDF();
+
+    let yOffset = 10;
+
+    medicines.forEach((medicine) => {
+      doc.text(
+        `${medicine.medicine} - ${medicine.frequency} time/day - ${medicine.foodTiming} food - ${medicine.description}`,
+        10,
+        yOffset
+      );
+      yOffset += 40;
+    });
+    doc.save("prescription.pdf");
+  };
+
   return (
     <div>
       <div className={WelcomeStyles.main}>
@@ -39,6 +52,9 @@ const PreviousPrecriptions = ({ patientData, medicines }) => {
 
       <div className={appL.prescriptionscontainer}>
         {list}
+        <div className={appL.decisions}>
+          <button onClick={() => getPDF()}>Download Prescription</button>
+        </div>
         <div className={appL.decisions}>
           <button>View current prescription</button>
         </div>
