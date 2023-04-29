@@ -1,7 +1,6 @@
 import Head from "next/head";
 import styles from "@/styles/Home.module.css";
 import Sidebar from "../Components/Sidenav1";
-// import AppointmentsList from '../Components/AppointmentList';
 import LoginForm from "../Components/LoginForm";
 import SidenavMobile from "../Components/SideNavResponsive";
 import SidenavWeb from "../Components/Sidenav2";
@@ -9,8 +8,14 @@ import { useState, useEffect } from "react";
 import Buttons from "../Components/HomePageButtons";
 import BlogArticle from "../Components/BlogsAndArticles";
 import Contact from "../Components/Contact";
-import About from "../Components/About";
+import back from '../icons/drImagee.png';
+import homeStyles from '../styles/Home.module.css';
+import ChatButton from '../Components/RequestAptPop';
+import home from '../styles/EmailReq.module.css';
 import Tips from "../Components/Tips";
+import Image from "next/image";
+
+
 
 export default function Home() {
   // render the SidnavMobile component if the screen width is less than 768px
@@ -55,9 +60,20 @@ export default function Home() {
       <div>
         <Buttons />
       </div>
-      <div>
-        <About />
-      </div>
+      <div className={homeStyles.aboutContainer}>
+            <Image
+                src={back.src} alt="About section image" width="400" height="400"
+                className={home.pic} />
+            <div className={homeStyles.about}>
+                <h2>About Me</h2>
+                <p>My mission is to promote heart health and prevent heart disease in my patients.
+                    I offer a range of preventive measures such as lifestyle modifications, medication
+                    management, and regular monitoring to help my patients maintain optimal heart health.
+                    Book a consultation, get diagnosed and find the best treatment.</p>
+                <ChatButton onClick={() => alert('Request an appointment')}
+                />
+            </div>
+        </div>
       <div>
         <BlogArticle articles={articles} />
         <Tips />
