@@ -1,6 +1,4 @@
-import Searchbar from "../Components/finalSearchBar.js";
 import React, { useState } from "react";
-import { StaticDatePicker, LocalizationProvider } from "@mui/x-date-pickers";
 import ActivityButton from "../Components/ActivityButton";
 import { BrowserRouter, Link } from "react-router-dom";
 import DoctorStyles from "../styles/DoctorPage.module.css";
@@ -13,11 +11,11 @@ import Links from "../Components/Links";
 import LinksStyles from "../styles/Links.module.css";
 import WelcomeStyles from "../styles/Welcome.module.css";
 import ChatActivty from "../Components/ChatActivity";
-import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import moment from "moment";
 import HitsContainer from "../Components/hitsContainer";
 import { InstantSearch, SearchBox, Configure } from "react-instantsearch-dom";
 import { searchClient } from "../typesenseAdapter";
+import DateRange from '../Components/DateRangePicker';
 
 function Doctor() {
   const [date, setDate] = useState(new Date());
@@ -95,42 +93,13 @@ function Doctor() {
 
       <div className={DoctorStyles.section}>
         <div className={AppointmentsList.apt}>
-          <LocalizationProvider dateAdapter={AdapterDateFns}>
-            <StaticDatePicker
-              value={date}
-              label="See Appointments"
-              onChange={handleSingleDateChange}
-
-              // initialVisibleMonth={() => moment()}
-              // focused={focus}
-              // numberOfMonths={1}
-              // onFocusChange={({ focused }) => setFocus(focused)}
-              // isDayBlocked={isBlocked}
-            />
-          </LocalizationProvider>
-        </div>
-        <div className={AppointmentsList.apt}>
+          <DateRange />
           <AppointmentsList />
         </div>
       </div>
 
       <div className={DoctorStyles.section}>
         <div className={AppointmentsList.apt}>
-          <div style={{ width: "100%", margin: "50px" }}>
-            <LocalizationProvider dateAdapter={AdapterDateFns}>
-              <StaticDatePicker
-                value={date}
-                label="See Appointments"
-                onChange={handleSingleDateChange}
-
-                // initialVisibleMonth={() => moment()}
-                // focused={focus}
-                // numberOfMonths={1}
-                // onFocusChange={({ focused }) => setFocus(focused)}
-                // isDayBlocked={isBlocked}
-              />
-            </LocalizationProvider>
-          </div>
         </div>
         <div className={AppointmentsList.apt}>
           <ChatActivty />
