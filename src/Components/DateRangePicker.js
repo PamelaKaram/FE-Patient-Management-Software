@@ -5,6 +5,8 @@ import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import { styled } from '@mui/system';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { green } from '@mui/material/colors';
+import AppointmentsPopup from './CalendarAppointmentPopup';
+import axios from 'axios';
 
 const StyledDateRangePickerDay = styled(DateRangePickerDay)(({ theme }) => ({
   borderRadius: '50%',
@@ -21,9 +23,30 @@ const theme = createTheme({
 
 function CustomDateRangePicker() {
   const [value, setValue] = useState([null, null]);
+  const [appointments, setAppointments] = useState([]);
+  const [popupVisible, setPopupVisible] = useState(false);
 
   const startDate = value[0];
   const endDate = value[1];
+
+  const fetchAppointments = async (startDate, endDate) => {
+    try {
+      const response = await axios.get('your_api_endpoint_here', {
+        params: { startDate, endDate },
+      });
+      setAppointments(response.data);
+      setPopupVisible(true);
+    } catch (error) {
+      console.error('Error fetching appointments:', error);
+    }
+  };
+
+  const handleDateRangeChange = (newValue) => {
+    setValue(newValue);
+    if (newValue[0] && newValue[1]) {
+      fetchAppointments(newValue[0], newValue[1]);
+    }
+  };
 
   return (
     <ThemeProvider theme={theme}>
@@ -31,7 +54,7 @@ function CustomDateRangePicker() {
         <StaticDateRangePicker
           displayStaticWrapperAs="desktop"
           value={value}
-          onChange={(newValue) => setValue(newValue)}
+          onChange={handleDateRangeChange}
           components={{
             Day: StyledDateRangePickerDay,
           }}
@@ -54,6 +77,7 @@ function CustomDateRangePicker() {
             },
           }}
         />
+        {popupVisible && <AppointmentsPopup appointments={appointments} />}
       </LocalizationProvider>
     </ThemeProvider>
   );
