@@ -95,21 +95,7 @@ function Doctor({ data }) {
 
       <div className={DoctorStyles.section}>
         <div className={AppointmentsList.apt}>
-          <LocalizationProvider dateAdapter={AdapterDateFns}>
-            <StaticDatePicker
-              value={date}
-              label="See Appointments"
-              onChange={handleSingleDateChange}
-
-              // initialVisibleMonth={() => moment()}
-              // focused={focus}
-              // numberOfMonths={1}
-              // onFocusChange={({ focused }) => setFocus(focused)}
-              // isDayBlocked={isBlocked}
-            />
-          </LocalizationProvider>
-        </div>
-        <div className={AppointmentsList.apt}>
+          <DateRange />
           <AppointmentsList />
         </div>
       </div>
