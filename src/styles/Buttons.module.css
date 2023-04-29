@@ -12,7 +12,7 @@
     color: #ffffff;
     border: none;
     height: 7.8125rem;
-    width: 11.5625rem;
+    width: 11.8rem;
     display: flex;
     flex-direction: column;
     align-content: center;
@@ -26,6 +26,14 @@
 
 .first {
     background-color: #B8D3FB;
+    text-decoration: none;
+
+}
+
+.first h2 {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 1rem;
 }
 
 .first:hover, .second:hover, .third:hover {
