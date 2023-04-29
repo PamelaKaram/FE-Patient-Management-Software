@@ -51,7 +51,8 @@ const PreviousPrecriptions = ({ patientData, medicines }) => {
       </div>
 
       <div className={appL.prescriptionscontainer}>
-        {list}
+        {medicines ? list : <div>No prescription</div>}
+
         <div className={appL.decisions} style={{ margin: "1rem" }}>
           <button onClick={() => getPDF()}>Download Prescription</button>
         </div>

@@ -6,7 +6,7 @@ import { getSession } from "next-auth/react";
 import axios from "../../../../../lib/axios";
 
 const CurrentPrecription = ({ patientData, medicines }) => {
-  const list = medicines.map((medicine) => (
+  const list = medicines?.map((medicine) => (
     <div key={medicine.id} className={appL.prescriptionpreview}>
       <div className={appL.previewmedicine}>{medicine.medicine}</div>
       <div className={appL.info}>
@@ -43,7 +43,7 @@ const CurrentPrecription = ({ patientData, medicines }) => {
       </div>
 
       <div className={appL.prescriptionscontainer}>
-        {list}
+        {medicines ? list : <div>No prescription</div>}
         <div className={appL.decisions} style={{ margin: "1rem" }}>
           <button onClick={() => getPDF()}>Download Prescription</button>
         </div>
