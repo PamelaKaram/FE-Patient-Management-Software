@@ -10,7 +10,7 @@
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
-    width: max-content;
+    width: 80%;
     background-color: #F5F6F8;
     border-radius: 7px;
     margin-bottom: 10px;
@@ -42,27 +42,21 @@
   .decisions button {
     
     border: none;
-    background-color: #91bf76;
+    background-color: #2E77B1;
     display: flex;
     justify-content: center;
     align-items: center;
     color: white;
     font-weight: lighter;
     border-radius: 5px;
+    padding: 8px 20px;
+    margin-right: 50px ;
   }
   
   .decisions button:hover {
     cursor: pointer;
   }
-  
-  .decisions button:first-of-type {
-    padding: 8px 20px;
-    margin-right: 50px ;
-  }
-  
-  .decisions button:last-of-type {
-    padding: 8px 20px;
-  }
+ 
   
   .frequency {
     font-size: 14px;
