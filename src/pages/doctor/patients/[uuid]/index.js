@@ -192,7 +192,7 @@ export async function getServerSideProps(context) {
 
   return {
     props: {
-      data: data.data.data,
+      data: data.data.data ?? null,
     },
   };
 }

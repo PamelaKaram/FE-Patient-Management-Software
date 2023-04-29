@@ -2,9 +2,11 @@ import { Button } from "@mui/material";
 import DownloadOutlinedIcon from "@mui/icons-material/DownloadOutlined";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { getSession } from "next-auth/react";
+import axios from "../../../../../lib/axios";
 
-const CurrentPrecription = ({ patientData, medicines }) => {
-  console.log(patientData, medicines);
+const CurrentPrecription = ({ patientData, medicines, uuid, session }) => {
+  console.log(patientData, medicines, uuid, session);
   return (
     <main>
       <Button
@@ -68,7 +70,9 @@ export async function getServerSideProps(context) {
   return {
     props: {
       patientData: data.data.data,
-      medicines: pres.data.data,
+      medicines: pres.data.medicines,
+      uuid,
+      session: session.user.accessToken,
     },
   };
 }

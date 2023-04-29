@@ -2,6 +2,8 @@ import { Button } from "@mui/material";
 import DownloadOutlinedIcon from "@mui/icons-material/DownloadOutlined";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { getSession } from "next-auth/react";
+import axios from "../../../../../lib/axios";
 
 const PreviousPrecriptions = ({ patientData, medicines }) => {
   console.log(patientData, medicines);
@@ -68,7 +70,7 @@ export async function getServerSideProps(context) {
   return {
     props: {
       patientData: data.data.data,
-      medicines: pres.data.data,
+      medicines: pres.data.medicines,
     },
   };
 }
