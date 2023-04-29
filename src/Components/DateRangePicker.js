@@ -3,6 +3,8 @@ import { StaticDateRangePicker, DateRangePickerDay } from '@mui/lab';
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import { styled } from '@mui/system';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { green } from '@mui/material/colors';
 
 const StyledDateRangePickerDay = styled(DateRangePickerDay)(({ theme }) => ({
   borderRadius: '50%',
@@ -11,6 +13,12 @@ const StyledDateRangePickerDay = styled(DateRangePickerDay)(({ theme }) => ({
   },
 }));
 
+const theme = createTheme({
+  palette: {
+    primary: green,
+  },
+});
+
 function CustomDateRangePicker() {
   const [value, setValue] = useState([null, null]);
 
@@ -18,34 +26,36 @@ function CustomDateRangePicker() {
   const endDate = value[1];
 
   return (
-    <LocalizationProvider dateAdapter={AdapterDateFns}>
-      <StaticDateRangePicker
-        displayStaticWrapperAs="desktop"
-        value={value}
-        onChange={(newValue) => setValue(newValue)}
-        components={{
-          Day: StyledDateRangePickerDay,
-        }}
-        componentsProps={{
-          day: {
-            styleProps: {
-              selected: {
-                backgroundColor: 'red',
-                color: 'white',
-              },
-              selectedStartDate: {
-                borderTopLeftRadius: '50%',
-                borderBottomLeftRadius: '50%',
-              },
-              selectedEndDate: {
-                borderTopRightRadius: '50%',
-                borderBottomRightRadius: '50%',
+    <ThemeProvider theme={theme}>
+      <LocalizationProvider dateAdapter={AdapterDateFns}>
+        <StaticDateRangePicker
+          displayStaticWrapperAs="desktop"
+          value={value}
+          onChange={(newValue) => setValue(newValue)}
+          components={{
+            Day: StyledDateRangePickerDay,
+          }}
+          componentsProps={{
+            day: {
+              styleProps: {
+                selected: {
+                  backgroundColor: 'red',
+                  color: 'white',
+                },
+                selectedStartDate: {
+                  borderTopLeftRadius: '50%',
+                  borderBottomLeftRadius: '50%',
+                },
+                selectedEndDate: {
+                  borderTopRightRadius: '50%',
+                  borderBottomRightRadius: '50%',
+                },
               },
             },
-          },
-        }}
-      />
-    </LocalizationProvider>
+          }}
+        />
+      </LocalizationProvider>
+    </ThemeProvider>
   );
 }
 
