@@ -4,6 +4,9 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { getSession } from "next-auth/react";
 import axios from "../../../../../lib/axios";
+import WelcomeStyles from "../../../../styles/Welcome.module.css";
+import appL from "../../../../styles/Prescription.module.css";
+import { useRouter } from "next/router";
 
 const CurrentPrecription = ({ patientData, medicines }) => {
   const list = medicines?.map((medicine) => (
@@ -19,6 +22,8 @@ const CurrentPrecription = ({ patientData, medicines }) => {
       </div>
     </div>
   ));
+
+  const router = useRouter();
 
   const getPDF = () => {
     const doc = new jsPDF();
@@ -42,15 +47,27 @@ const CurrentPrecription = ({ patientData, medicines }) => {
         <h1>List Of Prescriptions</h1>
       </div>
 
-      <div className={appL.prescriptionscontainer}>
-        {medicines ? list : <div>No prescription</div>}
-        <div className={appL.decisions} style={{ margin: "1rem" }}>
-          <button onClick={() => getPDF()}>Download Prescription</button>
+      {medicines ? (
+        <div className={appL.prescriptionscontainer}>
+          {list}
+          <div className={appL.decisions} style={{ margin: "1rem" }}>
+            <button onClick={() => getPDF()}>Download Prescription</button>
+          </div>
+          <div className={appL.decisions} style={{ margin: "1rem" }}>
+            <button
+              onClick={() =>
+                router.push(
+                  `/doctor/patients/${patientData.uuid}/previous-prescriptions`
+                )
+              }
+            >
+              View previous prescription
+            </button>
+          </div>
         </div>
-        <div className={appL.decisions} style={{ margin: "1rem" }}>
-          <button>View current prescription</button>
-        </div>
-      </div>
+      ) : (
+        <div className={appL.prescriptionscontainer}>No prescription</div>
+      )}
     </div>
   );
 };

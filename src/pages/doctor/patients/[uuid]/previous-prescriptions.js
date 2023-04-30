@@ -12,8 +12,10 @@ import downloadIcon from "../../../../icons/downloadIcon.svg";
 import { jsPDF } from "jspdf";
 
 import viewIcon from "../../../../icons/viewIcon.svg";
+import { useRouter } from "next/router";
 
 const PreviousPrecriptions = ({ patientData, medicines }) => {
+  console.log("medicines", medicines);
   const list = medicines.map((medicine) => (
     <div key={medicine.id} className={appL.prescriptionpreview}>
       <div className={appL.previewmedicine}>{medicine.medicine}</div>
@@ -27,6 +29,8 @@ const PreviousPrecriptions = ({ patientData, medicines }) => {
       </div>
     </div>
   ));
+
+  const router = useRouter();
 
   const getPDF = () => {
     const doc = new jsPDF();
@@ -50,21 +54,30 @@ const PreviousPrecriptions = ({ patientData, medicines }) => {
         <h1>List Of Prescriptions</h1>
       </div>
 
-      <div className={appL.prescriptionscontainer}>
-        {medicines ? list : <div>No prescription</div>}
-
-        <div className={appL.decisions} style={{ margin: "1rem" }}>
-          <button onClick={() => getPDF()}>Download Prescription</button>
+      {medicines.length > 0 ? (
+        <div className={appL.prescriptionscontainer}>
+          {list}
+          <div className={appL.decisions} style={{ margin: "1rem" }}>
+            <button onClick={() => getPDF()}>Download Prescription</button>
+          </div>
+          <div className={appL.decisions} style={{ margin: "1rem" }}>
+            <button
+              onClick={() =>
+                router.redirect(
+                  `/doctor/patients/${patientData.uuid}/current-prescription`
+                )
+              }
+            >
+              View Current prescription
+            </button>
+          </div>
         </div>
-        <div className={appL.decisions} style={{ margin: "1rem" }}>
-          <button>View current prescription</button>
-        </div>
-      </div>
+      ) : (
+        <div className={appL.prescriptionscontainer}>No prescription</div>
+      )}
     </div>
   );
 };
-
-export default PreviousPrecriptions;
 
 export async function getServerSideProps(context) {
   const { uuid } = context.params;
@@ -115,3 +128,5 @@ export async function getServerSideProps(context) {
     },
   };
 }
+
+export default PreviousPrecriptions;
