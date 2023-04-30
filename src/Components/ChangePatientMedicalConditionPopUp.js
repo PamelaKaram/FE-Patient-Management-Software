@@ -10,15 +10,18 @@ const ChangePatientMedicalConditionPopup = ({
   patientUUID,
 }) => {
   const [textInput, setTextInput] = useState("");
+  const [message, setMessage] = useState("");
 
   const handleSubmit = async () => {
     try {
-      await axios.post("/addCondition", {
+      await axios.post("/condition/addCondition", {
         condition: textInput,
         patientUUID,
       });
+      setMessage("Successfully submitted!");
     } catch (e) {
       console.log(e);
+      setMessage("Error, something happened.");
     }
   };
 
@@ -42,6 +45,7 @@ const ChangePatientMedicalConditionPopup = ({
           placeholder="Write the changes..."
           onChange={(e) => setTextInput(e.target.value)}
         />
+        <div>{message}</div>
         <div className={Styles.buttonsContainer}>
           <button className={Styles.customButton} onClick={handleSubmit}>
             Submit

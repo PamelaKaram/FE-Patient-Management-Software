@@ -1,50 +1,69 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { getSession } from "next-auth/react";
 import axios from "../../../../../lib/axios";
-import fileIcon from "../icons/greenFileIcon.svg";
-import Styles from "../styles/ViewPatientMedicalRecordsTests.module.css";
+import fileIcon from "../../../../icons/new-file-svgrepo-com.svg";
+import videoIcon from "../../../../icons/video-svgrepo-com.svg";
+import imageIcon from "../../../../icons/image-svgrepo-com.svg";
 
-const ViewPatientMedicalRecordsTests = ({ patientId }) => {
-  const [files, setFiles] = useState([]);
+import Styles from "../../../../styles/ViewPatientMedicalRecordsTests.module.css";
+
+const ViewPatientMedicalRecordsTests = ({ patientData, files }) => {
   const [error, setError] = useState(null);
+  const imageExtensions = ["jpg", "jpeg", "png", "gif", "svg", "bmp"];
+  const videoExtensions = ["mp4", "avi", "mov", "wmv", "flv", "3gp", "mkv"];
 
-  useEffect(() => {
-    fetchData();
-  }, [patientId]);
-
-  const fetchData = async () => {
-    try {
-      const response = await axios.get(
-        `API_URL/patients/\${patientId}/records`
-      ); // Replace with API URL and include patientId
-      setFiles(response.data);
-    } catch (error) {
-      setError("Failed to fetch data from the API.");
-    }
+  const openFile = async (file) => {
+    console.log("Clicked");
+    const res = await axios.get(`/upload/download/${file.filename}`);
+    window.open(res, "_blank");
   };
 
-  const openFile = (file) => {
-    window.open(file.url, "_blank");
-  };
+  console.log(patientData, files);
 
   return (
     <div className={Styles.container}>
-      {error ? (
-        <p>{error}</p>
-      ) : (
-        files.map((file, index) => (
-          <div key={index} className={Styles.fileRow}>
-            <img src={fileIcon} alt="File icon" className={Styles.fileIcon} />
-            <button
-              className={Styles.fileButton}
-              onClick={() => openFile(file)}
-            >
-              {file.name}
-            </button>
-            <span className={Styles.fileSize}>{file.size} bytes</span>
-          </div>
-        ))
-      )}
+      <div
+        style={{
+          maxWidth: "800px",
+          margin: "0 auto",
+          padding: "20px",
+          backgroundColor: "#fff",
+          boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
+        }}
+      >
+        <h1 style={{ margin: "1rem" }}>Medical Test & Records</h1>
+        <div style={{ margin: "2rem" }}>
+          {files.map((file, index) => {
+            const isImage = imageExtensions.some((ext) =>
+              file.filename.toLowerCase().endsWith(ext)
+            );
+            const isVideo = videoExtensions.some((ext) =>
+              file.filename.toLowerCase().endsWith(ext)
+            );
+            const source = isImage ? imageIcon : isVideo ? videoIcon : fileIcon;
+            return (
+              <div key={index} className={Styles.fileRow}>
+                <img
+                  src={source.src}
+                  width={25}
+                  height={25}
+                  alt="File icon"
+                  className={Styles.fileIcon}
+                />
+                <button
+                  className={Styles.fileButton}
+                  onClick={() => openFile(file)}
+                >
+                  {file.filename}
+                </button>
+                <span className={Styles.fileSize}>
+                  Updated on: {file.updatedAt.split("T")[0]}
+                </span>
+              </div>
+            );
+          })}
+        </div>
+      </div>
     </div>
   );
 };
@@ -84,7 +103,7 @@ export async function getServerSideProps(context) {
     },
   });
 
-  const pres = await axios.get("medicine/previousMedicalPrescription", {
+  const pres = await axios.get("upload/list", {
     params: {
       patientUUID: uuid,
     },
@@ -96,7 +115,7 @@ export async function getServerSideProps(context) {
   return {
     props: {
       patientData: data.data.data,
-      medicines: pres.data.medicines,
+      files: pres.data,
     },
   };
 }
