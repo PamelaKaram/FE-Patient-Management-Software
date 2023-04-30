@@ -19,7 +19,7 @@ import { InstantSearch, SearchBox, Configure } from "react-instantsearch-dom";
 import { searchClient } from "../../typesenseAdapter";
 import { getSession } from "next-auth/react";
 import axios from "../../../lib/axios";
-import { DateRange } from "@mui/icons-material";
+import { DatePicker } from "@mui/x-date-pickers";
 
 function Doctor({ data }) {
   const [date, setDate] = useState(new Date());
@@ -28,32 +28,6 @@ function Doctor({ data }) {
 
   const handleSingleDateChange = (date) => {
     setDate(date);
-  };
-
-  const isBlocked = (day) => {
-    if (day <= moment().subtract(1, "days")) return true;
-    // if (
-    //   product.schedule.available.length &&
-    //   !product.schedule.available.some(
-    //     (e) => e.day === day.format("dddd").toLocaleLowerCase()
-    //   )
-    // )
-    //   return true;
-
-    // if (blockedDays.some((date) => day.isSame(date, "day"))) return true;
-
-    // if (
-    //   bookedDays?.some(
-    //     (date) =>
-    //       (date.interval != PriceIntervalEnum.Minute ||
-    //         date.interval != PriceIntervalEnum.Hour) &&
-    //       day.isSameOrAfter(date.startDate, "day") &&
-    //       day.isSameOrBefore(date.endDate, "day")
-    //   )
-    // ) {
-    //   return true;
-    // }
-    // return false;
   };
 
   return (
@@ -74,7 +48,7 @@ function Doctor({ data }) {
 
         <div
           style={{
-            padding: "4rem"
+            padding: "4rem",
           }}
         >
           <div className={WelcomeStyles.headerGrid}>
@@ -89,13 +63,14 @@ function Doctor({ data }) {
               <Links />
             </div>
           </div>
-          
         </div>
       </InstantSearch>
 
       <div className={DoctorStyles.section}>
         <div className={AppointmentsList.apt}>
-          <DateRange />
+          <LocalizationProvider dateAdapter={AdapterDateFns}>
+            <DatePicker />
+          </LocalizationProvider>
           <AppointmentsList />
         </div>
       </div>

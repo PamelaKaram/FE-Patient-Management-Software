@@ -14,9 +14,8 @@ import axios from "../../../../../lib/axios.js";
 import { getSession } from "next-auth/react";
 
 const UserPage = ({ data }) => {
-  console.log(data);
-  const [isPopupOpen, setIsPopupOpen] = useState(false);
   const router = useRouter();
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
   console.log(data);
   return (
     <>
@@ -40,16 +39,19 @@ const UserPage = ({ data }) => {
             <div className={Styles.activities}>
               <h2 className={Styles.currAct}>Personal Information</h2>
               <Link
-                href="/view_patient_medical_condition"
+                href={`/doctor/patients/${data.uuid}/medical-condition`}
                 className={Styles.act}
               >
                 <h2>View Patient Medical Condition</h2>
               </Link>
-              <Link href="/view_patient_medical_history" className={Styles.act}>
+              <Link
+                href={`/doctor/patients/${data.uuid}/medical-history`}
+                className={Styles.act}
+              >
                 <h2>View Patient Medical History</h2>
               </Link>
               <Link
-                href="/view_patient_medical_records_tests"
+                href={`/doctor/patients/${data.uuid}/medical-records`}
                 className={Styles.act}
               >
                 <h2>View Patient Medical Records and Tests</h2>
