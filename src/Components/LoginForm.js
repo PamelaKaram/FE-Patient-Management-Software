@@ -34,12 +34,7 @@ export default function LoginForm() {
       }
       const role = session.data.user.role;
       const uuid = session.data.user.uuid;
-      const id = session.data.user.id;
-      router.push({
-      pathname:`/${role}/${uuid}`,
-      query: { id },}
-      );
-      
+      router.push(`/${role}/${uuid}`);
     } catch (err) {
       console.log(err);
     }

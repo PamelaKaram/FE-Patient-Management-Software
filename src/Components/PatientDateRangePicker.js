@@ -29,12 +29,12 @@ function CustomDateRangePicker() {
 
   const startDate = value[0];
   const endDate = value[1];
-  const {id} = router.query;
+  const { uuid } = context.params;
 
   const fetchAppointments = async (startDate, endDate) => {
     try {
       const response = await axios.get("http://localhost:8080/api/v1/appointments/patientGetPastFuture", {
-        params: {id, startDate, endDate },
+        params: {uuid, startDate, endDate },
       },
       {
         headers: {
