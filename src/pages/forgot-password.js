@@ -15,12 +15,22 @@ const ForgotPassword = () => {
   const session = useSession();
 
   const onSubmit = async (data) => {
+    if (email === '' || !/\S+@\S+\.\S+/.test(email)) {
+      alert('Please enter a valid email address.');
+      return;
+    }
     try {
       // Call your API to reset the password here
       // ...
-      
-      // Once the password is reset, redirect the user to the login page
-      router.push("/login");
+      const res = await axios.post("http://localhost:8080/api/v1/auth/forgotPassword",
+      {
+        email: email,
+        },
+    );
+    router.push({
+      pathname: "/forgot-passwordd",
+      query: {email},
+    })
     } catch (err) {
       console.log(err);
       setResetPasswordError("Failed to reset password");
