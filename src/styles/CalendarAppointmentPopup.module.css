@@ -1,14 +1,14 @@
 .appointmentsPopup {
-    position: fixed;
-    top: 0;
-    right: 0;
     height: 100%;
-    width: 50%;
+    width: 20%;
     background-color: white;
     overflow-y: scroll;
     box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
     z-index: 1000;
-    position: relative;
+    position: fixed; /* Change from relative to fixed */
+    right: 0;
+    top: 0;
+    bottom: 0;
   }
 
   .closeButton {
@@ -17,3 +17,17 @@
     right: 10px;
     cursor: pointer;
   }
+
+.button {
+  border-radius: 8px;
+  color: white;
+  width: 130px;
+  height: 40px;
+  background-color: #91bf76;
+  border: none;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #ace18d;
+}

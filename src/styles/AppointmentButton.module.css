@@ -16,6 +16,8 @@
   .customButton {
       padding: 1rem 1.5rem;
       font-size: 0.9rem;
+      bottom: 0;
+      right: 0;
   }
 }
 

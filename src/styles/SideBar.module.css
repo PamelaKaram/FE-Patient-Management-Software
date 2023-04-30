@@ -7,11 +7,12 @@
     display: flex;
     align-items: center;
     flex-direction: column;
-    height: 100vh;
-    width: 25vw;
+    height: 1300px;
+    width: 260px;
     background-image: url('../icons/patientBackgroundIcon.svg');
     padding-top: 5%;
     margin-left: -10px;
+    bottom: 0;
 }
   
 .center {
@@ -27,9 +28,22 @@
 .textsContainer {
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 /* Media queries */
+
+@media (max-width: 1440px) {
+    .container {
+        width: 300px;
+    }
+}
+
+@media (max-width: 1280px) {
+    .container {
+        width: 400px;
+    }
+}
 
 @media (max-width: 1024px) {
     .container {
@@ -41,7 +55,9 @@
         flex-wrap: nowrap;
         padding: 10% 0;
         position: relative;
-        margin-left: 60px;
+        left: 0;
+        right: 0;
+        top: 0;
     }
 
     .text, .drName {
@@ -75,5 +91,27 @@
         position: absolute;
         bottom: 10px;
         right: 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        left: 0;
+        right: 0;
+        top: 0;
+        height: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        left: 0;
+        right: 0;
+        top: 0;
+        height: 150px;
+    }
+
+    .text, .drName {
+        font-size: 0.8rem;
     }
 }
