@@ -12,6 +12,7 @@
     background-image: url('../icons/patientBackgroundIcon.svg');
     padding-top: 5%;
     margin-left: -10px;
+    bottom: 0;
 }
   
 .center {
@@ -27,6 +28,7 @@
 .textsContainer {
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 /* Media queries */
@@ -39,7 +41,7 @@
 
 @media (max-width: 1280px) {
     .container {
-        width: 300px;
+        width: 400px;
     }
 }
 
@@ -53,7 +55,9 @@
         flex-wrap: nowrap;
         padding: 10% 0;
         position: relative;
-        margin-left: 60px;
+        left: 0;
+        right: 0;
+        top: 0;
     }
 
     .text, .drName {
@@ -92,13 +96,19 @@
 
 @media (max-width: 768px) {
     .container {
-        margin-left: 0;
+        left: 0;
+        right: 0;
+        top: 0;
+        height: 200px;
     }
 }
 
 @media (max-width: 480px) {
     .container {
-        padding: 5% 0;
+        left: 0;
+        right: 0;
+        top: 0;
+        height: 150px;
     }
 
     .text, .drName {
