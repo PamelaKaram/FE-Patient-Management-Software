@@ -22,7 +22,7 @@ const Welcome = () => {
 
   return (
     <div className={WelcomeStyles.main}>
-      <h1>Welcome Dr. Walid</h1>
+      <h1 className={WelcomeStyles.welcome_message}>Welcome Dr. Walid</h1>
       <div className={WelcomeStyles.card}>
         <h3>Your patients Activities</h3>
         <h6>Today, 6 april 2023</h6>

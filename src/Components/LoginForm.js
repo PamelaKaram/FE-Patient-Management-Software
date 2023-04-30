@@ -3,10 +3,11 @@ import { DevTool } from "@hookform/devtools";
 import useAxiosAuth from "../../lib/hooks/useAxiosAuth";
 import LoginStyles from "@/styles/login.module.css";
 import Image from "next/image";
-import SideImage from "../Icons/registrationFormIcon.svg";
+import SideImage from "../icons/backImage.jpg";
 import { signIn, useSession } from "next-auth/react";
 import { useState } from "react";
 import { useRouter } from "next/router";
+import Link from "next/link";
 
 export default function LoginForm() {
   const form = useForm();
@@ -15,7 +16,6 @@ export default function LoginForm() {
   const { register, control, handleSubmit, formState } = form;
   const { errors } = formState;
   const session = useSession();
-  console.log(session);
 
   const onSubmit = async (data) => {
     try {
@@ -27,9 +27,8 @@ export default function LoginForm() {
       if (signin.error) setSignInError(signin.error);
       else {
         const role = session.data.user.role;
-        if (role === "doctor") router.push("/doctor");
-        else if (role === "patient") router.push("/patient");
-        else if (role === "pharmacy") router.push("/pharmacy");
+        const uuid = session.data.user.uuid;
+        router.push(`/${role}/${uuid}`);
       }
     } catch (err) {
       console.log(err);
@@ -52,6 +51,7 @@ export default function LoginForm() {
                   message: "Invalid email address",
                 },
               })}
+              placeholder={"Email"}
               className={LoginStyles.input}
             />
           </div>
@@ -70,28 +70,32 @@ export default function LoginForm() {
                   value: 8,
                   message: "Password must be at least 8 characters",
                 },
-                pattern: {
-                  value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/,
-                  message:
-                    "Password must contain 1 upper and 1 lowercase letter and 1 number",
-                },
               })}
               className={LoginStyles.input}
+              placeholder={"Password"}
             />
           </div>
           <p className={LoginStyles.error}>{errors.password?.message}</p>
           <button className={LoginStyles.customButton} type="submit">
             Login
           </button>
+
+
         </form>
+        <div className={LoginStyles.forgotContainer}>
+          <Link href="/forgot-password" className={LoginStyles.forgotPassword}>
+            Forgot Password?
+          </Link>
+        </div>
+        
         <DevTool control={control} />
       </div>
       <div className={LoginStyles.image}>
-        <Image
+        <img
           src={SideImage.src}
           alt="Phone"
-          width={0}
-          height={0}
+          // height={100}
+          // width={100}
           className={LoginStyles.imageClass}
         />
       </div>

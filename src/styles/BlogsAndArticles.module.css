@@ -2,7 +2,8 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    margin: 0 12px 8px;
+    width: 80%;
+    margin: 0 auto;
   }
 
 .divTitle {
@@ -30,7 +31,6 @@
   
   .blogArticle {
     flex-basis: calc(32% - 16px);
-    margin: 0 4px;
     text-align: center;
     transition: transform .2s;
   }
@@ -56,7 +56,6 @@
     align-items: flex-start;
     margin-top: auto;
     justify-content: flex-start;
-    height: 100%;
   }
   
   .date {
@@ -162,3 +161,12 @@
   .div {
     margin-bottom: 50px;
   }
+
+
+@media only screen and (max-width: 768px){
+  .blogArticleRow {
+    flex-direction: column;
+    gap: 3vh;
+  }
+
+}
