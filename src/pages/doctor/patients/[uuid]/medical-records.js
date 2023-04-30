@@ -1,22 +1,74 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { getSession } from "next-auth/react";
 import axios from "../../../../../lib/axios";
+import useAxiosAuth from "../../../../../lib/hooks/useAxiosAuth";
 import fileIcon from "../../../../icons/new-file-svgrepo-com.svg";
 import videoIcon from "../../../../icons/video-svgrepo-com.svg";
 import imageIcon from "../../../../icons/image-svgrepo-com.svg";
 
 import Styles from "../../../../styles/ViewPatientMedicalRecordsTests.module.css";
 
-const ViewPatientMedicalRecordsTests = ({ patientData, files }) => {
+const ViewPatientMedicalRecordsTests = ({ patientData, initialFiles }) => {
   const [error, setError] = useState(null);
+
   const imageExtensions = ["jpg", "jpeg", "png", "gif", "svg", "bmp"];
   const videoExtensions = ["mp4", "avi", "mov", "wmv", "flv", "3gp", "mkv"];
 
+  const [message, setMessage] = useState("");
+  const [files, setFiles] = useState(initialFiles);
+  const [uploaded, setUploaded] = useState(false);
+
   const openFile = async (file) => {
     console.log("Clicked");
-    const res = await axios.get(`/upload/download/${file.filename}`);
-    window.open(res, "_blank");
+    const response = await axios.get(`/upload/download/${file.filename}`, {
+      responseType: "blob",
+    });
+    const url = window.URL.createObjectURL(new Blob([response.data]));
+    const link = document.createElement("a");
+    link.href = url;
+    link.setAttribute("download", file.filename);
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    window.URL.revokeObjectURL(url);
   };
+
+  const fileInputRef = useRef(null);
+
+  const handleButtonClick = () => {
+    fileInputRef.current.click();
+  };
+
+  const handleFileInputChange = async (event) => {
+    const file = event.target.files[0];
+    const formData = new FormData();
+    formData.append("recfile", file);
+    formData.append("patientUUID", patientData.uuid);
+
+    try {
+      await axios.post("/upload", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
+      setMessage("Uploaded");
+      setUploaded(true);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  const axiosAuth = useAxiosAuth();
+  useEffect(() => {
+    const getFiles = async () => {
+      const pres = await axiosAuth.get("upload/list", {
+        params: {
+          patientUUID: patientData.uuid,
+        },
+      });
+      setFiles(pres.data);
+    };
+    getFiles();
+  }, [axiosAuth, patientData.uuid, uploaded]);
 
   console.log(patientData, files);
 
@@ -33,7 +85,7 @@ const ViewPatientMedicalRecordsTests = ({ patientData, files }) => {
       >
         <h1 style={{ margin: "1rem" }}>Medical Test & Records</h1>
         <div style={{ margin: "2rem" }}>
-          {files.map((file, index) => {
+          {files?.map((file, index) => {
             const isImage = imageExtensions.some((ext) =>
               file.filename.toLowerCase().endsWith(ext)
             );
@@ -63,9 +115,35 @@ const ViewPatientMedicalRecordsTests = ({ patientData, files }) => {
             );
           })}
         </div>
+        <div>
+          <button style={styles.button} onClick={handleButtonClick}>
+            Select file
+          </button>
+          <input
+            type="file"
+            ref={fileInputRef}
+            style={styles.input}
+            onChange={handleFileInputChange}
+            accept=".jpg,.jpeg,.png,.gif,.mp4,.mov,.avi,.wmv"
+          />
+          <div style={{ margin: "1rem" }}>{message ? "Uploaded" : null}</div>
+        </div>
       </div>
     </div>
   );
+};
+const styles = {
+  button: {
+    backgroundColor: "#007bff",
+    color: "#fff",
+    border: "none",
+    borderRadius: "3px",
+    padding: "10px 20px",
+    cursor: "pointer",
+  },
+  input: {
+    display: "none",
+  },
 };
 
 export default ViewPatientMedicalRecordsTests;
