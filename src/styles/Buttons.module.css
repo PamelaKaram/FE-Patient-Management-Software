@@ -6,6 +6,8 @@
     align-items: center;
     padding-bottom: 2.5rem;
     border-bottom: 1px solid #7f7f7f;
+    width: calc(3 * 11.8rem + 2 * 2.8125rem);
+
 }
 
 .first, .second, .third {
@@ -26,15 +28,16 @@
 
 .first {
     background-color: #B8D3FB;
-    text-decoration: none;
-
 }
 
 .first h2 {
-    text-decoration: none;
     color: #ffffff;
     font-size: 1rem;
 }
+
+.first a {
+    text-decoration: none;
+  }
 
 .first:hover, .second:hover, .third:hover {
     cursor: pointer;
