@@ -39,6 +39,12 @@ const UserPage = ({ data }) => {
             <div className={Styles.activities}>
               <h2 className={Styles.currAct}>Personal Information</h2>
               <Link
+                href={`/doctor/patients/${data.uuid}/book-appointment`}
+                className={Styles.act}
+              >
+                <h2>Book Appointment for Patient</h2>
+              </Link>
+              <Link
                 href={`/doctor/patients/${data.uuid}/medical-condition`}
                 className={Styles.act}
               >
