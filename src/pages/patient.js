@@ -1,13 +1,12 @@
-import React from 'react';
-import SideStyles from '../styles/PatientPage.module.css';
-import NavBar from '../Components/Sidenav4';
-import SideBar from '../Components/SideBar';
-import AppDateTime from '../Components/AppDateTime';
-import Buttons from '../Components/Buttons';
-import Reminders from '../Components/Reminders';
-import Links from '../Components/Links';
-import react, { useState } from "react";
-import DateRange from '../Components/PatientDateRangePicker';
+import React, { useState } from "react";
+import SideStyles from "../styles/PatientPage.module.css";
+import NavBar from "../Components/Sidenav4";
+import SideBar from "../Components/SideBar";
+import AppDateTime from "../Components/AppDateTime";
+import Buttons from "../Components/Buttons";
+import Reminders from "../Components/Reminders";
+import Links from "../Components/Links";
+import DateRange from "../Components/PatientDateRangePicker";
 
 export default function Doctor() {
   const [date, setDate] = useState();
@@ -16,11 +15,13 @@ export default function Doctor() {
   const handleSingleDateChange = (date) => {
     setDate(date);
   };
+
   return (
     <div className={SideStyles.body}>
-      <NavBar />
-      <SideBar className={SideStyles.sideBar} />
+      <NavBar className={SideStyles.navBarMobile} />
+      <SideBar className={`${SideStyles.sideBar} ${SideStyles.sideBarDesktop}`} />
       <div className={SideStyles.leftHalf}>
+        <NavBar className={SideStyles.navBarDesktop} />
         <div className={SideStyles.header}>
           <h1>Hi, Pamela Karam</h1>
           <p className={SideStyles.text}>Let's track your health Today!</p>
@@ -43,15 +44,14 @@ export default function Doctor() {
         <div className={SideStyles.calendarAndLinks}>
           <div style={{ width: "100%", margin: "50px" }}>
             <h3 className={SideStyles.calendarTitle}>Calendar</h3>
-            <DateRange /> 
+            <DateRange />
           </div>
           <div className={SideStyles.link}>
             <h3>Quick Links</h3>
             <Links />
           </div>
         </div>
-        <div className={SideStyles.bottom}>
-        </div>
+        <div className={SideStyles.bottom}></div>
       </div>
     </div>
   );
