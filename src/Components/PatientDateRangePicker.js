@@ -4,8 +4,8 @@ import AdapterDateFns from '@mui/lab/AdapterDateFns';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import { styled } from '@mui/system';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { green } from '@mui/material/colors';
-import AppointmentsPopup from './CalendarAppointmentPopup';
+import { blue } from '@mui/material/colors';
+import AppointmentsPopup from './PatientCalendarAppointmentPopup';
 import axios from 'axios';
 
 const StyledDateRangePickerDay = styled(DateRangePickerDay)(({ theme }) => ({
@@ -17,7 +17,7 @@ const StyledDateRangePickerDay = styled(DateRangePickerDay)(({ theme }) => ({
 
 const theme = createTheme({
   palette: {
-    primary: green,
+    primary: blue,
   },
 });
 

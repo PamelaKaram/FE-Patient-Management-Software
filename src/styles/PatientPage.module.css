@@ -3,7 +3,30 @@
     padding-left: calc(80px + 1rem);
     flex-direction: row;
     position: relative;
-}
+  }
+
+.navBarDesktop {
+    display: none;
+  }
+  
+.sideBarDesktop {
+    display: block;
+  }
+
+.topSection {
+    display: flex;
+    justify-content: space-between;
+    justify-content: flex-start;
+  }
+
+.calendarAndLinks {
+    display: flex;
+    justify-content: space-between;
+  }
+
+.calendarTitle {
+    padding-bottom: 16px;
+  }
 
 .navbar {
     z-index: 10;
@@ -39,21 +62,18 @@
 .app {
     margin-top: 1.875rem;
     padding-left: 1.875rem;
+    margin-right: 1rem;
 }
 
 .activities {
     margin-left: 1.875rem;
-    margin-top: 1.25rem;
     width: 40.625rem;
-}
-
-.activities {
-    padding-top: 1.25rem;
+    margin-top: 0;
 }
 
 .reminder {
-    padding-top: 2.5rem;
-    padding-left: 1.875rem;
+    padding-top: 1.5rem;
+    padding-left: 2rem;
 }
 
 .bottom {
@@ -62,8 +82,12 @@
 }
 
 .link {
-    padding-top: 2.5rem;
+    padding-top: 3.2rem;
     padding-left: 1.875rem;
+}
+
+.sideBar {
+    width: 10px;
 }
 
 /* Media queries */
@@ -94,6 +118,7 @@
 @media (max-width: 1024px) {
     .body {
         flex-wrap: wrap;
+        flex-direction: column;
     }
 
     .leftHalf {
@@ -103,6 +128,30 @@
     .activities {
         width: 100%;
     }
+
+    .navbar {
+        height: 80px;
+        width: 100%;
+    }
+
+    .topSection {
+        flex-direction: column;
+    }
+
+    .calendarAndLinks{
+        flex-direction: column;
+    }
+    .navBarMobile {
+        display: block;
+      }
+    
+    .sideBarDesktop {
+        display: none;
+      }
+    
+    .navBarDesktop {
+        display: none;
+      }
 }
 
 @media (max-width: 900px) {
@@ -113,23 +162,23 @@
     .text {
         font-size: 1rem;
     }
-}
-
-@media (max-width: 768px) {
-    .body {
-        padding-left: 1rem;
-    }
-
-    .leftHalf {
-        width: 100%;
-        padding: 1rem;
-        margin-bottom: 1rem;
-    }
-
-    .bottom {
+    .calendarAndLinks{
         flex-direction: column;
     }
 }
+
+@media (max-width: 768px) {
+    .header h1, .app h3, .activities h3, .reminder h3, .link h3 {
+        font-size: 1.6rem;
+    }
+
+    .text {
+        font-size: 1rem;
+    }
+    .calendarAndLinks{
+        flex-direction: column;
+    }
+  }
 
 @media (max-width: 600px) {
     .header h1, .app h3, .activities h3, .reminder h3, .link h3 {
@@ -138,6 +187,9 @@
 
     .text {
         font-size: 0.9rem;
+    }
+    .calendarAndLinks{
+        flex-direction: column;
     }
 }
 
@@ -149,6 +201,9 @@
     .text {
         font-size: 0.8rem;
     }
+    .calendarAndLinks{
+        flex-direction: column;
+    }
 }
 
 @media (max-width: 360px) {
@@ -158,5 +213,8 @@
 
     .text {
         font-size: 0.7rem;
+    }
+    .calendarAndLinks{
+        flex-direction: column;
     }
 }
