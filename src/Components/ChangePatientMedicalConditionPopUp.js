@@ -1,31 +1,29 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import PropTypes from 'prop-types';
-import Styles from '../styles/ChangePatientMedicalConditionPopup.module.css';
+import React, { useState } from "react";
+import axios from "../../lib/axios.js";
 
-const ChangePatientMedicalConditionPopup = ({ isOpen, onClose, patientId }) => {
-  const [textInput, setTextInput] = useState('');
-  const [message, setMessage] = useState('');
+import PropTypes from "prop-types";
+import Styles from "../styles/ChangePatientMedicalConditionPopup.module.css";
 
-  const postData = async (data) => {
+const ChangePatientMedicalConditionPopup = ({
+  isOpen,
+  onClose,
+  patientUUID,
+}) => {
+  const [textInput, setTextInput] = useState("");
+
+  const handleSubmit = async () => {
     try {
-      await axios.put(`/api/endpoint/\${patientId}`, data);
-      setMessage('Success: Data submitted successfully.');
-    } catch (error) {
-      console.error('Error submitting data:', error);
-      setMessage('Fail: Error submitting data.');
+      await axios.post("/addCondition", {
+        condition: textInput,
+        patientUUID,
+      });
+    } catch (e) {
+      console.log(e);
     }
   };
 
-  const handleSubmit = () => {
-    postData({ text: textInput }).then(() => {
-      setTextInput('');
-    });
-  };
-
   const handleClose = () => {
-    setTextInput('');
-    setMessage('');
+    setTextInput("");
     onClose();
   };
 
@@ -35,12 +33,22 @@ const ChangePatientMedicalConditionPopup = ({ isOpen, onClose, patientId }) => {
     <div className={Styles.overlay}>
       <div className={Styles.popup}>
         <h3 className={Styles.title}>Change Patient Medical Condition</h3>
-        <button className={Styles.closeButtonX} onClick={handleClose}>X</button>
-        <textarea className={Styles.textBox} value={textInput} placeholder="Write the changes..." onChange={(e) => setTextInput(e.target.value)} />
-        {message && <div className={Styles.message}>{message}</div>}
+        <button className={Styles.closeButtonX} onClick={handleClose}>
+          X
+        </button>
+        <textarea
+          className={Styles.textBox}
+          value={textInput}
+          placeholder="Write the changes..."
+          onChange={(e) => setTextInput(e.target.value)}
+        />
         <div className={Styles.buttonsContainer}>
-          <button className={Styles.customButton} onClick={handleSubmit}>Submit</button>
-          <button className={Styles.closeButton} onClick={handleClose}>Close</button>
+          <button className={Styles.customButton} onClick={handleSubmit}>
+            Submit
+          </button>
+          <button className={Styles.closeButton} onClick={handleClose}>
+            Close
+          </button>
         </div>
       </div>
     </div>

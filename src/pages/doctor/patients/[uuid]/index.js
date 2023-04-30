@@ -70,6 +70,7 @@ const UserPage = ({ data }) => {
                 <ChangePatientMedicalConditionPopup
                   isOpen={isPopupOpen}
                   onClose={() => setIsPopupOpen(false)}
+                  patientUUID={data.uuid}
                 />
               </div>
               <Link
