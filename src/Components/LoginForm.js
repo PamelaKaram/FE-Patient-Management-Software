@@ -38,9 +38,11 @@ export default function LoginForm() {
   };
 
   useEffect(() => {
-    const role = session.data.user.role;
-    const uuid = session.data.user.uuid;
-    router.push(`/${role}/${uuid}`);
+    if (session.data) {
+      const role = session.data.user.role;
+      const uuid = session.data.user.uuid;
+      router.push(`/${role}/${uuid}`);
+    }
   }, [router, session]);
 
   return (
