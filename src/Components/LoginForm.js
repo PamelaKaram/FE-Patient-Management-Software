@@ -8,10 +8,12 @@ import { signIn, useSession } from "next-auth/react";
 import { useState } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import loadingIcon from "../icons/loading-svgrepo-com.svg";
 
 export default function LoginForm() {
   const form = useForm();
   const router = useRouter();
+  const [loading, setLoading] = useState(false);
   const [signInError, setSignInError] = useState();
   const { register, control, handleSubmit, formState } = form;
   const { errors } = formState;
@@ -19,17 +21,20 @@ export default function LoginForm() {
 
   const onSubmit = async (data) => {
     try {
+      setLoading(true);
       const signin = await signIn("credentials", {
         email: data.email,
         password: data.password,
         redirect: "",
       });
-      if (signin.error) setSignInError(signin.error);
-      else {
-        const role = session.data.user.role;
-        const uuid = session.data.user.uuid;
-        router.push(`/${role}/${uuid}`);
+      if (signin.error) {
+        setSignInError(signin.error);
+        setLoading(false);
+        return;
       }
+      const role = session.data.user.role;
+      const uuid = session.data.user.uuid;
+      router.push(`/${role}/${uuid}`);
     } catch (err) {
       console.log(err);
     }
@@ -76,18 +81,20 @@ export default function LoginForm() {
             />
           </div>
           <p className={LoginStyles.error}>{errors.password?.message}</p>
-          <button className={LoginStyles.customButton} type="submit">
-            Login
-          </button>
-
-
+          {loading ? (
+            <Image src={loadingIcon.src} alt="Loading" width={28} height={28} />
+          ) : (
+            <button className={LoginStyles.customButton} type="submit">
+              Login
+            </button>
+          )}
         </form>
         <div className={LoginStyles.forgotContainer}>
           <Link href="/forgot-password" className={LoginStyles.forgotPassword}>
             Forgot Password?
           </Link>
         </div>
-        
+
         <DevTool control={control} />
       </div>
       <div className={LoginStyles.image}>

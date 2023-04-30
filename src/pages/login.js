@@ -5,7 +5,7 @@ import Sidebar from "../Components/Sidenav1";
 import LoginForm from "../Components/LoginForm";
 import SidenavMobile from "../Components/SideNavLogin";
 import SidenavWeb from "../Components/Sidenav2";
-import { useState, useEffect } from "react";
+import { getSession } from "next-auth/react";
 
 export default function Home() {
   return (
