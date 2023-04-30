@@ -17,3 +17,17 @@
     right: 10px;
     cursor: pointer;
   }
+
+.button {
+  border-radius: 8px;
+  color: white;
+  width: 130px;
+  height: 40px;
+  background-color: #91bf76;
+  border: none;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #ace18d;
+}
