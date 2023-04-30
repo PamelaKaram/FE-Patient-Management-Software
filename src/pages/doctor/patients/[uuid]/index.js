@@ -11,15 +11,18 @@ import PharmacyLookupPopUp from "../../../../Components/PharmacyLookupPopUp";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import axios from "../../../../../lib/axios.js";
+import Sidebar from "../../../../Components/Sidenav1";
 import { getSession } from "next-auth/react";
 
-const UserPage = ({ data }) => {
+const UserPage = ({ data, doctorUUID }) => {
   const router = useRouter();
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   console.log(data);
   return (
     <>
       <div className={Styles.page}>
+        <Sidebar doctorUUID={doctorUUID} />
+
         <div className={Styles.title}>
           <h3 className={Styles.titleText}>Patient Profile</h3>
         </div>
@@ -202,6 +205,7 @@ export async function getServerSideProps(context) {
   return {
     props: {
       data: data.data.data,
+      doctorUUID: session.user.uuid,
     },
   };
 }

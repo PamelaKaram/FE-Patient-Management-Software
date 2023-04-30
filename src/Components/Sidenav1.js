@@ -7,12 +7,14 @@ import Image from "next/image";
 import settingsIcon from "../icons/settingsIcon.svg";
 import notificationsIcon from "../icons/notificationIcon.svg";
 import { signOut } from "next-auth/react";
+import { useRouter } from "next/router";
 
-const Sidebar = () => {
+const Sidebar = ({ doctorInfo }) => {
+  const router = useRouter();
   return (
     <div className={SideStyles.sidebar}>
       <ul>
-        <li>
+        <li onClick={() => router.push(`/doctor/${doctorInfo.uuid}`)}>
           <Image
             src={dashboardIcon.src}
             alt="dashbaord"

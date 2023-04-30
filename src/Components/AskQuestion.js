@@ -1,0 +1,65 @@
+import React, { useState } from "react";
+import axios from "../../lib/axios.js";
+
+import PropTypes from "prop-types";
+import Styles from "../styles/ChangePatientMedicalConditionPopup.module.css";
+import useAxiosAuth from "../../lib/hooks/useAxiosAuth.js";
+
+const AskQuestion = ({ isOpen, onClose, patientUUID }) => {
+  const [textInput, setTextInput] = useState("");
+
+  const axiosAuth = useAxiosAuth();
+
+  const handleSubmit = async () => {
+    try {
+      await axiosAuth.post("/questions/patientQuestion", {
+        question: textInput,
+        patientUUID,
+      });
+      onClose();
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  const handleClose = () => {
+    onClose();
+  };
+
+  if (!isOpen) return null;
+
+  console.log(message);
+
+  return (
+    <div className={Styles.overlay}>
+      <div className={Styles.popup}>
+        <h3 className={Styles.title}>Ask Question to Dr Abou Karam</h3>
+        <button className={Styles.closeButtonX} onClick={handleClose}>
+          X
+        </button>
+        <textarea
+          className={Styles.textBox}
+          value={textInput}
+          placeholder="Write the question..."
+          onChange={(e) => setTextInput(e.target.value)}
+        />
+        <div className={Styles.buttonsContainer}>
+          <button className={Styles.customButton} onClick={handleSubmit}>
+            Submit
+          </button>
+          <button className={Styles.closeButton} onClick={handleClose}>
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+AskQuestion.propTypes = {
+  isOpen: PropTypes.bool.isRequired,
+  onClose: PropTypes.func.isRequired,
+  patientId: PropTypes.string.isRequired,
+};
+
+export default AskQuestion;

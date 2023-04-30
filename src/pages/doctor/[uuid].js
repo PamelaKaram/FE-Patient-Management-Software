@@ -32,7 +32,7 @@ function Doctor({ data }) {
 
   return (
     <div className={DoctorStyles.body}>
-      <Sidebar />
+      <Sidebar doctorUUID={data.uuid} />
       <InstantSearch searchClient={searchClient} indexName="patients">
         <div>
           <div className={DoctorStyles.imageContainer}>

@@ -5,7 +5,7 @@ import LoginStyles from "@/styles/login.module.css";
 import Image from "next/image";
 import SideImage from "../icons/backImage.jpg";
 import { signIn, useSession } from "next-auth/react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import loadingIcon from "../icons/loading-svgrepo-com.svg";
@@ -32,13 +32,16 @@ export default function LoginForm() {
         setLoading(false);
         return;
       }
-      const role = session.data.user.role;
-      const uuid = session.data.user.uuid;
-      router.push(`/${role}/${uuid}`);
     } catch (err) {
       console.log(err);
     }
   };
+
+  useEffect(() => {
+    const role = session.data.user.role;
+    const uuid = session.data.user.uuid;
+    router.push(`/${role}/${uuid}`);
+  }, [router, session]);
 
   return (
     <div className={LoginStyles.formContainer}>

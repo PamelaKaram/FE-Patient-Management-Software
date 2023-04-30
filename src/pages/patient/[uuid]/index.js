@@ -21,13 +21,15 @@ export default function Patient({ data }) {
   };
   return (
     <div className={SideStyles.body}>
-      <NavBar className={SideStyles.navBarMobile} />
-      <SideBar className={`${SideStyles.sideBar} ${SideStyles.sideBarDesktop}`} />
+      <NavBar className={SideStyles.navBarMobile} patientUUID={data.uuid} />
+      <SideBar
+        className={`${SideStyles.sideBar} ${SideStyles.sideBarDesktop}`}
+      />
       <div className={SideStyles.leftHalf}>
         <NavBar className={SideStyles.navBarDesktop} />
         <div className={SideStyles.header}>
           <h1>Hi, Pamela Karam</h1>
-          <p className={SideStyles.text}>Let's track your health Today!</p>
+          <p className={SideStyles.text}>{"Let's track your health Today!"}</p>
         </div>
         <div className={SideStyles.topSection}>
           <div className={SideStyles.app}>
@@ -47,7 +49,6 @@ export default function Patient({ data }) {
         <div className={SideStyles.calendarAndLinks}>
           <div style={{ width: "100%", margin: "50px" }}>
             <h3 className={SideStyles.calendarTitle}>Calendar</h3>
-            <DateRange />
           </div>
           <div className={SideStyles.link}>
             <h3>Quick Links</h3>
