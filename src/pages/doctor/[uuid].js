@@ -48,77 +48,76 @@ function Doctor({ data, appointmentRequests, session }) {
   };
 
   return (
-    // <div className={DoctorStyles.body}>
-    //   <Sidebar doctorUUID={data.uuid} />
-    //   <InstantSearch searchClient={searchClient} indexName="patients">
-    //     <div>
-    //       <div className={DoctorStyles.imageContainer}>
-    //         <div className={DoctorStyles.bottomCenter}>
-    //           <div className="fixed">
-    //             <div className={SideStyles.searchBarContainer}>
-    //               <SearchBox className={DoctorStyles.searchDoctor} />
-    //             </div>
-    //           </div>
-    //         </div>
-    //       </div>
-    //     </div>
+    <div className={DoctorStyles.body}>
+      <Sidebar doctorUUID={data.uuid} />
+      <InstantSearch searchClient={searchClient} indexName="patients">
+        <div>
+          <div className={DoctorStyles.imageContainer}>
+            <div className={DoctorStyles.bottomCenter}>
+              <div className="fixed">
+                <div className={SideStyles.searchBarContainer}>
+                  <SearchBox className={DoctorStyles.searchDoctor} />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
-    //     <div
-    //       style={{
-    //         padding: "4rem",
-    //       }}
-    //     >
-    //       <div className={WelcomeStyles.headerGrid}>
-    //         <Welcome />
-    //         <div className={WelcomeStyles.main}>
-    //           <h1>Patients</h1>
-    //           <HitsContainer />
-    //           <Configure hitsPerPage={5} />
-    //         </div>
-    //         <div className={WelcomeStyles.main}>
-    //           <h1>Quick Links</h1>
-    //           <Links />
-    //         </div>
-    //       </div>
-    //     </div>
-    //   </InstantSearch>
+        <div
+          style={{
+            padding: "4rem",
+          }}
+        >
+          <div className={WelcomeStyles.headerGrid}>
+            <Welcome />
+            <div className={WelcomeStyles.main}>
+              <h1>Patients</h1>
+              <HitsContainer />
+              <Configure hitsPerPage={5} />
+            </div>
+            <div className={WelcomeStyles.main}>
+              <h1>Quick Links</h1>
+              <Links />
+            </div>
+          </div>
+        </div>
+      </InstantSearch>
 
-    //   <div className={DoctorStyles.section}>
-    //     <div className={AppointmentsList.apt}>
-    //       <div style={{ width: "100%", margin: "50px" }}>
-    //         <DateRangePicker />
-    //       </div>
-    //       <AvailabilityButton />
-    //       <AppointmentsList />
-    //     </div>
-    //   </div>
+      <div className={DoctorStyles.section}>
+        <div className={AppointmentsList.apt}>
+          <div style={{ width: "100%", margin: "50px" }}>
+            <DateRangePicker />
+          </div>
+          <AvailabilityButton />
+          <AppointmentsList />
+        </div>
+      </div>
 
-    //   <div className={DoctorStyles.section}>
-    //     <div className={AppointmentsList.apt}>
-    //       <ChatActivty />
-    //     </div>
-    //   </div>
+      <div className={DoctorStyles.section}>
+        <div className={AppointmentsList.apt}>
+          <ChatActivty />
+        </div>
+      </div>
 
-    //   <div className={DoctorStyles.body}>{/* <Sidebar /> */}</div>
+      <div className={DoctorStyles.body}>{/* <Sidebar /> */}</div>
 
-    //   <button
-    //     className={DoctorStyles.customButton}
-    //     onClick={() => {
-    //       window.location.href = "/patient_registration";
-    //     }}
-    //   >
-    //     Register Patient
-    //   </button>
-    //   <button
-    //     className={DoctorStyles.customButton}
-    //     onClick={() => {
-    //       window.location.href = "/pharmacy_registration";
-    //     }}
-    //   >
-    //     Add Pharmacy
-    //   </button>
-    // </div>
-    <>Hey</>
+      <button
+        className={DoctorStyles.customButton}
+        onClick={() => {
+          window.location.href = "/patient_registration";
+        }}
+      >
+        Register Patient
+      </button>
+      <button
+        className={DoctorStyles.customButton}
+        onClick={() => {
+          window.location.href = "/pharmacy_registration";
+        }}
+      >
+        Add Pharmacy
+      </button>
+    </div>
   );
 }
 
