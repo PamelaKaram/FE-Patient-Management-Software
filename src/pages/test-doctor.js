@@ -19,7 +19,7 @@ import { InstantSearch, SearchBox, Configure } from "react-instantsearch-dom";
 import { searchClient } from "../../typesenseAdapter";
 import { getSession } from "next-auth/react";
 import axios from "../../../lib/axios";
-// import { DatePicker } from "@mui/x-date-pickers";
+import { DatePicker } from "@mui/x-date-pickers";
 import useAxiosAuth from "../../../lib/hooks/useAxiosAuth";
 import DateRangePicker from "../../Components/PatientDateRangePicker";
 import AvailabilityButton from "../../Components/DoctorAvailability";
@@ -49,7 +49,7 @@ function Doctor({ data, appointmentRequests }) {
 
   return (
     <div className={DoctorStyles.body}>
-      <Sidebar doctorUUID={data.uuid} />
+      <Sidebar />
       <InstantSearch searchClient={searchClient} indexName="patients">
         <div>
           <div className={DoctorStyles.imageContainer}>
@@ -119,52 +119,6 @@ function Doctor({ data, appointmentRequests }) {
       </button>
     </div>
   );
-}
-
-export async function getServerSideProps(context) {
-  const session = await getSession(context);
-  const { uuid } = context.query;
-
-  if (!session || !session.user) {
-    return {
-      redirect: {
-        destination: "/login",
-        permanent: false,
-      },
-    };
-  }
-
-  if (session.user.role !== "doctor") {
-    const role = session.user.role;
-    const uuid = session.user.uuid;
-    return {
-      redirect: {
-        destination: `/${role}/${uuid}`,
-        permanent: false,
-      },
-    };
-  }
-
-  const data = await axios.get("info/doctor", {
-    params: {
-      doctorUUID: uuid,
-    },
-    headers: {
-      Authorization: `Bearer ${session.user.accessToken}`,
-    },
-  });
-
-  const appointmentRequests = await axios.get("requests/get", {
-    headers: {
-      Authorization: `Bearer ${session.user.accessToken}`,
-    },
-  });
-  return {
-    props: {
-      data: data.data.data ?? null,
-      appointmentRequests: appointmentRequests.data.appointments ?? null,
-    },
-  };
 }
 
 export default Doctor;
