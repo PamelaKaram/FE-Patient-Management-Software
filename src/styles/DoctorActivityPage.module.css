@@ -1,0 +1,19 @@
+.title {
+    position: relative;
+    display: inline-block;
+    margin-left: 1rem;
+    border-bottom: 0.125rem solid #aaa;
+    padding-bottom: 0.25rem;
+    margin-bottom: 1rem;
+    font-size: 1.5625rem;
+  }
+  
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.9375rem; /* add space between each button */
+    background-color: #ffffff;
+    padding-bottom: 3.125rem;
+    margin-top: 2.5rem;
+    margin-left: 1.875rem;
+  }

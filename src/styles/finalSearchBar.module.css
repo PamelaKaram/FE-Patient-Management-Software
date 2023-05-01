@@ -1,0 +1,15 @@
+.searchBarContainer {
+    padding-top: 20vw;
+    margin: auto;
+    width: 50vw;
+  }
+  
+@media screen and (max-width: 768px) {
+    .searchBarContainer {
+      width: 80vw;
+    }
+  }
+    
+.searchBarContainer2 {
+  width: 40vw;
+}

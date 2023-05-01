@@ -1,0 +1,104 @@
+.myImageClass {
+    border-radius: 2.5rem;
+    padding-right: 0;
+}
+
+.rowDiv {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 0;
+    display: flex;
+    padding-bottom: 2.1875rem;
+    border-bottom: 1px solid #7f7f7f;
+    width: 40.625rem;
+    margin-bottom: 2rem;
+}
+
+.details {
+    color: gray;
+    font-size: 0.8125rem;
+    padding-top: 0.4375rem;
+}
+
+.dateTime {
+    background-color: #F5F6F8;
+    display: flex;
+    flex-direction: column;
+    margin-left: 1.875rem;
+    margin-top: 5.3125rem;
+}
+
+.infoImage {
+    padding-top: 0.625rem;
+}
+
+.corres1 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    align-content: space-between;
+    justify-content: center;
+    margin-left: 1.25rem;
+    margin-right: 1.25rem;
+    gap: 0.625rem;
+}
+
+.corres2 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    align-content: space-between;
+    justify-content: space-between;
+    margin-left: 1.25rem;
+    margin-right: 1.25rem;
+    gap: 0.625rem;
+}
+
+.dateTime {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 5rem;
+    width: 26.25rem;
+    border-radius: 1.25rem;
+    align-content: space-between;
+    justify-content: center;
+    gap: 1.875rem;
+}
+
+/* Media queries */
+@media (max-width: 1200px) {
+    .rowDiv {
+        width: 90%;
+    }
+}
+
+@media (max-width: 1024px) {
+    .rowDiv {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .rowDiv {
+        flex-direction: column;
+        padding-bottom: 1rem;
+    }
+
+    .dateTime {
+        margin-top: 1rem;
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .details {
+        font-size: 0.75rem;
+    }
+
+    .dateTime {
+        height: 4rem;
+        width: 20rem;
+    }
+}

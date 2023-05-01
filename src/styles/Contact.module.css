@@ -1,0 +1,44 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    background-color: #eee;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.625rem;
+    line-height: 2.8125rem;
+}
+
+.imageClass {
+    margin-right: 0.625rem;
+}
+
+/* .sets {
+    display: flex;
+    flex-direction: column;
+    margin-right: 1.25rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.sets:first-child {
+    margin-right: 7.5rem;
+}
+
+.sets:last-child {
+    margin-left: 7.5rem;
+} */
+
+.textClass {
+    transition: transform 0.3s ease;
+    /*responsive font size*/
+    
+}
+
+.item:hover .textClass {
+    transform: translateX(12px);
+}

@@ -1,0 +1,36 @@
+.customButton {
+  background-color: #2E77B1;
+  color: #fff;
+  border-radius: 1.5rem;
+  padding: 1.25rem 1.875rem;
+  text-align: center;
+  display: inline-block;
+  cursor: pointer;
+  border: none;
+  margin-top: 2.5rem;
+  font-size: 1rem;
+}
+
+/* Media queries */
+@media (max-width: 1024px) {
+  .customButton {
+      padding: 1rem 1.5rem;
+      font-size: 0.9rem;
+      bottom: 0;
+      right: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .customButton {
+      padding: 0.75rem 1.25rem;
+      font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .customButton {
+      padding: 0.5rem 1rem;
+      font-size: 0.7rem;
+  }
+}

@@ -1,0 +1,51 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-right: 9.375rem;
+    padding-left: 0;
+}
+
+.contactInfo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    align-items: flex-start;
+    margin: 0.625rem; 
+    padding: 0.625rem; 
+    background-color: rgb(218, 218, 218);
+    border-radius: 1.7rem;
+    width: 25rem;
+    height: 4.375rem;
+}
+
+.contactImage {
+    padding-right: 1.875rem;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.contactInfo {
+    display: flex;
+    align-items: center;
+    padding-left: 1.375rem;
+}
+
+.text {
+    flex-direction: column;
+    padding-left: 0.625rem;
+}
+
+.contactInfo img {
+    margin-right: 0.625rem;
+}
+
+.contactInfo h4 {
+    margin: 0;
+}
+
+.contactInfo p {
+    margin: 0;
+    margin-left: 0.3125rem;
+}

@@ -16,8 +16,23 @@
     "incremental": true,
     "paths": {
       "@/*": ["./src/*"]
-    }
+    },
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "src/pages/home.js",
+    "src/pages/[uuid[.js",
+    "src/pages/_app.js",
+    "src/pages/_document.js",
+    "src/Components/Sidenav1.js",
+    ".next/types/**/*.ts"
+  ],
   "exclude": ["node_modules"]
 }
