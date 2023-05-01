@@ -17,7 +17,7 @@ const ChatActivity = () => {
 
   useEffect(() => {
     const getQuestions = async () => {
-      if (session) {
+      if (session.user) {
         console.log(session);
         const data = await axios.get("/questions/patientQuestions", {
           headers: {

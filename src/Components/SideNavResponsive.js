@@ -20,7 +20,7 @@ import ChatIcon from "../icons/chatIcon.svg";
 import SearchIcon from "../icons/searchIcon.svg";
 import loginIcon from "../icons/loginIcon.svg";
 import homeIcon from "../icons/homeIconB.svg";
-import { useSession } from "next-auth/react";
+import { signOut, useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 
 export default function TemporaryDrawer() {
@@ -107,6 +107,12 @@ export default function TemporaryDrawer() {
           <ListItemText primary={"Login"} />
         </ListItemButton>
       )}
+      <ListItemButton onClick={() => signOut()}>
+        <ListItemIcon>
+          <Image src={LogoutIcon.src} alt="Logout" width={23} height={23} />
+        </ListItemIcon>
+        <ListItemText primary={"Logout"} />
+      </ListItemButton>
     </Box>
   );
 
