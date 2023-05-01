@@ -36,7 +36,6 @@
     "next": "13.2.4",
     "next-auth": "^4.22.1",
     "react": "18.2.0",
-    "react-date-range": "^1.4.0",
     "react-dom": "18.2.0",
     "react-hook-form": "^7.43.9",
     "react-instantsearch-dom": "^6.39.1",
