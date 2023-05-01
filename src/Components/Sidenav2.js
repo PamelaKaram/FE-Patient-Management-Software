@@ -5,29 +5,37 @@ import searchIcon from "../icons/homeSearchIcon.svg";
 import settingsIcon from "../icons/homeSettingsIcon.svg";
 import loginIcon from "../icons/homeLoginIcon.svg";
 import Image from "next/image";
+import { useState } from "react";
 
 const Sidebar = () => {
+  const [showSearchBar, setShowSearchBar] = useState(false);
+
   return (
     <div className={SideStyles.sidebar}>
-      <ul>
+      <ul className={SideStyles.ul}>
         <li className={SideStyles.list}>
-         Home
+          Home
         </li>
-        <li className={SideStyles.list}>
-         Home
-        </li>
-        <li className={SideStyles.list}>
+        <li className={SideStyles.list}
+          onClick={() => {
+            setShowSearchBar(true);
+          }}>
           Search
+          {showSearchBar && (
+            <div onBlur={() => setShowSearchBar(false)}>
+              <input type="text" placeholder="Search..." />
+              <button>Search</button>
+            </div>
+          )}
         </li>
         <li className={SideStyles.list}>
           Settings
         </li>
         <li className={SideStyles.list}
-        onClick={() => {
-          window.location.href = "/login";
-        }}>
+          onClick={() => {
+            window.location.href = "/login";
+          }}>
           Login
-          
         </li>
       </ul>
     </div>
