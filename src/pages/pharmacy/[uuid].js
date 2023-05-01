@@ -45,7 +45,7 @@ export async function getServerSideProps(context) {
   const session = await getSession(context);
   const { uuid } = context.params;
 
-  if (!session && !session.user) {
+  if (!session && !session?.user) {
     return {
       redirect: {
         destination: "/login",
