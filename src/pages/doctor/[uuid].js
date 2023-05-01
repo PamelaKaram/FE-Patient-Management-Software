@@ -153,14 +153,14 @@ export async function getServerSideProps(context) {
     };
   }
 
-  // const data = await axios.get("/info/doctor", {
-  //   params: {
-  //     doctorUUID: uuid,
-  //   },
-  //   headers: {
-  //     Authorization: `Bearer ${session.user.accessToken}`,
-  //   },
-  // });
+  const data = await axios.get("/info/doctor", {
+    params: {
+      doctorUUID: uuid,
+    },
+    headers: {
+      Authorization: `Bearer ${session.user.accessToken}`,
+    },
+  });
 
   // const appointmentRequests = await axios.get("/requests/get", {
   //   headers: {
@@ -171,7 +171,7 @@ export async function getServerSideProps(context) {
   return {
     props: {
       session,
-      data: null,
+      data: data.data.data ?? null,
       appointmentRequests: null,
     },
   };
