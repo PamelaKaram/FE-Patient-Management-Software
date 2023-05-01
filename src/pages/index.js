@@ -23,6 +23,12 @@ export default function Home() {
     setHeight(window.innerHeight);
   };
 
+  const handleClick = (id) => {
+    const section = document.getElementById(id);
+    section.scrollIntoView({ behavior: "smooth" });
+  };
+
+
   const articles = [
     {
       imageUrl: "/icons/ArticleImage1.jpg",
@@ -52,40 +58,60 @@ export default function Home() {
     <main>
       {width < 768 ? <SidenavMobile /> : <SidenavWeb />}
       <header className={buttonStyles.headerContainer}>
-      <div className={buttonStyles.blueRectangle}>
-        <h1 className={buttonStyles.title}>
-          Trust your health to the best specialists 
-          Dr. Abou Karam
+        <div className={buttonStyles.blueRectangle}>
+          <h1 className={buttonStyles.title}>
+            Trust your health to the best specialists
           </h1>
-       
-     
-      </div>
-      <div className={buttonStyles.cardsContainer}>
 
-        <Card title="Stay up to date with the latest articles on health." buttonColor="primary" buttonText="Blogs & Articles" />
-        <Card title="Good Health Good Wealth." buttonColor="secondary" buttonText="Tips" />
-        <Card title="Are you looking for a cardiologist?" buttonColor="tertiary" buttonText="About" />
-      </div>
-    </header>
-      <div className={homeStyles.aboutContainer}>
-            <Image
-                src={back.src} alt="About section image" width="400" height="400"
-                className={home.pic} />
-            <div className={homeStyles.about}>
-                <h2>About Me</h2>
-                <p>My mission is to promote heart health and prevent heart disease in my patients.
-                    I offer a range of preventive measures such as lifestyle modifications, medication
-                    management, and regular monitoring to help my patients maintain optimal heart health.
-                    Book a consultation, get diagnosed and find the best treatment.</p>
-                <ChatButton onClick={() => alert('Request an appointment')}
-                />
-            </div>
+
         </div>
-      <div>
+        <div className={buttonStyles.cardsContainer}>
+          <Card
+            title="Stay up to date with the latest articles on health."
+            buttonColor="primary"
+            buttonText="Blogs & Articles"
+            onClick={() => handleClick("article")}
+          />
+
+          <Card
+            title="Good Health Good Wealth."
+            buttonColor="secondary"
+            buttonText="Tips"
+            onClick={() => handleClick("tips")}
+          />
+
+          <Card
+            title="Are you looking for a cardiologist?"
+            buttonColor="tertiary"
+            buttonText="About"
+            onClick={() => handleClick("about")}
+          />
+        </div>
+      </header>
+      <div className={homeStyles.aboutContainer}>
+        <Image
+          src={back.src} alt="About section image" width="400" height="500"
+          className={home.pic} />
+        <div className={homeStyles.about} id="about">
+          <h2>About Me</h2>
+          <p>
+            Hello, my name is Walid Abou Karam and I am a cardiologist. I have been practicing for over 20 years.
+            My mission is to promote heart health and prevent heart disease in my patients.
+            I offer a range of preventive measures such as lifestyle modifications, medication
+            management, and regular monitoring to help my patients maintain optimal heart health.
+            Book a consultation, get diagnosed and find the best treatment.</p>
+          <ChatButton onClick={() => alert('Request an appointment')}
+          />
+        </div>
+      </div>
+      <div id="article">
         <BlogArticle articles={articles} />
+       <div id="tips"> 
         <Tips />
+        </div>
         {/* <Contact /> */}
       </div>
     </main>
   );
 }
+

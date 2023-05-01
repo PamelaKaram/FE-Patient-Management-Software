@@ -42,35 +42,35 @@ function RequestAptPop() {
           </div>
           <div className={SideStyles.info}>
             <form onSubmit={handleSubmit(onSubmit)}>
-              <label>First Name:</label>
+              {/* <label>First Name:</label> */}
               <input
                 type="text"
                 {...register("firstName")}
                 placeholder="Enter your first name"
               />
 
-              <label>Last Name:</label>
+              {/* <label>Last Name:</label> */}
               <input
                 type="text"
                 {...register("lastName")}
                 placeholder="Enter your last name"
               />
-
-              <label>Email:</label>
+{/* 
+              <label>Email:</label> */}
               <input
                 type="email"
                 {...register("email")}
                 placeholder="Enter your email"
               />
 
-              <label>Phone:</label>
+              {/* <label>Phone:</label> */}
               <input
                 type="tel"
                 {...register("phone")}
                 placeholder="Enter your phone number"
               />
 
-              <label>Message:</label>
+              {/* <label>Message:</label> */}
               <textarea
                 {...register("message")}
                 placeholder="Enter your message"
