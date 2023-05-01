@@ -14,7 +14,7 @@ const ForgotPasswordd = () => {
   const router = useRouter();
   const {email} = router.query;
 
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
 
     if (number === '' || !/^\d{6}$/.test(number)) {
       alert('Please enter a valid 6-digit number.');
@@ -22,7 +22,7 @@ const ForgotPasswordd = () => {
     }
 
     try{
-      const res = axios.post("http://localhost:8080/api/v1/auth/forgotPassword",
+      const res = await axios.post("http://localhost:8080/api/v1/auth/forgotPassword",
       {
         email:email,
         code: code,
