@@ -20,14 +20,29 @@ import { searchClient } from "../../typesenseAdapter";
 import { getSession } from "next-auth/react";
 import axios from "../../../lib/axios";
 import { DatePicker } from "@mui/x-date-pickers";
+import useAxiosAuth from "../../../lib/hooks/useAxiosAuth";
 
-function Doctor({ data }) {
+function Doctor({ data, appointmentRequests }) {
   const [date, setDate] = useState(new Date());
   const [focus, setFocus] = useState(false);
+  const [status, setStatus] = useState("");
   console.log(data);
 
   const handleSingleDateChange = (date) => {
     setDate(date);
+  };
+
+  const axiosAuth = useAxiosAuth();
+
+  const onAcceptOrReject = async (appointmentUUID) => {
+    try {
+      await axiosAuth.post("/requests/acceptOrReject", {
+        appointmentUUID,
+        status: status,
+      });
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -107,7 +122,7 @@ export async function getServerSideProps(context) {
   const session = await getSession(context);
   const { uuid } = context.query;
 
-  if (!session) {
+  if (!session || !session.user) {
     return {
       redirect: {
         destination: "/login",
@@ -136,9 +151,15 @@ export async function getServerSideProps(context) {
     },
   });
 
+  const appointmentRequests = await axios.get("requests/get", {
+    headers: {
+      Authorization: `Bearer ${session.user.accessToken}`,
+    },
+  });
   return {
     props: {
       data: data.data.data ?? null,
+      appointmentRequests: appointmentRequests.data.appointments ?? null,
     },
   };
 }
