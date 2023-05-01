@@ -21,6 +21,8 @@ import { getSession } from "next-auth/react";
 import axios from "../../../lib/axios";
 import { DatePicker } from "@mui/x-date-pickers";
 import useAxiosAuth from "../../../lib/hooks/useAxiosAuth";
+import DateRangePicker from "../../Components/PatientDateRangePicker";
+import AvailabilityButton from "../../Components/DoctorAvailability";
 
 function Doctor({ data, appointmentRequests }) {
   const [date, setDate] = useState(new Date());
@@ -83,9 +85,10 @@ function Doctor({ data, appointmentRequests }) {
 
       <div className={DoctorStyles.section}>
         <div className={AppointmentsList.apt}>
-          <LocalizationProvider dateAdapter={AdapterDateFns}>
-            <DatePicker />
-          </LocalizationProvider>
+        <div style={{ width: "100%", margin: "50px" }}>
+            <DateRangePicker />
+          </div>
+          <AvailabilityButton />
           <AppointmentsList />
         </div>
       </div>
