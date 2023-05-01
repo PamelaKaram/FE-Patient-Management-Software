@@ -55,7 +55,6 @@ export default function Home() {
       <div className={buttonStyles.blueRectangle}>
         <h1 className={buttonStyles.title}>
           Trust your health to the best specialists 
-          Dr. Abou Karam
           </h1>
        
      
@@ -69,11 +68,13 @@ export default function Home() {
     </header>
       <div className={homeStyles.aboutContainer}>
             <Image
-                src={back.src} alt="About section image" width="400" height="400"
+                src={back.src} alt="About section image" width="400" height="500"
                 className={home.pic} />
             <div className={homeStyles.about}>
                 <h2>About Me</h2>
-                <p>My mission is to promote heart health and prevent heart disease in my patients.
+                <p>
+                  Hello, my name is Walid Abou Karam and I am a cardiologist. I have been practicing for over 20 years.
+                  My mission is to promote heart health and prevent heart disease in my patients.
                     I offer a range of preventive measures such as lifestyle modifications, medication
                     management, and regular monitoring to help my patients maintain optimal heart health.
                     Book a consultation, get diagnosed and find the best treatment.</p>
