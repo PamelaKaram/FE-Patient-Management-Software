@@ -76,7 +76,7 @@ export async function getServerSideProps(context) {
   const { uuid } = context.params;
   const session = await getSession(context);
 
-  if (!session) {
+  if (!session && !session.user) {
     return {
       redirect: {
         destination: "/login",
@@ -84,7 +84,12 @@ export async function getServerSideProps(context) {
       },
     };
   }
-
+  if (new Date(session.expires) < new Date()) {
+    const res = await axios.post("/auth/token", {
+      refreshToken: session?.user.refreshToken,
+    });
+    session.user.accessToken = res.data.accessToken;
+  }
   if (session.user.role !== "doctor") {
     const role = session.user.role;
     const uuid = session.user.uuid;

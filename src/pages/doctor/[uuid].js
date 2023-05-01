@@ -24,11 +24,11 @@ import useAxiosAuth from "../../../lib/hooks/useAxiosAuth";
 import DateRangePicker from "../../Components/PatientDateRangePicker";
 import AvailabilityButton from "../../Components/DoctorAvailability";
 
-function Doctor({ data, appointmentRequests }) {
+function Doctor({ data, appointmentRequests, session }) {
   const [date, setDate] = useState(new Date());
   const [focus, setFocus] = useState(false);
   const [status, setStatus] = useState("");
-  console.log(data);
+  console.log(session);
 
   const handleSingleDateChange = (date) => {
     setDate(date);
@@ -48,76 +48,77 @@ function Doctor({ data, appointmentRequests }) {
   };
 
   return (
-    <div className={DoctorStyles.body}>
-      <Sidebar doctorUUID={data.uuid} />
-      <InstantSearch searchClient={searchClient} indexName="patients">
-        <div>
-          <div className={DoctorStyles.imageContainer}>
-            <div className={DoctorStyles.bottomCenter}>
-              <div className="fixed">
-                <div className={SideStyles.searchBarContainer}>
-                  <SearchBox className={DoctorStyles.searchDoctor} />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+    // <div className={DoctorStyles.body}>
+    //   <Sidebar doctorUUID={data.uuid} />
+    //   <InstantSearch searchClient={searchClient} indexName="patients">
+    //     <div>
+    //       <div className={DoctorStyles.imageContainer}>
+    //         <div className={DoctorStyles.bottomCenter}>
+    //           <div className="fixed">
+    //             <div className={SideStyles.searchBarContainer}>
+    //               <SearchBox className={DoctorStyles.searchDoctor} />
+    //             </div>
+    //           </div>
+    //         </div>
+    //       </div>
+    //     </div>
 
-        <div
-          style={{
-            padding: "4rem",
-          }}
-        >
-          <div className={WelcomeStyles.headerGrid}>
-            <Welcome />
-            <div className={WelcomeStyles.main}>
-              <h1>Patients</h1>
-              <HitsContainer />
-              <Configure hitsPerPage={5} />
-            </div>
-            <div className={WelcomeStyles.main}>
-              <h1>Quick Links</h1>
-              <Links />
-            </div>
-          </div>
-        </div>
-      </InstantSearch>
+    //     <div
+    //       style={{
+    //         padding: "4rem",
+    //       }}
+    //     >
+    //       <div className={WelcomeStyles.headerGrid}>
+    //         <Welcome />
+    //         <div className={WelcomeStyles.main}>
+    //           <h1>Patients</h1>
+    //           <HitsContainer />
+    //           <Configure hitsPerPage={5} />
+    //         </div>
+    //         <div className={WelcomeStyles.main}>
+    //           <h1>Quick Links</h1>
+    //           <Links />
+    //         </div>
+    //       </div>
+    //     </div>
+    //   </InstantSearch>
 
-      <div className={DoctorStyles.section}>
-        <div className={AppointmentsList.apt}>
-        <div style={{ width: "100%", margin: "50px" }}>
-            <DateRangePicker />
-          </div>
-          <AvailabilityButton />
-          <AppointmentsList />
-        </div>
-      </div>
+    //   <div className={DoctorStyles.section}>
+    //     <div className={AppointmentsList.apt}>
+    //       <div style={{ width: "100%", margin: "50px" }}>
+    //         <DateRangePicker />
+    //       </div>
+    //       <AvailabilityButton />
+    //       <AppointmentsList />
+    //     </div>
+    //   </div>
 
-      <div className={DoctorStyles.section}>
-        <div className={AppointmentsList.apt}>
-          <ChatActivty />
-        </div>
-      </div>
+    //   <div className={DoctorStyles.section}>
+    //     <div className={AppointmentsList.apt}>
+    //       <ChatActivty />
+    //     </div>
+    //   </div>
 
-      <div className={DoctorStyles.body}>{/* <Sidebar /> */}</div>
+    //   <div className={DoctorStyles.body}>{/* <Sidebar /> */}</div>
 
-      <button
-        className={DoctorStyles.customButton}
-        onClick={() => {
-          window.location.href = "/patient_registration";
-        }}
-      >
-        Register Patient
-      </button>
-      <button
-        className={DoctorStyles.customButton}
-        onClick={() => {
-          window.location.href = "/pharmacy_registration";
-        }}
-      >
-        Add Pharmacy
-      </button>
-    </div>
+    //   <button
+    //     className={DoctorStyles.customButton}
+    //     onClick={() => {
+    //       window.location.href = "/patient_registration";
+    //     }}
+    //   >
+    //     Register Patient
+    //   </button>
+    //   <button
+    //     className={DoctorStyles.customButton}
+    //     onClick={() => {
+    //       window.location.href = "/pharmacy_registration";
+    //     }}
+    //   >
+    //     Add Pharmacy
+    //   </button>
+    // </div>
+    <>Hey</>
   );
 }
 
@@ -125,13 +126,20 @@ export async function getServerSideProps(context) {
   const session = await getSession(context);
   const { uuid } = context.query;
 
-  if (!session || !session.user) {
+  if (!session && !session.user) {
     return {
       redirect: {
         destination: "/login",
         permanent: false,
       },
     };
+  }
+
+  if (new Date(session.expires) < new Date()) {
+    const res = await axios.post("/auth/token", {
+      refreshToken: session?.user.refreshToken,
+    });
+    session.user.accessToken = res.data.accessToken;
   }
 
   if (session.user.role !== "doctor") {
@@ -145,24 +153,26 @@ export async function getServerSideProps(context) {
     };
   }
 
-  const data = await axios.get("info/doctor", {
-    params: {
-      doctorUUID: uuid,
-    },
-    headers: {
-      Authorization: `Bearer ${session.user.accessToken}`,
-    },
-  });
+  // const data = await axios.get("/info/doctor", {
+  //   params: {
+  //     doctorUUID: uuid,
+  //   },
+  //   headers: {
+  //     Authorization: `Bearer ${session.user.accessToken}`,
+  //   },
+  // });
 
-  const appointmentRequests = await axios.get("requests/get", {
-    headers: {
-      Authorization: `Bearer ${session.user.accessToken}`,
-    },
-  });
+  // const appointmentRequests = await axios.get("/requests/get", {
+  //   headers: {
+  //     Authorization: `Bearer ${session.user.accessToken}`,
+  //   },
+  // });
+
   return {
     props: {
-      data: data.data.data ?? null,
-      appointmentRequests: appointmentRequests.data.appointments ?? null,
+      session,
+      data: null,
+      appointmentRequests: null,
     },
   };
 }

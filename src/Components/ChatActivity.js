@@ -17,14 +17,21 @@ const ChatActivity = () => {
 
   useEffect(() => {
     const getQuestions = async () => {
-      if (session.user) {
+      if (session?.user) {
         console.log(session);
         const data = await axios.get("/questions/patientQuestions", {
           headers: {
             Authorization: `Bearer ${session.user?.accessToken}`,
           },
         });
-        setQuestions(data.data.questions);
+        let questionsArray = [
+          data.data.questions[0],
+          data.data.questions[1],
+          data.data.questions[2],
+          data.data.questions[3],
+          data.data.questions[4],
+        ];
+        setQuestions(questionsArray);
       }
     };
     getQuestions();
@@ -33,6 +40,9 @@ const ChatActivity = () => {
   const list = questions.map((question) => {
     return (
       <div key={question.id} className={ChatActivityCSS.appointmentpreview}>
+        <div className={ChatActivityCSS.avatar}>
+          <Avatar src="/static/images/avatar/1.jpg" />
+        </div>
         <div className={ChatActivityCSS.info}>
           <div className={ChatActivityCSS.previewtime}>{question.question}</div>
           <div className={ChatActivityCSS.decisions}>
@@ -60,7 +70,7 @@ const ChatActivity = () => {
         <h1>{"Looks like you've got some questions to answer"}</h1>
       </div>
 
-      <div className={ChatActivity.appointmentscontainer}>{list}</div>
+      <div className={ChatActivityCSS.appointmentscontainer}>{list}</div>
     </div>
   );
 };

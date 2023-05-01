@@ -1,16 +1,19 @@
-import React, { useState } from 'react';
-import { StaticDateRangePicker, DateRangePickerDay } from '@mui/lab';
-import AdapterDateFns from '@mui/lab/AdapterDateFns';
-import LocalizationProvider from '@mui/lab/LocalizationProvider';
-import { styled } from '@mui/system';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { blue } from '@mui/material/colors';
-import AppointmentsPopup from './PatientCalendarAppointmentPopup';
-import axios from 'axios';
+import React, { useState } from "react";
+import { StaticDateRangePicker, DateRangePickerDay } from "@mui/lab";
+import AdapterDateFns from "@mui/lab/AdapterDateFns";
+import LocalizationProvider from "@mui/lab/LocalizationProvider";
+import { styled } from "@mui/system";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { blue } from "@mui/material/colors";
+import AppointmentsPopup from "./PatientCalendarAppointmentPopup";
+import { useParams } from "react-router-dom";
+import useAxiosAuth from "../../lib/hooks/useAxiosAuth";
+import { useSession } from "next-auth/react";
+import axios from "../../lib/axios";
 
 const StyledDateRangePickerDay = styled(DateRangePickerDay)(({ theme }) => ({
-  borderRadius: '50%',
-  '&:hover': {
+  borderRadius: "50%",
+  "&:hover": {
     backgroundColor: theme.palette.action.hover,
   },
 }));
@@ -25,26 +28,23 @@ function CustomDateRangePicker() {
   const [value, setValue] = useState([null, null]);
   const [appointments, setAppointments] = useState([]);
   const [popupVisible, setPopupVisible] = useState(false);
+  const { uuid } = useParams();
+  const { data: session } = useSession();
 
-
-  const startDate = value[0];
-  const endDate = value[1];
-  const { uuid } = context.params;
+  console.log(session);
 
   const fetchAppointments = async (startDate, endDate) => {
     try {
-      const response = await axios.get("http://localhost:8080/api/v1/appointments/patientGetPastFuture", {
-        params: {uuid, startDate, endDate },
-      },
-      {
+      const response = await axios.get("/appointments/patientGetPastFuture", {
         headers: {
-          "Authorization": "Bearer"
+          Authorization: `Bearer ${session.user.accessToken}`,
         },
+        params: { uuid, fromDate: startDate, tillDate: endDate },
       });
       setAppointments(response.data);
       setPopupVisible(true);
     } catch (error) {
-      console.error('Error fetching appointments:', error);
+      console.error("Error fetching appointments:", error);
     }
   };
 
@@ -53,7 +53,6 @@ function CustomDateRangePicker() {
     if (newValue[0] && newValue[1]) {
       await fetchAppointments(newValue[0], newValue[1]);
       setPopupVisible(true);
-
     }
   };
 
@@ -75,26 +74,23 @@ function CustomDateRangePicker() {
             day: {
               styleProps: {
                 selected: {
-                  backgroundColor: 'red',
-                  color: 'white',
+                  backgroundColor: "red",
+                  color: "white",
                 },
                 selectedStartDate: {
-                  borderTopLeftRadius: '50%',
-                  borderBottomLeftRadius: '50%',
+                  borderTopLeftRadius: "50%",
+                  borderBottomLeftRadius: "50%",
                 },
                 selectedEndDate: {
-                  borderTopRightRadius: '50%',
-                  borderBottomRightRadius: '50%',
+                  borderTopRightRadius: "50%",
+                  borderBottomRightRadius: "50%",
                 },
               },
             },
           }}
         />
         {popupVisible && (
-          <AppointmentsPopup
-            appointments={appointments}
-            onClose={closePopup}
-          />
+          <AppointmentsPopup appointments={appointments} onClose={closePopup} />
         )}
       </LocalizationProvider>
     </ThemeProvider>
