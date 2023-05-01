@@ -22,7 +22,7 @@ This is a patient management software that enables doctors, patients, and pharma
 2. Run
 `npm run dev`
 
-##Pages
+## Pages
 ### This software has the following views: 
 #### Doctor view: 
 
