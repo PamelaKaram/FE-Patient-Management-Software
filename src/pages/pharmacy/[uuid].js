@@ -16,7 +16,7 @@ export default function Pharmacy({ data }) {
       <div className={SideStyles.leftHalf}>
         <Sidebar />
       </div>
-      <InstantSearch searchClient={searchClient} indexName="patients">
+      <InstantSearch searchClient={searchClient} indexName="patients_access">
         <div className={SideStyles.rightHalf}>
           <div className={SideStyles.imageContainer}>
             <div className={SideStyles.bottomCenter}>
