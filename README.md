@@ -23,7 +23,11 @@ This is a patient management software that enables doctors, patients, and pharma
 `npm run dev`
 
 ## Pages
-### This software has the following views: 
+### This software has the following views after loggin in to respective roles:
+
+### Login:
+![image](https://user-images.githubusercontent.com/99994624/235511088-8cdec788-a6bc-4614-b0d6-052d4f6c7cd1.png)
+
 #### Doctor view: 
 
 ![Screenshot 2023-05-01 172452](https://user-images.githubusercontent.com/99994624/235497227-28a50579-7ffc-4213-b500-e313e7f003d8.png)
@@ -37,10 +41,10 @@ This is a patient management software that enables doctors, patients, and pharma
 ![image](https://user-images.githubusercontent.com/99994624/235502896-110db382-96e5-4399-a9f4-297f7f6d8857.png)
 
 ### Homepage: 
+![image](https://user-images.githubusercontent.com/99994624/235511367-dfa4b348-17f5-4459-a7a7-22fa7458190a.png)
+![image](https://user-images.githubusercontent.com/99994624/235511462-33cee378-0478-4aa8-a0e3-a535780cf1ed.png)
 
 
-
-https://user-images.githubusercontent.com/99994624/235497655-eed6385f-095a-41f9-a0e2-c9d63f287fd2.mp4
 
 
 
