@@ -25,9 +25,6 @@ This is a patient management software that enables doctors, patients, and pharma
 ## Pages
 ### This software has the following views after loggin in to respective roles:
 
-### Login:
-![image](https://user-images.githubusercontent.com/99994624/235511088-8cdec788-a6bc-4614-b0d6-052d4f6c7cd1.png)
-
 #### Doctor view: 
 
 ![Screenshot 2023-05-01 172452](https://user-images.githubusercontent.com/99994624/235497227-28a50579-7ffc-4213-b500-e313e7f003d8.png)
@@ -45,6 +42,7 @@ This is a patient management software that enables doctors, patients, and pharma
 ![image](https://user-images.githubusercontent.com/99994624/235511462-33cee378-0478-4aa8-a0e3-a535780cf1ed.png)
 
 
-
+### Login:
+![image](https://user-images.githubusercontent.com/99994624/235511088-8cdec788-a6bc-4614-b0d6-052d4f6c7cd1.png)
 
 
