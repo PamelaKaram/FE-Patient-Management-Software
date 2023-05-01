@@ -26,13 +26,20 @@ function CustomDateRangePicker() {
   const [appointments, setAppointments] = useState([]);
   const [popupVisible, setPopupVisible] = useState(false);
 
+
   const startDate = value[0];
   const endDate = value[1];
+  const { uuid } = context.params;
 
   const fetchAppointments = async (startDate, endDate) => {
     try {
-      const response = await axios.get('your_api_endpoint_here', {
-        params: { startDate, endDate },
+      const response = await axios.get("http://localhost:8080/api/v1/appointments/patientGetPastFuture", {
+        params: {uuid, startDate, endDate },
+      },
+      {
+        headers: {
+          "Authorization": "Bearer"
+        },
       });
       setAppointments(response.data);
       setPopupVisible(true);

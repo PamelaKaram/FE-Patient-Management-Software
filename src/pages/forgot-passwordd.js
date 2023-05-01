@@ -5,15 +5,37 @@ import LoginStyles from "@/styles/login.module.css";
 import { useState } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import axios from "../../lib/axios";
 
 const ForgotPasswordd = () => {
   const form = useForm();
   const { register, control, handleSubmit, formState } = form;
   const { errors } = formState;
   const router = useRouter();
+  const {email} = router.query;
 
-  const onSubmit = (data) => {
-    console.log(data.email, data.password, data.newPassword);
+  const onSubmit = async (data) => {
+
+    if (number === '' || !/^\d{6}$/.test(number)) {
+      alert('Please enter a valid 6-digit number.');
+      return;
+    }
+
+    try{
+      const res = await axios.post("http://localhost:8080/api/v1/auth/forgotPassword",
+      {
+        email:email,
+        code: code,
+        password:password,
+        confirmPassword:confirmPassword,
+      }
+    );
+    router.push("/login");
+    }catch(err){
+      console.log(err);
+      setResetPasswordError("Failed to reset password");
+    }
+    
   };
 
   return (

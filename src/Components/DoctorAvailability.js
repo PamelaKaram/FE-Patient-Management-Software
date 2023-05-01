@@ -9,7 +9,12 @@ const AppointmentsPopup = () => {
 
   const fetchAppointments = async () => {
     try {
-      const response = await axios.get('/api/appointments');
+      const response = await axios.get("http://localhost:8080/api/v1/appointments/getAvailability",
+      {
+        headers: {
+          "Authorization": "Bearer"
+        },
+      });
       setAppointments(response.data.appointments);
       setShowPopup(true);
     } catch (error) {

@@ -31,9 +31,15 @@ function CustomDateRangePicker() {
 
   const fetchAppointments = async (startDate, endDate) => {
     try {
-      const response = await axios.get('your_api_endpoint_here', {
+      const response = await axios.get("http://localhost:8080/api/v1/appointments/getPastFuture", {
         params: { startDate, endDate },
-      });
+      },
+      {
+        headers: {
+          "Authorization": "Bearer"
+        },
+      }
+      );
       setAppointments(response.data);
       setPopupVisible(true);
     } catch (error) {
