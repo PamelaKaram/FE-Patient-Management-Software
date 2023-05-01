@@ -19,7 +19,7 @@ import { InstantSearch, SearchBox, Configure } from "react-instantsearch-dom";
 import { searchClient } from "../../typesenseAdapter";
 import { getSession } from "next-auth/react";
 import axios from "../../../lib/axios";
-import { DatePicker } from "@mui/x-date-pickers";
+// import { DatePicker } from "@mui/x-date-pickers";
 import useAxiosAuth from "../../../lib/hooks/useAxiosAuth";
 import DateRangePicker from "../../Components/PatientDateRangePicker";
 import AvailabilityButton from "../../Components/DoctorAvailability";
