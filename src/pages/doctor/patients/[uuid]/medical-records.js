@@ -87,10 +87,10 @@ const ViewPatientMedicalRecordsTests = ({ patientData, initialFiles }) => {
         <div style={{ margin: "2rem" }}>
           {files?.map((file, index) => {
             const isImage = imageExtensions.some((ext) =>
-              file.filename.toLowerCase().endsWith(ext)
+              file?.filename?.toLowerCase()?.endsWith(ext)
             );
             const isVideo = videoExtensions.some((ext) =>
-              file.filename.toLowerCase().endsWith(ext)
+              file?.filename?.toLowerCase()?.endsWith(ext)
             );
             const source = isImage ? imageIcon : isVideo ? videoIcon : fileIcon;
             return (
@@ -108,8 +108,8 @@ const ViewPatientMedicalRecordsTests = ({ patientData, initialFiles }) => {
                 >
                   {file.filename}
                 </button>
-                <span className={Styles.fileSize}>
-                  Updated on: {file.updatedAt.split("T")[0]}
+                <span className={Styles?.fileSize}>
+                  Updated on: {file?.updatedAt?.split("T")[0]}
                 </span>
               </div>
             );
