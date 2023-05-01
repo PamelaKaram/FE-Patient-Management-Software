@@ -11,6 +11,7 @@ import { StaticDatePicker, LocalizationProvider } from "@mui/x-date-pickers";
 import react, { useState } from "react";
 import { getSession } from "next-auth/react";
 import axios from "../../../../lib/axios.js";
+import DateRangePicker from "../../../Components/PatientDateRangePicker";
 
 export default function Patient({ data }) {
   const [date, setDate] = useState();
@@ -49,6 +50,7 @@ export default function Patient({ data }) {
         <div className={SideStyles.calendarAndLinks}>
           <div style={{ width: "100%", margin: "50px" }}>
             <h3 className={SideStyles.calendarTitle}>Calendar</h3>
+            <DateRangePicker />
           </div>
           <div className={SideStyles.link}>
             <h3>Quick Links</h3>
